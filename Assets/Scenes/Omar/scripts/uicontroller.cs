@@ -8,6 +8,7 @@ public class uicontroller : MonoBehaviour
     public Button startButton;
     public Button addText;
     public Label output;
+    public UIDocument smallEle;
 
     // Start is called before the first frame update
     void Start()
