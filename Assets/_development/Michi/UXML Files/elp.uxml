@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-shrink: 1; flex-direction: row; flex-wrap: wrap-reverse; align-items: auto; top: 10px; right: 10px; justify-content: flex-end;">
+        <ui:IntegerField label="Iron" value="0" style="width: 237px; height: auto; flex-direction: row;" />
+        <ui:Button text="Give Iron" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" style="height: 43px; -unity-text-align: upper-center; visibility: visible; display: flex; overflow: hidden; width: 200px; left: auto; bottom: auto; top: auto; justify-content: flex-start; align-self: flex-end; align-items: auto; right: auto;" />
+    </ui:VisualElement>
+</ui:UXML>

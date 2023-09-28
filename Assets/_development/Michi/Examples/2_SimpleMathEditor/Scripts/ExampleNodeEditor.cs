@@ -92,6 +92,13 @@ namespace RuntimeNodeEditor.Examples
 
 
         //  context item actions
+        
+        private void CreateRessourceNode()
+        {
+            Graph.Create("Nodes/RessourceNode");
+            CloseContextMenu();
+        }
+        
         private void CreateFloatNode()
         {
             Graph.Create("Nodes/FloatNode");
