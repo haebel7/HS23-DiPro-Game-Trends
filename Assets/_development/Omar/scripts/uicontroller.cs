@@ -8,12 +8,13 @@ public class uicontroller : MonoBehaviour
     public Button startButton;
     public Button addText;
     public Label output;
-    public UIDocument smallEle;
+    public VisualTreeAsset smallEle;
+    private TemplateContainer smallEleContainer;
+    private VisualElement root;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        root = GetComponent<UIDocument>().rootVisualElement;
         startButton = root.Q<Button>("startButton");
         addText = root.Q<Button>("addText");
         output = root.Q<Label>("output");
@@ -29,7 +30,9 @@ public class uicontroller : MonoBehaviour
 
     void addTextPressed()
     {
-        output.text += "Hello World<br>";
-        output.style.display = DisplayStyle.Flex;
+        //output.text += "Hello World<br>";
+        //output.style.display = DisplayStyle.Flex;
+        smallEleContainer = smallEle.Instantiate();
+        root.Q("container").Add(smallEleContainer);
     }
 }

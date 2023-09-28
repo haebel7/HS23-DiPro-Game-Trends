@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement tabindex="2" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Scenes/Omar/imgs/test2.png?fileID=2800000&amp;guid=83837e52d6f8fd94aa549c6eabd3b9c3&amp;type=3#test2&apos;); width: 100px; height: 100px;">
+        <ui:Label tabindex="-1" text="YALLAH" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+    </ui:VisualElement>
+</ui:UXML>
