@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scenes/Omar/style.uss?fileID=7433441132597879392&amp;guid=a26464528350fbe4faad04584375a3df&amp;type=3#style" />
+    <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.45);">
+        <ui:VisualElement name="container" style="flex-grow: 0; width: 400px; height: 400px; background-color: rgb(238, 220, 46); align-items: center; justify-content: center; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+            <ui:Label tabindex="-1" text="Titel Test" parse-escape-sequences="true" display-tooltip-when-elided="true" name="titel" style="position: absolute; top: 30px; font-size: 30px; -unity-font-style: bold;" />
+            <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="startButton" class="buttonStyle" />
+            <ui:Button text="add Text" parse-escape-sequences="true" display-tooltip-when-elided="true" name="addText" class="buttonStyle" />
+            <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="output" style="display: none;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
