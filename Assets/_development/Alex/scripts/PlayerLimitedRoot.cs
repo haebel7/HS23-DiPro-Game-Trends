@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
+[RequireComponent(typeof(NavMeshAgent))]
 
 public class PlayerLimitedRoot : MonoBehaviour
 {
@@ -9,6 +12,13 @@ public class PlayerLimitedRoot : MonoBehaviour
     [SerializeField]
     private Transform playerRoot;
 
+    private NavMeshAgent agent;
+
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
     void FixedUpdate()
     {
         FollowPlayer();
@@ -16,13 +26,21 @@ public class PlayerLimitedRoot : MonoBehaviour
 
     private void FollowPlayer()
     {
-        // Cancel following player if a wall is too close
+        // TODO: deactivate agent when not in use
         Collider[] hitColliders = Physics.OverlapSphere(playerRoot.position, radius);
         foreach (Collider collider in hitColliders)
         {
             if (collider.gameObject.tag == "Wall")
             {
+                agent.destination = playerRoot.position;
                 return;
+            }
+            else
+            {
+                if(agent.destination != null)
+                {
+                    agent.ResetPath();
+                }
             }
         }
 
