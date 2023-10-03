@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
 
     [SerializeField]
-    private float movespeed = 1;
+    private float movespeed;
+    private CharacterController characterController;
 
     private PlayerControls playerControls;
     private InputAction move;
@@ -18,7 +17,7 @@ public class Movement : MonoBehaviour
     private InputAction dodge;
 
     private Vector2 moveDirection;
-
+    private Vector2 mouseCoordinates;
 
     public void EnableMovement()
     {
@@ -33,6 +32,8 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        characterController = GetComponent<CharacterController>();
+
         playerControls = new PlayerControls();
         move = playerControls.Gameplay.Move;
         mousePosition = playerControls.Gameplay.MousePosition;
@@ -57,12 +58,31 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        moveDirection = move.ReadValue<Vector2>();
+        LookAtCursor();
+        Walk();
     }
 
-    private void FixedUpdate()
+    private void Walk()
     {
-        GetComponent<Transform>().position += new Vector3(moveDirection.y, 0, moveDirection.x);
+        Vector2 direction = move.ReadValue<Vector2>();
+
+        if (direction.magnitude >= 0.1f)
+        {
+            float cameraAdjustedInputDirection = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            Vector3 moveDirection = Quaternion.Euler(0, cameraAdjustedInputDirection, 0) * Vector3.forward;
+            characterController.Move(moveDirection * movespeed * Time.deltaTime);
+        }
+    }
+
+    private void LookAtCursor()
+    {
+        mouseCoordinates = mousePosition.ReadValue<Vector2>();
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        float xDifference = mouseCoordinates.x - screenPos.x;
+        float yDifference = mouseCoordinates.y - screenPos.y;
+        Vector2 posDifference = new Vector2(xDifference, yDifference).normalized;
+        float rotationToLookAtCursor = Mathf.Atan2(posDifference.x, posDifference.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0f, rotationToLookAtCursor, 0f);
     }
 
     private void Attack1(InputAction.CallbackContext context)
