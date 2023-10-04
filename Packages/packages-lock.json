@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.friedforfun.contextsteering": {
+      "version": "file:C:/data_c/Unity_Projects/ContextSteering-upm",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.burst": "1.4.11",
+        "com.unity.textmeshpro": "3.0.6"
+      }
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.4",
       "depth": 0,

@@ -1,0 +1,19 @@
+{
+    "name": "Friedforfun.ContextSteering.Demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:d528fcf732696a8429e19311f3f76e84",
+        "GUID:2935bc94a7f4a4a43809b6d09d3e785a",
+        "GUID:9bca44dae090fec4eb2be171a57539e9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

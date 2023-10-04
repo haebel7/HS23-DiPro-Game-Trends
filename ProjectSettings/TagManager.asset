@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - BoundingWall
+  - Agent
+  - Projectile
+  - TargetPlate
+  - Target
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -12,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
