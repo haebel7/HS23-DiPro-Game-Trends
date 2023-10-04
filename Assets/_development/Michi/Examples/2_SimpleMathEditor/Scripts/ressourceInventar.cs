@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RuntimeNodeEditor
+public class inventar : MonoBehaviour
 {
-    public class Ressources : MonoBehaviour
+    void Start()
     {
         
     }
