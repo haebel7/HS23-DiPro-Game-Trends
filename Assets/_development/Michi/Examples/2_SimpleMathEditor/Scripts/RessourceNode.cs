@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
@@ -73,13 +74,9 @@ namespace RuntimeNodeEditor.Examples
         private void HandleFieldValue(string prio)
         {
             string ressource = getRessource();
-            int ressourceCount = getRessourceCount(ressource);
-
-            Packet packet = new Packet();
-            packet.setAttributes(ressourceCount, ressource);
             
-            outputSocketLeft.SetValue(packet);
-            outputSocketRight.SetValue(packet);
+            outputSocketLeft.SetValue(ressource);
+            outputSocketRight.SetValue(ressource);
         }
 
         private void priority(int number)
@@ -107,23 +104,6 @@ namespace RuntimeNodeEditor.Examples
                 case "Iron": return root.Q<IntegerField>("ironCount").value;
                 case "Copper": return root.Q<IntegerField>("copperCount").value;
                 default: return -1;
-            }
-        }
-
-        public int setRessourceCount(string ressource, int amount)
-        {
-            if (getRessourceCount(ressource) >= amount)
-            {
-                switch (ressource)
-                {
-                    case "Iron": return root.Q<IntegerField>("ironCount").value -= amount;
-                    case "Copper": return root.Q<IntegerField>("copperCount").value -= amount;
-                    default: return -1;
-                }
-            } 
-            else
-            {
-                return -1;
             }
         }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RuntimeNodeEditor
 {
-    [CreateAssetMenu(fileName = "RessourceData", menuName = "Ressource", order = 1)]
+    [CreateAssetMenu(fileName = "RessourceData", menuName = "ScriptableObjects/Ressource", order = 1)]
 
     public class Ressource : ScriptableObject
     {
