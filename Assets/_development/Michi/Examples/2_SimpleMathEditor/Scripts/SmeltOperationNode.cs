@@ -13,9 +13,9 @@ namespace RuntimeNodeEditor.Examples
         public TMP_Text outputText;
 
         private List<IOutput> _incomingOutputs;
-        private int trans;
+        //private int trans;
         private List<Packet> incomingValues;
-        private int internalInventory = 100;
+        //private int internalInventory = 100;
 
         public override void Setup()
         {
@@ -58,24 +58,9 @@ namespace RuntimeNodeEditor.Examples
             DisplayInput(incomingValues[0].getItemCount());
         }
 
-        private void Update()
-        {
-            float timer = Time.deltaTime;
-            if (timer%1 == 0)
-            {
-                trans++;
-
-            }
-        }
-
         private void DisplayInput(int value)
         {
             inputText.text = value.ToString();
-        }
-
-        private void DisplayOutput(int value)
-        {
-            outputText.text = value.ToString();
         }
     }
 }
