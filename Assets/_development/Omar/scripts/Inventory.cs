@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class Inventory
 {
     public List<InventoryItem> inventory = new List<InventoryItem>();
@@ -16,28 +16,34 @@ public class Inventory
 
     public int getFirstFreeIndex()
     {
-        Debug.Log("sdhjkrbgjhksbrg");
-        Debug.Log(this.inventory.Count);
-        int r = 0;
-        int i = 0;
-        foreach (var x in inventory)
+        for (int i = 0; i < this.size; i++)
         {
-            Debug.Log(x.InventoryPosition);
-            if(x.InventoryPosition > r)
+            bool r = false;
+            foreach (var x in this.inventory)
             {
-                r = x.InventoryPosition;
+                if(x.InventoryPosition == i)
+                {
+                    r = true;
+                    break;
+                }
             }
-            i++;
+            if (!r)
+            {
+                return i;
+            }
         }
-        return r + 1;
+        return this.size;
     }
 
     public void dump()
     {
+        Debug.Log("---------------------");
         foreach (var x in this.inventory)
         {
-            Debug.Log(x.UIElement.ToString());
+            Debug.Log("InventoryPosition: " + x.InventoryPosition.ToString());
+            Debug.Log("UIElement: " + x.UIElement.ToString());
         }
+        Debug.Log("---------------------");
     }
 
     public void addItem(InventoryItem item)
@@ -45,3 +51,4 @@ public class Inventory
         this.inventory.Add(item);
     }
 }
+*/

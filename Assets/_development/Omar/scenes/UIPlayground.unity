@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1540933561}
   - component: {fileID: 1540933562}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 9197481963319205126, guid: 90aa81ca760e0d94b8188e4270137f42, type: 3}
+  inventory: {fileID: 11400000, guid: 5089bb973a4e19742872dca549b5e9de, type: 2}
 --- !u!1 &2040471650
 GameObject:
   m_ObjectHideFlags: 0

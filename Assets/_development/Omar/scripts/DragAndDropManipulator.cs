@@ -100,6 +100,7 @@ public class DragAndDropManipulator : PointerManipulator
                 targetStartPosition;
 
             enabled = false;
+            //inventory.moveItemFromTo();
         }
     }
 
