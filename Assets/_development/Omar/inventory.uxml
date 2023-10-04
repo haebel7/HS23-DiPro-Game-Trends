@@ -1,14 +1,32 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="inventoryStyle.uss" />
-    <ui:VisualElement name="slots">
-        <ui:VisualElement name="slot_row1" class="slot_row">
-            <ui:VisualElement name="slot1" class="slot" />
-            <ui:VisualElement name="slot2" class="slot" />
-        </ui:VisualElement>
-        <ui:VisualElement name="slot_row2" class="slot_row">
-            <ui:VisualElement name="slot1" class="slot" />
-            <ui:VisualElement name="slot2" class="slot" />
+    <Style src="project://database/Assets/_development/Omar/inventoryStyle.uss?fileID=7433441132597879392&amp;guid=fd4e3a5151e2b9047870ccfa0a95ff98&amp;type=3#inventoryStyle" />
+    <ui:VisualElement name="container" style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:VisualElement name="wrapper" style="flex-grow: 1; width: 80%; height: 90%; min-height: auto; min-width: auto; max-height: 90%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.61);">
+            <ui:Button text="add item" parse-escape-sequences="true" display-tooltip-when-elided="true" name="addItem" style="position: absolute; left: 28px; top: 212px;" />
+            <ui:VisualElement name="inventory" style="flex-grow: 1; width: 360px; height: 450px; max-width: none; max-height: none; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement name="slots" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; width: 100%; height: 100%;">
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                    <ui:VisualElement name="slot" class="slot" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="object" class="object" />
 </ui:UXML>
