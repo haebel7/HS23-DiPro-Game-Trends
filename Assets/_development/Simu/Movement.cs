@@ -5,10 +5,43 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
+
+    /*
+        running
+        ----------------------
+        speedup
+        maxspeed
+        stopspeed
+        slide?
+        turnspeed?
+        turning around?
+
+
+        attack and move priority
+        
+        1. dash
+        2. attack
+        3. walk
+
+     */
+
+
+
     [SerializeField]
     private float movespeed;
-    private CharacterController characterController;
+    private bool canWalk = true;
 
+
+    [SerializeField]
+    private float dashSpeed;
+    [SerializeField]
+    private float dashDuration;
+    private float elapsedDashDuration;
+    [SerializeField]
+    private float dashCooldown;
+    private float elapsedDashCooldown;
+
+    private CharacterController characterController;
     private PlayerControls playerControls;
     private InputAction move;
     private InputAction mousePosition;
@@ -18,17 +51,6 @@ public class Movement : MonoBehaviour
 
     private Vector2 moveDirection;
     private Vector2 mouseCoordinates;
-
-    public void EnableMovement()
-    {
-        //caller?
-        Debug.Log("i listened to event :D - ENABLE MOVEMENT");
-    }
-    public void DisableMovement()
-    {
-        //caller?
-        Debug.Log("i listened to event :D - DISABLE MOVEMENT");
-    }
 
     private void Awake()
     {
@@ -62,15 +84,29 @@ public class Movement : MonoBehaviour
         Walk();
     }
 
+    public void EnableWalking()
+    {
+        //caller?
+        Debug.Log("i listened to event :D - ENABLE MOVEMENT");
+    }
+    public void DisableWalking()
+    {
+
+        Debug.Log("i listened to event :D - DISABLE MOVEMENT");
+    }
+
     private void Walk()
     {
-        Vector2 direction = move.ReadValue<Vector2>();
-
-        if (direction.magnitude >= 0.1f)
+        if (canWalk)
         {
-            float cameraAdjustedInputDirection = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-            Vector3 moveDirection = Quaternion.Euler(0, cameraAdjustedInputDirection, 0) * Vector3.forward;
-            characterController.Move(moveDirection * movespeed * Time.deltaTime);
+            Vector2 direction = move.ReadValue<Vector2>();
+
+            if (direction.magnitude >= 0.1f)
+            {
+                float cameraAdjustedInputDirection = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+                Vector3 moveDirection = Quaternion.Euler(0, cameraAdjustedInputDirection, 0) * Vector3.forward;
+                characterController.Move(moveDirection * movespeed * Time.deltaTime);
+            }
         }
     }
 
