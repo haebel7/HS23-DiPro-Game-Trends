@@ -11,29 +11,12 @@ namespace Friedforfun.ContextSteering.Demo
     [SelectionBase]
     public class AgentCommon : MonoBehaviour
     {
-
-        [SerializeField] private Renderer childRenderer;
-        [SerializeField] private Material impactMaterial;
         [SerializeField] public string DemoID = null;
 
-        public bool debug = false;
-
-        private Material baseMaterial;
         private bool blockCollision = true;
-        private DemoCollisionTracker dct;
 
         private void Start()
         {
-            if (DemoID != null)
-            {
-                var dctArr = FindObjectsOfType<DemoCollisionTracker>();
-                dct = dctArr.Where(colTracker => colTracker.DemoID == DemoID).First();
-            }
-  
-
-
-
-            baseMaterial = childRenderer.material;
             StartCoroutine(collisionDelay());
         }
 
@@ -58,31 +41,9 @@ namespace Friedforfun.ContextSteering.Demo
 
             if (collision.gameObject.tag != "Floor" && collision.gameObject.tag != "TargetPlate")
             {
-                if (debug)
-                    Debug.Log($"Collided with: {collision.gameObject.name}");
-                childRenderer.material = impactMaterial;
-                if (dct != null)
-                {
-                    dct.CollisionOccured();
-                }
+                //Debug.Log($"Collided with: {collision.gameObject.name}");
             }
 
-        }
-
-        public void IncrementGoal()
-        {
-            dct.GoalAchieved();
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            StartCoroutine(resetColour());
-        }
-
-        IEnumerator resetColour()
-        {
-            yield return new WaitForSeconds(0.5f);
-            childRenderer.material = baseMaterial;
         }
 
         IEnumerator collisionDelay()

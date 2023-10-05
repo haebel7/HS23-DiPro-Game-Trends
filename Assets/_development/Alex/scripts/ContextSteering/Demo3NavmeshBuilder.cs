@@ -19,7 +19,7 @@ namespace Friedforfun.ContextSteering.Demo
         private void Start()
         {
             behaviour = GetComponent<DotToNavmeshPath>();
-            agentCommon = GetComponent<AgentCommon>();
+            //agentCommon = GetComponent<AgentCommon>();
             lastPosition = transform.position;
             RecomputePath();
             //StartCoroutine(StuckCheck());
@@ -29,7 +29,7 @@ namespace Friedforfun.ContextSteering.Demo
 
         public void HitGoal()
         {
-            agentCommon.IncrementGoal();
+            //agentCommon.IncrementGoal();
             RecomputePath();
         }
 
