@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
                      private float dashEndTime;
     [SerializeField] private float dashCooldown;
                      private float elapsedDashCooldown;
-                     private Vector3 dashStartPos, dashDestination;
+                     private Vector3 dashDirection;
     [SerializeField] private AnimationCurve dashSpeedCurve;
 
     private CharacterController characterController;
@@ -125,11 +125,15 @@ public class Movement : MonoBehaviour
     {
         canWalk = false;
         isDashing = true;
-        //dash to cursor?
         Vector2 inputDirection = move.ReadValue<Vector2>();
-        Vector3 dashDirection = GetPerspectiveDirection(move.ReadValue<Vector2>());
-        dashStartPos = transform.position;
-        dashDestination= dashStartPos + dashDirection;
+        dashDirection = GetPerspectiveDirection(inputDirection);
+        if (inputDirection.Equals(Vector2.zero))
+        {
+            dashDirection = transform.forward;
+        } else
+        {
+            dashDirection = GetPerspectiveDirection(inputDirection);
+        }
         dashStartTime = Time.time;
         dashEndTime = dashStartTime + dashDuration;
     }
@@ -141,7 +145,9 @@ public class Movement : MonoBehaviour
             //lerp from 0 to 1
             float progress = Mathf.Clamp01((Time.time - dashStartTime) / dashDuration);
             float easedProgress = dashSpeedCurve.Evaluate(progress);
-            Vector3 nextPos = Vector3.Lerp(dashStartPos, dashDestination, easedProgress);
+            float dashSpeed = dashDistance / dashDuration;
+            float currentSpeed = dashSpeed * easedProgress;
+            characterController.Move(dashDirection * currentSpeed * Time.deltaTime);
 
             if (dashEndTime < Time.time)
             {
