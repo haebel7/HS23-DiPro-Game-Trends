@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory:
   - {fileID: 11400000, guid: 340bc3a78f42502409f8896d45e0c63e, type: 2}
-  size: 20
-  numberOfSlotsPerRow: 4
+  - {fileID: 11400000, guid: 871850a3b7a59644a83659f56b0e5b29, type: 2}
+  size: 9
+  numberOfSlotsPerRow: 3

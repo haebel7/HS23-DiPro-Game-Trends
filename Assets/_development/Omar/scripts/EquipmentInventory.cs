@@ -16,48 +16,54 @@ public class EquipmentInventory : ScriptableObject
     private VisualElement UIslot;
     private VisualElement UIinventory;
     private VisualElement newItemUI;
+    private List<VisualElement> temp = new List<VisualElement>();
 
     public void initEquipmentInventory(VisualElement UIroot)
     {
         this.UIroot = UIroot;
         this.UIslot = this.UIroot.Q<VisualElement>("slot");
-        this.UIinventory = UIroot.Q<VisualElement>("inventory");
+        this.UIinventory = this.UIroot.Q<VisualElement>("inventory");
         for (int i = 0; i < this.inventory.Count; i++)
         {
             addEquipmentItemToUIInventory(this.inventory[i]);
         }
     }
 
+
+
     public void addEquipmentItemToUIInventory(EquipmentItem item)
     {
         newItemUI = item.UIElement.Instantiate();
+        temp.Add(newItemUI);
         UIinventory.Add(newItemUI);
         newItemUI.RegisterCallback<GeometryChangedEvent>(onNewItemUILoad);
 
+
         void onNewItemUILoad(GeometryChangedEvent evt)
         {
-            newItemUI.UnregisterCallback<GeometryChangedEvent>(onNewItemUILoad);
-            DragAndDropManipulator manipulator = new(newItemUI);
+            VisualElement newItemUITemp = temp[0];
+            temp.RemoveAt(0);
+            newItemUITemp.UnregisterCallback<GeometryChangedEvent>(onNewItemUILoad);
+            DragAndDropManipulator manipulator = new(newItemUITemp, item, this);
             float slotWidth = this.UIslot.resolvedStyle.width;
-            float itemWidth = newItemUI.Q<VisualElement>("item").resolvedStyle.width;
+            float itemWidth = newItemUITemp.Q<VisualElement>("item").resolvedStyle.width;
             float itemMargin = this.UIslot.resolvedStyle.marginLeft;
             float slotTranslate = (slotWidth - itemWidth) / 2;
-            newItemUI.style.translate = new StyleTranslate(
+            newItemUITemp.style.translate = new StyleTranslate(
                 new Translate(
                     new Length(
-                        (item.InventoryPosition * slotWidth + item.InventoryPosition * itemMargin * 2),
+                        (item.InventoryPosition % this.numberOfSlotsPerRow * slotWidth + item.InventoryPosition % this.numberOfSlotsPerRow * itemMargin * 2),
                          LengthUnit.Pixel
                     ),
                     new Length(
-                        0,
+                         (float)Math.Floor((float)(item.InventoryPosition / this.numberOfSlotsPerRow)) * slotWidth + (float)Math.Floor((float)(item.InventoryPosition / this.numberOfSlotsPerRow)) * slotTranslate,
                          LengthUnit.Pixel
                     )
                 )
             );
-            newItemUI.style.top = itemMargin + slotTranslate;
-            newItemUI.style.left = itemMargin + slotTranslate;
-            newItemUI.style.position = new StyleEnum<Position>(Position.Absolute);
-            //this.dump();
+            newItemUITemp.style.top = itemMargin + slotTranslate;
+            newItemUITemp.style.left = itemMargin + slotTranslate;
+            newItemUITemp.style.position = new StyleEnum<Position>(Position.Absolute);
         }
     }
 
@@ -96,5 +102,28 @@ public class EquipmentInventory : ScriptableObject
     public void addItem(EquipmentItem item)
     {
         this.inventory.Add(item);
+    }
+
+    public void moveItemFromTo(int oldIndex, int newIndex)
+    {
+        foreach (var item in this.inventory)
+        {
+            if(item.InventoryPosition == oldIndex)
+            {
+                item.InventoryPosition = newIndex;
+                break;
+            }
+        }
+    }
+    public bool placeIsFree(int position)
+    {
+        foreach (var item in this.inventory)
+        {
+            if (item.InventoryPosition == position)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

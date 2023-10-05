@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe4c2b96918ccfb46b87da9ba5a17900, type: 3}
-  m_Name: EquipmentItem
+  m_Name: EquipmentItem 1
   m_EditorClassIdentifier: 
-  UIElement: {fileID: 9197481963319205126, guid: 90aa81ca760e0d94b8188e4270137f42,
+  UIElement: {fileID: 9197481963319205126, guid: 1b15e555d88a10f408ff247ff4e470dd,
     type: 3}
-  InventoryPosition: 3
+  InventoryPosition: 6
