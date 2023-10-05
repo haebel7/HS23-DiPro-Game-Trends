@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class dragAndDorp : MonoBehaviour
+public class UIinventory : MonoBehaviour
 {
     public EquipmentInventory inventory;
 
