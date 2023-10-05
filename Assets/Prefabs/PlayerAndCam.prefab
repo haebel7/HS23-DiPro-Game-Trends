@@ -128,7 +128,7 @@ MonoBehaviour:
   movespeed: 6
   dashDistance: 5
   dashDuration: 0.22
-  dashCooldown: 0
+  dashCooldown: 0.8
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
