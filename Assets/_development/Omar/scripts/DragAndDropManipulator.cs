@@ -7,8 +7,13 @@ public class DragAndDropManipulator : PointerManipulator
 {
     // Write a constructor to set target and store a reference to the
     // root of the visual tree.
-    public DragAndDropManipulator(VisualElement target)
+    private int inventoryPosition;
+    private EquipmentInventory equipmentInventory;
+
+    public DragAndDropManipulator(VisualElement target, EquipmentItem equipmentItem, EquipmentInventory equipmentInventory)
     {
+        this.inventoryPosition = equipmentItem.InventoryPosition;
+        this.equipmentInventory = equipmentInventory;
         this.target = target;
         root = target.parent;
     }
@@ -83,24 +88,34 @@ public class DragAndDropManipulator : PointerManipulator
         if (enabled)
         {
             VisualElement slotsContainer = root.Q<VisualElement>("slots");
-            UQueryBuilder<VisualElement> allSlots =
-                slotsContainer.Query<VisualElement>(className: "slot");
-            UQueryBuilder<VisualElement> overlappingSlots =
-                allSlots.Where(OverlapsTarget);
+            UQueryBuilder<VisualElement> allSlots = slotsContainer.Query<VisualElement>(className: "slot");
+            UQueryBuilder<VisualElement> overlappingSlots = allSlots.Where(OverlapsTarget);
             VisualElement closestOverlappingSlot = FindClosestSlot(overlappingSlots);
+
             Vector3 closestPos = Vector3.zero;
-            if (closestOverlappingSlot != null)
+            if (closestOverlappingSlot != null && equipmentInventory.placeIsFree(closestOverlappingSlot.parent.IndexOf(closestOverlappingSlot)))
             {
+                
                 closestPos = RootSpaceOfSlot(closestOverlappingSlot);
                 closestPos = new Vector2(closestPos.x - 5, closestPos.y - 5);
             }
+
             target.transform.position =
-                closestOverlappingSlot != null ?
+                closestOverlappingSlot != null && equipmentInventory.placeIsFree(closestOverlappingSlot.parent.IndexOf(closestOverlappingSlot)) ?
                 closestPos :
                 targetStartPosition;
 
             enabled = false;
-            //inventory.moveItemFromTo();
+
+            int oldIndex = this.inventoryPosition;
+            if (closestOverlappingSlot != null && closestOverlappingSlot.parent != null && equipmentInventory.placeIsFree(closestOverlappingSlot.parent.IndexOf(closestOverlappingSlot)))
+            {
+                int newIndex = closestOverlappingSlot.parent.IndexOf(closestOverlappingSlot);
+                //Debug.Log("Old: " + oldIndex);
+                //Debug.Log("New: " + newIndex);
+                equipmentInventory.moveItemFromTo(oldIndex, newIndex);
+                this.inventoryPosition = newIndex;
+            }
         }
     }
 

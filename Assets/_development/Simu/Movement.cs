@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
 
     //TODO: playerstatus with priority hierarchy/state machine
     private bool canWalk = true;
+    private bool canDash = true;
     private bool isDashing = false;
 
 
@@ -39,8 +40,7 @@ public class Movement : MonoBehaviour
                      private float dashStartTime;
                      private float dashEndTime;
     [SerializeField] private float dashCooldown;
-                     private float elapsedDashCooldown;
-                     private Vector3 dashStartPos, dashDestination;
+                     private Vector3 dashDirection;
     [SerializeField] private AnimationCurve dashSpeedCurve;
 
     private CharacterController characterController;
@@ -123,15 +123,23 @@ public class Movement : MonoBehaviour
 
     private void TriggerDash(InputAction.CallbackContext context)
     {
-        canWalk = false;
-        isDashing = true;
-        //dash to cursor?
-        Vector2 inputDirection = move.ReadValue<Vector2>();
-        Vector3 dashDirection = GetPerspectiveDirection(move.ReadValue<Vector2>());
-        dashStartPos = transform.position;
-        dashDestination= dashStartPos + dashDirection;
-        dashStartTime = Time.time;
-        dashEndTime = dashStartTime + dashDuration;
+        if (canDash)
+        {
+            canWalk = false;
+            canDash = false;
+            isDashing = true;
+            Vector2 inputDirection = move.ReadValue<Vector2>();
+            dashDirection = GetPerspectiveDirection(inputDirection);
+            if (inputDirection.Equals(Vector2.zero))
+            {
+                dashDirection = transform.forward;
+            } else
+            {
+                dashDirection = GetPerspectiveDirection(inputDirection);
+            }
+            dashStartTime = Time.time;
+            dashEndTime = dashStartTime + dashDuration;
+        }
     }
 
     private void PerformDash()
@@ -141,13 +149,19 @@ public class Movement : MonoBehaviour
             //lerp from 0 to 1
             float progress = Mathf.Clamp01((Time.time - dashStartTime) / dashDuration);
             float easedProgress = dashSpeedCurve.Evaluate(progress);
-            Vector3 nextPos = Vector3.Lerp(dashStartPos, dashDestination, easedProgress);
+            float dashSpeed = dashDistance / dashDuration;
+            float currentSpeed = dashSpeed * easedProgress;
+            characterController.Move(dashDirection * currentSpeed * Time.deltaTime);
 
             if (dashEndTime < Time.time)
             {
                 isDashing = false;
                 canWalk = true;
             }
+        }
+        if (dashStartTime + dashCooldown < Time.time)
+        {
+                canDash = true;
         }
     }
 

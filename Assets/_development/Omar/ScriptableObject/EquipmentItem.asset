@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: {fileID: 9197481963319205126, guid: 90aa81ca760e0d94b8188e4270137f42,
     type: 3}
-  InventoryPosition: 0
+  InventoryPosition: 3
