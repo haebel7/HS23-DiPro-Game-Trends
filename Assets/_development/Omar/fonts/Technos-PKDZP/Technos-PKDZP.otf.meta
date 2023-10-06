@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bfd94974ab469749aeffdf0d5113026
+guid: 168fe14297989f044bdbc733ff970e0d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - JMH Typewriter
+  - Technos
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
