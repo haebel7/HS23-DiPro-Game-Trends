@@ -11,16 +11,16 @@ namespace Friedforfun.ContextSteering.Demo
         [SerializeField] Transform Target;
 
         private DotToNavmeshPath behaviour;
-        private AgentCommon agentCommon;
+        //private AgentCommon agentCommon;
 
-        private float recomputePathThreshold = 2f;
-        private Vector3 lastPosition;
+        //private float recomputePathThreshold = 2f;
+        //private Vector3 lastPosition;
 
         private void Start()
         {
             behaviour = GetComponent<DotToNavmeshPath>();
             //agentCommon = GetComponent<AgentCommon>();
-            lastPosition = transform.position;
+            //lastPosition = transform.position;
             RecomputePath();
             //StartCoroutine(StuckCheck());
             StartCoroutine(UpdatePath());
@@ -63,7 +63,7 @@ namespace Friedforfun.ContextSteering.Demo
             {
                 yield return new WaitForSeconds(0.5f);
                 RecomputePath();
-                lastPosition = transform.position;
+                //lastPosition = transform.position;
 
             }
 

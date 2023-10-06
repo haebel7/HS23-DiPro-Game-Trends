@@ -23,6 +23,13 @@ namespace Friedforfun.ContextSteering.Demo
         [Range(0.001f, 0.5f)]
         [SerializeField] private float ConfidenceThreshold = 0.1f;
 
+        private float moveSpeed;
+
+        private void Start()
+        {
+            moveSpeed = Speed;
+        }
+
         void Update()
         {
             // --------------------- Example for using this package ----------------------------
@@ -30,7 +37,7 @@ namespace Friedforfun.ContextSteering.Demo
             Vector3 moveVec = steer.MoveVector(); // In this case we look at the Movement Vector so we can evaluate how close to 0 it is and ocasionally remove some jitter, this evaluation is not always needed.
 
             if (moveVec.sqrMagnitude > ConfidenceThreshold)
-                control.SimpleMove(steer.MoveDirection() * Speed); // This line gets the movement vector from the Context steering controller.
+                control.SimpleMove(steer.MoveDirection() * moveSpeed); // This line gets the movement vector from the Context steering controller.
             else
                 control.SimpleMove(Vector3.zero);
             // -------------------------------------------------------------------------------------
@@ -40,17 +47,30 @@ namespace Friedforfun.ContextSteering.Demo
             Vector3 newRotation;
             if (LookTarget != null)
             {
-                 newRotation = Quaternion.LookRotation(MapOperations.VectorToTarget(gameObject, LookTarget).normalized).eulerAngles;
+                newRotation = Quaternion.LookRotation(MapOperations.VectorToTarget(gameObject, LookTarget).normalized).eulerAngles;
             }
             else if (!moveVec.Equals(Vector3.zero))
             {
                 newRotation = Quaternion.LookRotation(steer.MoveDirection()).eulerAngles;
-            } else
+            }
+            else
             {
                 newRotation = Quaternion.LookRotation(transform.forward).eulerAngles;
             }
-                
+
             transform.rotation = Quaternion.Euler(0, newRotation.y, 0);
+        }
+
+        public void SetIsMoving(bool moving)
+        {
+            if (moving)
+            {
+                moveSpeed = Speed;
+            }
+            else
+            {
+                moveSpeed = 0;
+            }
         }
 
 
