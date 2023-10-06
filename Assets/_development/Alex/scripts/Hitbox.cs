@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+    [SerializeField]
+    private DamageType damageType;
+    [SerializeField]
+    private DamageStat damageStat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,15 +17,9 @@ public class Hitbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Player hit enemy
-        if (gameObject.GetComponent<Movement>() && other.gameObject.GetComponent<EnemyMelee>())
+        if (other.GetComponent<HurtBox>())
         {
-
-        }
-        // Enemy hit player
-        else if (transform.parent.GetComponent<EnemyMelee>() && other.gameObject.GetComponent<Movement>())
-        {
-            Debug.Log("Player hit!");
+            other.GetComponent<HurtBox>().TakeDamage(damageStat.damage, damageType);
         }
     }
 }
