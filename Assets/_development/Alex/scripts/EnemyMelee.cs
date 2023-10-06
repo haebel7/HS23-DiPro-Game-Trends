@@ -1,22 +1,49 @@
+using Friedforfun.ContextSteering.Demo;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+
+public enum EnemySState
+{
+    SPAWN,
+    IDLE,
+    HUNT,
+    ATTACK,
+    DEATH
+}
 
 public class EnemyMelee : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
+    [SerializeField]
+    private EnemySState state;
+    [SerializeField]
+    private float attackDistance = 2f;
+
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = EnemySState.HUNT;
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (state == EnemySState.HUNT && Vector3.Distance(transform.position, player.position) < attackDistance)
+        {
+            state = EnemySState.ATTACK;
+            anim.SetTrigger("Attacking");
+            GetComponent<PlanarMovement>().SetIsMoving(false);
+        }
+        else if (state == EnemySState.ATTACK && anim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "EnemySAttack")
+        {
+            state = EnemySState.HUNT;
+            GetComponent<PlanarMovement>().SetIsMoving(true);
+        }
     }
 }

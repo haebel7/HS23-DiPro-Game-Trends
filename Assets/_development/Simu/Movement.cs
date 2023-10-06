@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
 
     //TODO: playerstatus with priority hierarchy/state machine
     private bool canWalk = true;
+    private bool canDash = true;
     private bool isDashing = false;
 
 
@@ -39,7 +40,6 @@ public class Movement : MonoBehaviour
                      private float dashStartTime;
                      private float dashEndTime;
     [SerializeField] private float dashCooldown;
-                     private float elapsedDashCooldown;
                      private Vector3 dashDirection;
     [SerializeField] private AnimationCurve dashSpeedCurve;
 
@@ -123,19 +123,23 @@ public class Movement : MonoBehaviour
 
     private void TriggerDash(InputAction.CallbackContext context)
     {
-        canWalk = false;
-        isDashing = true;
-        Vector2 inputDirection = move.ReadValue<Vector2>();
-        dashDirection = GetPerspectiveDirection(inputDirection);
-        if (inputDirection.Equals(Vector2.zero))
+        if (canDash)
         {
-            dashDirection = transform.forward;
-        } else
-        {
+            canWalk = false;
+            canDash = false;
+            isDashing = true;
+            Vector2 inputDirection = move.ReadValue<Vector2>();
             dashDirection = GetPerspectiveDirection(inputDirection);
+            if (inputDirection.Equals(Vector2.zero))
+            {
+                dashDirection = transform.forward;
+            } else
+            {
+                dashDirection = GetPerspectiveDirection(inputDirection);
+            }
+            dashStartTime = Time.time;
+            dashEndTime = dashStartTime + dashDuration;
         }
-        dashStartTime = Time.time;
-        dashEndTime = dashStartTime + dashDuration;
     }
 
     private void PerformDash()
@@ -154,6 +158,10 @@ public class Movement : MonoBehaviour
                 isDashing = false;
                 canWalk = true;
             }
+        }
+        if (dashStartTime + dashCooldown < Time.time)
+        {
+                canDash = true;
         }
     }
 
