@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7970724974807639329}
   - component: {fileID: 3668078709260180274}
   - component: {fileID: 9086349977430053161}
+  - component: {fileID: 1513505274134292817}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,6 +127,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 6
+  dashDistance: 5
+  dashDuration: 0.22
+  dashCooldown: 0.8
+  dashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.1823163
+      outSlope: 3.1823163
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.06937358
+      value: 0.22076866
+      inSlope: 0.008710652
+      outSlope: 0.008710652
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.14078437
+      value: 0.9976037
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.77069396
+      value: 0.9915883
+      inSlope: -1.2369802
+      outSlope: -1.2369802
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10961222
+      outWeight: 0.23245189
+    - serializedVersion: 3
+      time: 0.99981755
+      value: 0.00030857557
+      inSlope: -4.3263974
+      outSlope: -4.3263974
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1513505274134292817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013360291929541413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34512103e08d50645a94e92cf5b047f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 291376cb970c4db4a8d876dc57e8db31, type: 2}
+  canBeHitBy:
+  - {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
 --- !u!1 &2489020529057869611
 GameObject:
   m_ObjectHideFlags: 0

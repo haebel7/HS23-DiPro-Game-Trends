@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.friedforfun.contextsteering": {
+      "version": "https://github.com/friedforfun/ContextSteering.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.burst": "1.4.11",
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "hash": "1478f88a1cf2f504018a5e9b3f8e37459c3fd727"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.4",
       "depth": 0,
