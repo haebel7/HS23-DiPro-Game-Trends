@@ -7,10 +7,15 @@ namespace RuntimeNodeEditor
     public class SocketInput : Socket, IPointerClickHandler
     {
         public List<Connection> Connections { get; private set; }
+        public List<Ressource> ressources { get; private set; }
 
         public override void Setup()
         {
             Connections = new List<Connection>();
+            ressources = new List<Ressource>
+            {
+                ScriptableObject.CreateInstance<Ressource>()
+            };
         }
 
         public void OnPointerClick(PointerEventData eventData)

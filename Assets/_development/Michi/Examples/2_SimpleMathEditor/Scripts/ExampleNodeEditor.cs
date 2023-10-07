@@ -38,6 +38,7 @@ namespace RuntimeNodeEditor.Examples
                     .Add("nodes/float",         CreateFloatNode)
                     .Add("nodes/Ressource",     CreateRessourceNode)
                     .Add("nodes/Smelter",       CreateSmelterNode)
+                    .Add("nodes/Inventory",     CreateInventoryNode)
                     .Add("nodes/math op",       CreateMatOpNode)
                     .Add("graph/load",          ()=>LoadGraph(_savePath))
                     .Add("graph/save",          ()=>SaveGraph(_savePath))
@@ -104,6 +105,11 @@ namespace RuntimeNodeEditor.Examples
         private void CreateSmelterNode()
         {
             Graph.Create("Nodes/SmelterNode");
+            CloseContextMenu();
+        }
+        private void CreateInventoryNode()
+        {
+            Graph.Create("Nodes/InventoryNode");
             CloseContextMenu();
         }
 

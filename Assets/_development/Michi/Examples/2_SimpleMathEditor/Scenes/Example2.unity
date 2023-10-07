@@ -666,6 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vta: {fileID: 0}
+  ressourceInventar: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8, type: 2}
 --- !u!1 &1523821497
 GameObject:
   m_ObjectHideFlags: 0

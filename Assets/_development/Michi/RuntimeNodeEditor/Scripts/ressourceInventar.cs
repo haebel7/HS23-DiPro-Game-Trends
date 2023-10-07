@@ -7,7 +7,7 @@ using UnityEngine;
 namespace RuntimeNodeEditor
 {
     [CreateAssetMenu(fileName = "RessourceInventar", menuName = "ScriptableObjects/RessourceInventar", order = 1)]
-    public class ressourceInventar : ScriptableObject
+    public class RessourceInventar : ScriptableObject
     {
         public List<Ressource> ressources = new List<Ressource>();
 
@@ -23,6 +23,11 @@ namespace RuntimeNodeEditor
                 index++;
             }
             return -1;
+        }
+
+        public List<Ressource> getListOfRessources()
+        {
+            return ressources;
         }
     }
 }

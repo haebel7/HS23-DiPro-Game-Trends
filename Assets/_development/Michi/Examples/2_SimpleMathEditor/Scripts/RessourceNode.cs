@@ -11,24 +11,7 @@ using static UnityEngine.Rendering.DebugUI;
 using Button = UnityEngine.UI.Button;
 
 namespace RuntimeNodeEditor.Examples
-{
-    public class Packet : MonoBehaviour
-    {
-        private int itemCount;
-        private string ressource;
-        //private int priority;
-
-        public void setAttributes(int itemCount, string ressource)
-        {
-            this.itemCount = itemCount;
-            this.ressource = ressource;
-            //this.priority = priority;
-        }
-
-        public int getItemCount() { return this.itemCount; }
-        public string getRessource() {  return this.ressource; }
-    }
-    
+{   
     public class RessourceNode : Node
     {
         public TMP_InputField prio;
@@ -39,6 +22,7 @@ namespace RuntimeNodeEditor.Examples
         public Button buttonAdd_1;
         public Button buttonAdd_10;
         public TMP_Dropdown dropdown;
+        public RessourceInventar ressourceInventar;
         private VisualElement root;
 
         public override void Setup()
@@ -63,20 +47,18 @@ namespace RuntimeNodeEditor.Examples
 
             dropdown.onValueChanged.AddListener(selected =>
             {
-                HandleFieldValue(getPriority().ToString());
+                HandleFieldValue();
             });
 
-            prio.onEndEdit.AddListener(HandleFieldValue);
+            //prio.onEndEdit.AddListener(HandleFieldValue);
 
-            HandleFieldValue(prio.text);
+            HandleFieldValue();
         }
 
-        private void HandleFieldValue(string prio)
-        {
-            string ressource = getRessource();
-            
-            outputSocketLeft.SetValue(ressource);
-            outputSocketRight.SetValue(ressource);
+        private void HandleFieldValue()
+        {            
+            outputSocketLeft.SetValue(getRessource());
+            outputSocketRight.SetValue(getRessource());
         }
 
         private void priority(int number)
@@ -84,7 +66,7 @@ namespace RuntimeNodeEditor.Examples
             int countNow = int.Parse(prio.text);
             int countNew = countNow + number;
             prio.text = countNew.ToString();
-            HandleFieldValue(countNew.ToString());
+            HandleFieldValue();
         }
 
         public int getPriority()
@@ -92,22 +74,14 @@ namespace RuntimeNodeEditor.Examples
             return int.Parse(prio.text);
         }
 
-        public string getRessource()
+        public Ressource getRessource()
         {
-            return dropdown.options[dropdown.value].text;
+            int index = ressourceInventar.getRessourceIndex(dropdown.options[dropdown.value].text);
+            Ressource res = ressourceInventar.getListOfRessources()[index];
+            return res;
         }
 
-        public int getRessourceCount(string ressource)
-        {
-            switch(ressource)
-            {
-                case "Iron": return root.Q<IntegerField>("ironCount").value;
-                case "Copper": return root.Q<IntegerField>("copperCount").value;
-                default: return -1;
-            }
-        }
-
-        public override void OnSerialize(Serializer serializer)
+        /*public override void OnSerialize(Serializer serializer)
         {
             serializer.Add("ressource", getRessourceCount(getRessource()).ToString());
         }
@@ -118,6 +92,6 @@ namespace RuntimeNodeEditor.Examples
             prio.SetTextWithoutNotify(value);
 
             HandleFieldValue(value);
-        }
+        }*/
     }
 }

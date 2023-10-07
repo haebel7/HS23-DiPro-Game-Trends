@@ -13,15 +13,32 @@ namespace RuntimeNodeEditor
 
         public void decrementCount(int value)
         { 
-            if (ownedAmount - value >= 0)
+            if (canDecrement(value))
             {
                 ownedAmount -= value;
+            }
+        }
+        public bool canDecrement(int value)
+        {
+            if (ownedAmount - value >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
         public void incrementCount(int value)
         {
             ownedAmount += value;
+        }
+
+
+        public int getOwnedAmount() 
+        { 
+            return ownedAmount; 
         }
     }
 }

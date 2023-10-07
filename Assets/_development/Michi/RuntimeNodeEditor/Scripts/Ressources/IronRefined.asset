@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efb1683828e6c64e85bc1c19053ca50, type: 3}
   m_Name: IronRefined
   m_EditorClassIdentifier: 
-  _name: 
+  _name: IronRefined
   ownedAmount: 0

@@ -1740,6 +1740,7 @@ MonoBehaviour:
   buttonAdd_1: {fileID: 4332909000859478045}
   buttonAdd_10: {fileID: 4402946229855891992}
   dropdown: {fileID: 3524533509164785524}
+  ressourceInventar: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8, type: 2}
 --- !u!1 &7086409021140884418
 GameObject:
   m_ObjectHideFlags: 0
