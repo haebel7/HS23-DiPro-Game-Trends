@@ -11,7 +11,7 @@ public enum EnemySState
     IDLE,
     HUNT,
     ATTACK,
-    DEATH
+    DIE
 }
 
 public class EnemyMelee : MonoBehaviour
@@ -22,6 +22,10 @@ public class EnemyMelee : MonoBehaviour
     private EnemySState state;
     [SerializeField]
     private float attackDistance = 2f;
+
+    // Additional Behaviours
+    private bool bPlayerInRange = false;
+    private bool bLowHealth = false;
 
     private Animator anim;
 
@@ -45,5 +49,10 @@ public class EnemyMelee : MonoBehaviour
             state = EnemySState.HUNT;
             GetComponent<PlanarMovement>().SetIsMoving(true);
         }
+    }
+
+    private void checkEnemyState()
+    {
+
     }
 }
