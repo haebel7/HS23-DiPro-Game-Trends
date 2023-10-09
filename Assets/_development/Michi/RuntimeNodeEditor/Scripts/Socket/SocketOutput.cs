@@ -1,13 +1,20 @@
 using System;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace RuntimeNodeEditor
 {
     public class SocketOutput : Socket, IOutput, IPointerClickHandler, IDragHandler, IEndDragHandler
     {
         public  Connection  connection;
+        public Ressource ressource;
         private object      _value;
+
+        public override void Setup()
+        {
+            ressource = ScriptableObject.CreateInstance<Ressource>();
+        }
 
         public void SetValue(object value)
         {
@@ -58,6 +65,11 @@ namespace RuntimeNodeEditor
         public void Disconnect()
         {
             connection = null;
+        }
+
+        public Ressource getRessource()
+        {
+            return ressource;
         }
 
         public override bool HasConnection()

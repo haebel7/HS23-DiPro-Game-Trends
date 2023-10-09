@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b11d1496a93cac54f8fec65b52ab0ec2
+guid: 6940d5362fa9a524db3de4b2b7d0f1ad
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - JMH Typewriter
+  - Big Shoulders Display
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

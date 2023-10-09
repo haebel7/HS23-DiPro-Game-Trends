@@ -1,5 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -11,11 +12,15 @@ namespace RuntimeNodeEditor.Examples
         public SocketOutput outputSocket;
         public TMP_Text inputText;
         public TMP_Text outputText;
+        public TMP_Text inputRessource;
+        public TMP_Text outputRessource;
+        public RessourceInventar ressourceInventory;
 
         private List<IOutput> _incomingOutputs;
-        //private int trans;
-        private List<Packet> incomingValues;
-        //private int internalInventory = 100;
+        private List<Ressource> incomingValues;
+        private int fixedUpdateCount = 0;
+        private int tranferAmount = 2;
+        private int internalInventory = 50;
 
         public override void Setup()
         {
@@ -25,6 +30,10 @@ namespace RuntimeNodeEditor.Examples
             Register(outputSocket);
 
             SetHeader("Furnace");
+            inputText.text = "0";
+            outputText.text = "0";
+            inputRessource.text = null;
+            outputRessource.text = null;
 
             OnConnectionEvent += OnConnection;
             OnDisconnectEvent += OnDisconnect;
@@ -48,19 +57,111 @@ namespace RuntimeNodeEditor.Examples
 
         private void OnConnectedValueUpdated()
         {
-
-            incomingValues = new List<Packet>();
+            incomingValues = new List<Ressource>();
+            
             foreach (var c in _incomingOutputs)
             {
-                incomingValues.Add(c.GetValue<Packet>());
+                incomingValues.Add(c.GetValue<Ressource>());
             }
-            
-            DisplayInput(incomingValues[0].getItemCount());
+            if (int.Parse(inputText.text) < internalInventory)
+            {
+                transfer(tranferAmount);
+            }
         }
 
-        private void DisplayInput(int value)
+        private void transfer(int amount)
         {
-            inputText.text = value.ToString();
+            if (incomingValues.Count > 0)
+            {
+                int index = ressourceInventory.getRessourceIndex(incomingValues[0]._name);
+                Ressource res = ressourceInventory.getListOfRessources()[index];
+                if (res.canDecrement(amount) && (inputSocket.ressources[0]._name == res._name || inputSocket.ressources[0]._name == null))
+                {
+                    addDisplayInput(amount);
+                    inputSocket.ressources[0]._name = res._name;
+                    res.decrementCount(amount);
+                }
+            }
+        }
+
+        private void moveToOutput(int value)
+        {
+            outputText.text = outputSocket.ressource.ownedAmount.ToString();
+            string res = CalcRessource(inputSocket.ressources[0]._name);
+
+            outputRessource.text = outputSocket.ressource._name;
+
+            if (outputSocket.ressource.ownedAmount == 0)
+            {
+                outputSocket.ressource._name = null;
+            }
+            outputSocket.ressource._name = res;
+            outputSocket.ressource.ownedAmount += value;
+            outputSocket.SetValue(outputSocket.getRessource());
+            outputRessource.text = res;
+            addDisplayInput(-value);
+            //Debug.Log(outputSocket.GetValue<Ressource>().ownedAmount);
+        }
+
+        private void addDisplayInput(int value)
+        {
+            int valueNow = int.Parse(inputText.text);
+            int newValue = valueNow + value;
+            inputText.text = newValue.ToString();
+
+            inputSocket.ressources[0].ownedAmount = newValue;
+
+            if (newValue == 0)
+            {
+                inputSocket.ressources[0]._name = null;
+                OnConnectedValueUpdated();
+            }
+            inputRessource.text = inputSocket.ressources[0]._name;
+        }
+
+        private string CalcRessource(string s)
+        {
+            switch (s)
+            {
+                case "Iron": return "IronRefined";
+                case "Copper": return "CopperRefined";
+                default: return null;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            int inputAmount = int.Parse(inputText.text);
+            if (inputAmount > 0)
+            {
+                if (fixedUpdateCount%10 == 0 && inputAmount < internalInventory)
+                {
+                    if (inputAmount + tranferAmount <= internalInventory)
+                    {
+                        transfer(tranferAmount);
+                    }
+                    else
+                    {
+                        int newTransferAmount = inputAmount + tranferAmount - internalInventory;
+                        transfer(newTransferAmount);
+                    }
+                }
+                else if (fixedUpdateCount % 25 == 0 && int.Parse(outputText.text) < internalInventory)
+                {
+                    if (outputRessource.text == CalcRessource(inputRessource.text) || outputRessource.text == null)
+                    { 
+                        moveToOutput(1);
+                    }
+                }
+            }
+
+            //outputText.text = outputSocket.ressource.ownedAmount.ToString();
+            //outputRessource.text = CalcRessource(inputSocket.ressources[0]._name);
+
+            //Debug.Log(inputSocket.ressources[0]._name);
+
+            fixedUpdateCount %= 10000;
+            fixedUpdateCount++;
         }
     }
 }
