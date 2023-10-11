@@ -30,6 +30,7 @@ namespace RuntimeNodeEditor
             OnDisconnectEvent += OnDisconnect;
         }
 
+        // Function that is called after you connect a Node to this one
         public void OnConnection(SocketInput input, IOutput output)
         {
             output.ValueUpdated += OnConnectedValueUpdated;
@@ -37,6 +38,7 @@ namespace RuntimeNodeEditor
             OnConnectedValueUpdated();
         }
 
+        // Function that is called after you disconnect any of your linked Nodes
         public void OnDisconnect(SocketInput input, IOutput output)
         {
             output.ValueUpdated -= OnConnectedValueUpdated;
@@ -44,6 +46,7 @@ namespace RuntimeNodeEditor
             OnConnectedValueUpdated();
         }
 
+        // Saves the given values from every connected Output Socket in a List
         private void OnConnectedValueUpdated()
         {
             incomingValues = new List<Ressource>();
@@ -64,18 +67,21 @@ namespace RuntimeNodeEditor
             moveToInventory();
             }
 
+        // Moves the given Values from the Input Socket to your Inventory
         public void moveToInventory()
         {
             foreach (Ressource res in incomingValues)
             {
                 try
                 {
-                    if (res.ownedAmount > 0)
+                    int index = ressourceInventar.getRessourceIndex(res._name);
+                    Ressource r = ressourceInventar.getListOfRessources()[index];
+
+                    if (res.ownedAmount > 0 && res.ownedAmount != r.ownedAmount)
                     {
-                        int index = ressourceInventar.getRessourceIndex(res._name);
-                        Ressource r = ressourceInventar.getListOfRessources()[index];
                         r.incrementCount(res.ownedAmount);
                         res.ownedAmount = 0;
+                        res._name = null;
                     }
                 }
                 catch (Exception e)

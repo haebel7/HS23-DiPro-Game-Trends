@@ -24,6 +24,7 @@ namespace RuntimeNodeEditor.Examples
         private int tranferAmount = 2;
         private int internalInventory = 50;
 
+        // Setup is called when first creating the Node
         public override void Setup()
         {
             _incomingOutputs = new List<IOutput>();
@@ -41,6 +42,7 @@ namespace RuntimeNodeEditor.Examples
             OnDisconnectEvent += OnDisconnect;
         }
 
+        // Function that is called after you connect a Node to this one
         public void OnConnection(SocketInput input, IOutput output)
         {
             output.ValueUpdated += OnConnectedValueUpdated;
@@ -49,6 +51,7 @@ namespace RuntimeNodeEditor.Examples
             OnConnectedValueUpdated();
         }
 
+        // Function that is called after you disconnect any of your linked Nodes
         public void OnDisconnect(SocketInput input, IOutput output)
         {
             output.ValueUpdated -= OnConnectedValueUpdated;
@@ -57,6 +60,7 @@ namespace RuntimeNodeEditor.Examples
             OnConnectedValueUpdated();
         }
 
+        // Saves the given values from every connected Output Socket in a List
         private void OnConnectedValueUpdated()
         {
             incomingValues = new List<Ressource>();
@@ -65,13 +69,16 @@ namespace RuntimeNodeEditor.Examples
             {
                 incomingValues.Add(c.GetValue<Ressource>());
             }
-            if (int.Parse(inputText.text) < internalInventory)
+
+            int inputAmount = int.Parse(inputText.text);
+            if (inputAmount < internalInventory)
             {
-                transfer(tranferAmount);
+                transferToInput(internalInventory - inputAmount);
             }
         }
 
-        private void transfer(int amount)
+        // Gets Ressources from the Inventory and moves them in to the Input
+        private void transferToInput(int amount)
         {
             if (incomingValues.Count > 0)
             {
@@ -79,13 +86,21 @@ namespace RuntimeNodeEditor.Examples
                 Ressource res = ressourceInventory.getListOfRessources()[index];
                 if (res.canDecrement(amount) && (inputSocket.ressources[0]._name == res._name || inputSocket.ressources[0]._name == null))
                 {
-                    addDisplayInput(amount);
+                    updateInput(amount);
                     inputSocket.ressources[0]._name = res._name;
                     res.decrementCount(amount);
+                }
+                else if (!res.canDecrement(amount) && (inputSocket.ressources[0]._name == res._name || inputSocket.ressources[0]._name == null))
+                {
+                    int newAmount = res.ownedAmount;
+                    updateInput(newAmount);
+                    inputSocket.ressources[0]._name = res._name;
+                    res.decrementCount(newAmount);
                 }
             }
         }
 
+        // Moves Ressources from the Input to the Output. Additionally updates the Output Socket
         private void moveToOutput(int value)
         {
             string res = CalcRessource(inputSocket.ressources[0]._name);
@@ -98,10 +113,11 @@ namespace RuntimeNodeEditor.Examples
             outputRessource.text = res;
 
             outputSocket.SetValue(outputSocket.getRessource());
-            addDisplayInput(-value);
+            updateInput(-value);
         }
 
-        private void addDisplayInput(int value)
+        // Update the Input Text and Count
+        private void updateInput(int value)
         {
             int valueNow = int.Parse(inputText.text);
             int newValue = valueNow + value;
@@ -117,6 +133,7 @@ namespace RuntimeNodeEditor.Examples
             inputRessource.text = inputSocket.ressources[0]._name;
         }
 
+        // Check from the Recipe List which Ressource should be smelted
         private string CalcRessource(string s)
         {
             foreach (FurnaceRecepie fure in recepieList)
@@ -129,22 +146,15 @@ namespace RuntimeNodeEditor.Examples
             return null;
         }
 
+
         private void FixedUpdate()
         {
             int inputAmount = int.Parse(inputText.text);
             if (inputAmount > 0)
             {
-                if (fixedUpdateCount%10 == 0 && inputAmount < internalInventory)
+                if (fixedUpdateCount%50 == 0 && inputAmount < internalInventory)
                 {
-                    if (inputAmount + tranferAmount <= internalInventory)
-                    {
-                        transfer(tranferAmount);
-                    }
-                    else
-                    {
-                        int newTransferAmount = inputAmount + tranferAmount - internalInventory;
-                        transfer(newTransferAmount);
-                    }
+                    transferToInput(internalInventory - inputAmount);                
                 }
                 else if (fixedUpdateCount % 25 == 0 && int.Parse(outputText.text) < internalInventory)
                 {
