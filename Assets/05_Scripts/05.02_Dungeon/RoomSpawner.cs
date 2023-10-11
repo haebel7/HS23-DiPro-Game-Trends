@@ -21,7 +21,7 @@ public class RoomSpawner : MonoBehaviour
 
         GameObject roomTemplates = GameObject.FindGameObjectWithTag("Rooms");
         templates = roomTemplates.GetComponent<RoomTemplates>();
-        Invoke("Spawn", 1f); // Delays Spawn()
+        Invoke("Spawn", 0.1f); // Delays Spawn()
     }
 
     private void Spawn()
@@ -52,17 +52,13 @@ public class RoomSpawner : MonoBehaviour
     // Excludes cicular dungeons.
     private int CircularCheck(List<GameObject> selectableRooms)
     {
-        Debug.Log("entred CircularCheck");
-        Debug.Log("rooms count: " + templates.roomsCount);
         if (templates.roomsCount < templates.dungeonSize - 3 && templates.rooms[^1].name == templates.rooms[^2].name)
         {
-            Debug.Log("entred circular");
             // Set circular room at the end of array.
             return ExcludeRoom(selectableRooms);
         }
         else
         {
-            Debug.Log("entred normal");
             return selectableRooms.Count - 1;
         }
     }
