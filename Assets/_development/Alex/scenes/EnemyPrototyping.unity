@@ -2059,8 +2059,8 @@ GameObject:
   - component: {fileID: 1168197524}
   - component: {fileID: 1168197523}
   - component: {fileID: 1168197522}
-  - component: {fileID: 8306506490539518752}
   - component: {fileID: 8306506490539518753}
+  - component: {fileID: 8306506490539518752}
   - component: {fileID: 8306506490539518754}
   m_Layer: 0
   m_Name: EnemyS
