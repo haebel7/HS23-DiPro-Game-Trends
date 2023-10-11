@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class giveRessources : MonoBehaviour
 {
-    public VisualTreeAsset vta;
     public IntegerField ironCount;
     public IntegerField copperCount;
     public IntegerField ironRefinedCount;
@@ -15,7 +14,7 @@ public class giveRessources : MonoBehaviour
     public Button giveCopper;
     public RessourceInventar ressourceInventar;
     private VisualElement root;
-    private List<Ressource> res;
+    private List<Ressource> listOfRes;
 
     private int indexIron;
     private int indexCopper;
@@ -32,7 +31,7 @@ public class giveRessources : MonoBehaviour
         ironRefinedCount = root.Q<IntegerField>("ironRefinedCount");
         copperRefinedCount = root.Q<IntegerField>("copperRefinedCount");
 
-        res = ressourceInventar.getListOfRessources();
+        listOfRes = ressourceInventar.getListOfRessources();
         indexIron = ressourceInventar.getRessourceIndex("Iron");
         indexCopper = ressourceInventar.getRessourceIndex("Copper");
         indexRefinedIron = ressourceInventar.getRessourceIndex("IronRefined");
@@ -46,32 +45,31 @@ public class giveRessources : MonoBehaviour
 
     void giveIronButtonPressed()
     {
-        res[indexIron].incrementCount(50);
-        ironCount.value = res[indexIron].ownedAmount;
+        listOfRes[indexIron].incrementCount(50);
+        ironCount.value = listOfRes[indexIron].ownedAmount;
     }
 
     void giveCopperButtonPressed()
     {
-        res[indexCopper].incrementCount(50);
-        copperCount.value = res[indexCopper].ownedAmount;
+        listOfRes[indexCopper].incrementCount(50);
+        copperCount.value = listOfRes[indexCopper].ownedAmount;
     }
 
     public int getIronCount()
     {
-        return res[indexIron].ownedAmount;
+        return listOfRes[indexIron].ownedAmount;
     }
 
     public int getCopperCount()
     {
-        return res[indexCopper].ownedAmount;
+        return listOfRes[indexCopper].ownedAmount;
     }
 
     private void Update()
     {
-        ironCount.value = res[indexIron].ownedAmount;
-        copperCount.value = res[indexCopper].ownedAmount;
-        ironRefinedCount.value = res[indexRefinedIron].ownedAmount;
-        copperRefinedCount.value = res[indexRefinedCopper].ownedAmount;
-
+        ironCount.value = listOfRes[indexIron].ownedAmount;
+        copperCount.value = listOfRes[indexCopper].ownedAmount;
+        ironRefinedCount.value = listOfRes[indexRefinedIron].ownedAmount;
+        copperRefinedCount.value = listOfRes[indexRefinedCopper].ownedAmount;
     }
 }

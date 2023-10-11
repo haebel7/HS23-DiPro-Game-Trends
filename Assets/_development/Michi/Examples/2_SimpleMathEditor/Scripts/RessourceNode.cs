@@ -23,11 +23,9 @@ namespace RuntimeNodeEditor.Examples
         public Button buttonAdd_10;
         public TMP_Dropdown dropdown;
         public RessourceInventar ressourceInventar;
-        private VisualElement root;
 
         public override void Setup()
         {
-            root = GameObject.Find("UIDocument").GetComponent<UIDocument>().rootVisualElement;
             Register(outputSocketLeft);
             Register(outputSocketRight);
             SetHeader("Ressource");

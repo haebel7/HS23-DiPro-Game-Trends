@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace RuntimeNodeEditor.Examples
         public TMP_Text inputRessource;
         public TMP_Text outputRessource;
         public RessourceInventar ressourceInventory;
+        public List<FurnaceRecepie> recepieList;
 
         private List<IOutput> _incomingOutputs;
         private List<Ressource> incomingValues;
@@ -86,21 +88,17 @@ namespace RuntimeNodeEditor.Examples
 
         private void moveToOutput(int value)
         {
-            outputText.text = outputSocket.ressource.ownedAmount.ToString();
             string res = CalcRessource(inputSocket.ressources[0]._name);
 
-            outputRessource.text = outputSocket.ressource._name;
-
-            if (outputSocket.ressource.ownedAmount == 0)
-            {
-                outputSocket.ressource._name = null;
-            }
             outputSocket.ressource._name = res;
             outputSocket.ressource.ownedAmount += value;
-            outputSocket.SetValue(outputSocket.getRessource());
+
+            outputText.text = outputSocket.ressource.ownedAmount.ToString();
+
             outputRessource.text = res;
+
+            outputSocket.SetValue(outputSocket.getRessource());
             addDisplayInput(-value);
-            //Debug.Log(outputSocket.GetValue<Ressource>().ownedAmount);
         }
 
         private void addDisplayInput(int value)
@@ -108,7 +106,7 @@ namespace RuntimeNodeEditor.Examples
             int valueNow = int.Parse(inputText.text);
             int newValue = valueNow + value;
             inputText.text = newValue.ToString();
-
+            Debug.Log(valueNow);
             inputSocket.ressources[0].ownedAmount = newValue;
 
             if (newValue == 0)
@@ -121,12 +119,14 @@ namespace RuntimeNodeEditor.Examples
 
         private string CalcRessource(string s)
         {
-            switch (s)
+            foreach (FurnaceRecepie fure in recepieList)
             {
-                case "Iron": return "IronRefined";
-                case "Copper": return "CopperRefined";
-                default: return null;
+                if (fure.InputRessources[0]._name == s)
+                {
+                    return fure.OutputRessources[0]._name;
+                }
             }
+            return null;
         }
 
         private void FixedUpdate()
@@ -148,20 +148,21 @@ namespace RuntimeNodeEditor.Examples
                 }
                 else if (fixedUpdateCount % 25 == 0 && int.Parse(outputText.text) < internalInventory)
                 {
-                    if (outputRessource.text == CalcRessource(inputRessource.text) || outputRessource.text == null)
+                    if ((outputSocket.ressource._name == CalcRessource(inputRessource.text) || outputSocket.ressource._name == null) && (inputSocket.ressources[0].ownedAmount > 0 || outputSocket.ressource.ownedAmount == 0))
                     { 
                         moveToOutput(1);
                     }
                 }
             }
-
-            //outputText.text = outputSocket.ressource.ownedAmount.ToString();
-            //outputRessource.text = CalcRessource(inputSocket.ressources[0]._name);
-
-            //Debug.Log(inputSocket.ressources[0]._name);
+            if (outputSocket.ressource.ownedAmount <= 0 && outputRessource.text != null)
+            {
+                outputText.text = "0";
+                outputRessource.text = null;
+            }
 
             fixedUpdateCount %= 10000;
             fixedUpdateCount++;
+            
         }
     }
 }
