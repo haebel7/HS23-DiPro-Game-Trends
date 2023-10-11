@@ -11,6 +11,7 @@ public enum EnemySState
     IDLE,
     HUNT,
     ATTACK,
+    DODGE,
     DIE
 }
 
@@ -22,15 +23,17 @@ public class EnemyMelee : MonoBehaviour
     private EnemySState state;
     [SerializeField]
     private float attackDistance = 2f;
-
-    // Additional Behaviours
-    //private bool bPlayerInRange = false;
-    //private bool bLowHealth = false;
+    [SerializeField]
+    private int idleChance;
+    [SerializeField]
+    private int huntChance;
 
     private Animator anim;
     //private HurtBox hurtBox;
 
     private EnemySState lastState;
+    private float stateInterval = 2f;
+    private float lastStateInterval = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +46,25 @@ public class EnemyMelee : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (/*state == EnemySState.HUNT &&*/ Vector3.Distance(transform.position, player.position) < attackDistance)
+        if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             state = EnemySState.ATTACK;
+        }
+        else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
+        {
+            if (Random.Range(1, 100) < idleChance)
+            {
+                state = EnemySState.IDLE;
+            }
+            lastStateInterval = Time.fixedTime;
+        }
+        else if (state == EnemySState.IDLE && Time.fixedTime > lastStateInterval + stateInterval)
+        {
+            if (Random.Range(1, 100) < huntChance)
+            {
+                state = EnemySState.HUNT;
+            }
+            lastStateInterval = Time.fixedTime;
         }
 
         CheckEnemyState();
@@ -74,6 +93,9 @@ public class EnemyMelee : MonoBehaviour
                 case EnemySState.ATTACK:
                     anim.SetBool("Attack", false);
                     break;
+                case EnemySState.DODGE:
+
+                    break;
                 default:
                     break;
             }
@@ -90,6 +112,9 @@ public class EnemyMelee : MonoBehaviour
                     break;
                 case EnemySState.ATTACK:
                     anim.SetBool("Attack", true);
+                    break;
+                case EnemySState.DODGE:
+
                     break;
                 default:
                     break;
