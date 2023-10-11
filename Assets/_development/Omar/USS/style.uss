@@ -62,3 +62,54 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+.tab-link {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 49%;
+    align-items: center;
+    justify-content: center;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.tab-text {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 5%;
+    padding-right: 15%;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: url('project://database/Assets/_development/Omar/fonts/Big_Shoulders_Display/BigShouldersDisplay-Bold%20SDF.asset?fileID=11400000&guid=07018da7e78c1dd44a2479cffaffe91b&type=2#BigShouldersDisplay-Bold SDF');
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.item {
+    width: 30%;
+    height: 10%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(160, 144, 144);
+    border-right-color: rgb(160, 144, 144);
+    border-top-color: rgb(160, 144, 144);
+    border-bottom-color: rgb(160, 144, 144);
+    margin-bottom: 6%;
+}
