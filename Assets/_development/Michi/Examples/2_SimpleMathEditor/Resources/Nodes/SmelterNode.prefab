@@ -685,6 +685,9 @@ MonoBehaviour:
   inputRessource: {fileID: 3122163590768810779}
   outputRessource: {fileID: 3658452057410112947}
   ressourceInventory: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8, type: 2}
+  recepieList:
+  - {fileID: 11400000, guid: 4d26235240f869f45a9efb8d6f745637, type: 2}
+  - {fileID: 11400000, guid: f031d96c7feb8cd41ac5477006083665, type: 2}
 --- !u!1 &6984215475758050675
 GameObject:
   m_ObjectHideFlags: 0

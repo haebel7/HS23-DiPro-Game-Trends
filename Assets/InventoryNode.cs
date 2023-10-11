@@ -24,7 +24,7 @@ namespace RuntimeNodeEditor
             Register(inputSocket1);
             Register(inputSocket2);
             Register(inputSocket3);
-            SetHeader("Inventory");
+            SetHeader("Storage");
 
             OnConnectionEvent += OnConnection;
             OnDisconnectEvent += OnDisconnect;
@@ -87,7 +87,7 @@ namespace RuntimeNodeEditor
 
         private void FixedUpdate()
         {
-            if (fixedUpdateCount % 50 == 0 && incomingValues != null)
+            if (fixedUpdateCount % 50 == 0 && incomingValues != null && incomingValues[0].ownedAmount > 0)
             {
                 OnConnectedValueUpdated();
             }
