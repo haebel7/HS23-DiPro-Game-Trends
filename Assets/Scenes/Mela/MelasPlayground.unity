@@ -597,6 +597,7 @@ MonoBehaviour:
   - {fileID: 3790749554237774127, guid: 64f05d6707b616045b582d0651f768be, type: 3}
   - {fileID: 1668075842617534225, guid: f0989aa65a6fa0b40a8b6c09ae5ad419, type: 3}
   - {fileID: 6111871056487177906, guid: adc81c0a93d449441b2521403bbb9333, type: 3}
+  spawnPoints: []
   rooms: []
   boss: {fileID: 5792744366562842766, guid: 64705c74b9392e44ea92694d6a3fa8fe, type: 3}
 --- !u!4 &1836800130

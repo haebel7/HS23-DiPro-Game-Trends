@@ -8,10 +8,10 @@ public class RoomTemplates : MonoBehaviour
     [HideInInspector]
     public int roomsCount;
 
-    public GameObject[] northRooms;
-    public GameObject[] southRooms;
-    public GameObject[] westRooms;
-    public GameObject[] eastRooms;
+    public List<GameObject> northRooms;
+    public List<GameObject> southRooms;
+    public List<GameObject> westRooms;
+    public List<GameObject> eastRooms;
     public GameObject closedRoom;
     public GameObject[] bossRooms;
 
