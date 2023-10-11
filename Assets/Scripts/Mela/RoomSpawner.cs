@@ -5,19 +5,12 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-    public string openingDirection;
-    // N > need door south
-    // S > need door north
-    // E > need door west
-    // W > need door east
-
     private RoomTemplates templates;
-    private int rand;
     private bool spawned;
 
     private void Start()
     {
-        if(openingDirection == "0")
+        if(name == "SpawnPoint")
         {
             spawned = true;
         }
@@ -28,55 +21,104 @@ public class RoomSpawner : MonoBehaviour
 
         GameObject roomTemplates = GameObject.FindGameObjectWithTag("Rooms");
         templates = roomTemplates.GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f); // Delays Spawn()
+        Invoke("Spawn", 1f); // Delays Spawn()
     }
 
     private void Spawn()
     {
-        if(spawned == false)
-        {
-            if (openingDirection == "N")
-            {
-                // Need to spawn a room with a south door.
-                rand = UnityEngine.Random.Range(0, templates.southRooms.Length);
-                Instantiate(templates.southRooms[rand], transform.position, templates.southRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == "S")
-            {
-                // Need to spawn a room with a north door.
-                rand = UnityEngine.Random.Range(0, templates.northRooms.Length);
-                Instantiate(templates.northRooms[rand], transform.position, templates.northRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == "E")
-            {
-                // Need to spawn a room with a west door.
-                rand = UnityEngine.Random.Range(0, templates.westRooms.Length);
-                Instantiate(templates.westRooms[rand], transform.position, templates.westRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == "W")
-            {
-                // Need to spawn a room with a east door.
-                rand = UnityEngine.Random.Range(0, templates.eastRooms.Length);
-                Instantiate(templates.eastRooms[rand], transform.position, templates.eastRooms[rand].transform.rotation);
-            }
-            else
-            {
-                Debug.Log("No opening direction!");
-            }
+        templates.spawnPoints.Add(gameObject);
 
-            spawned = true;
+        GameObject room = null;
+
+        if (spawned == false && templates.roomsCount > 1)
+        {
+            
+            room = GetRoom();
         }
+        else if (spawned == false && templates.rooms.Count == templates.dungeonSize - 1)
+        {
+            room = GetBossRoom();
+        }
+
+        if (room != null)
+        {
+            Instantiate(room, transform.position, room.transform.rotation);
+            spawned = true;
+            templates.roomsCount--;
+        }
+    }
+
+    private GameObject GetRoom()
+    {
+        GameObject room = null;
+
+        if (name == "SpawnPointN")
+        {
+            room = templates.southRooms[UnityEngine.Random.Range(0, templates.southRooms.Length)];
+        }
+        else if (name == "SpawnPointS")
+        {
+            room = templates.northRooms[UnityEngine.Random.Range(0, templates.northRooms.Length)];
+        }
+        else if (name == "SpawnPointE")
+        {
+            room = templates.westRooms[UnityEngine.Random.Range(0, templates.westRooms.Length)];
+        }
+        else if (name == "SpawnPointW")
+        {
+            room = templates.eastRooms[UnityEngine.Random.Range(0, templates.eastRooms.Length)];
+        }
+        else
+        {
+            Debug.Log("Name of spawn point unknown!");
+        }
+
+        return room;
+    }
+
+    private GameObject GetBossRoom()
+    {
+        string bossRoomName = null;
+
+        if(name == "SpawnPointN")
+        {
+            bossRoomName = "S";
+        }
+        else if(name == "SpawnPointS")
+        {
+            bossRoomName = "N";
+        }
+        else if (name == "SpawnPointE")
+        {
+            bossRoomName = "W";
+        }
+        else if (name == "SpawnPointW")
+        {
+            bossRoomName = "S";
+        }
+        else
+        {
+            Debug.Log("Unknown name of spawn point!");
+        }
+
+        for (int i = 0; i < templates.bossRooms.Length; i++)
+        {
+            if (bossRoomName == templates.bossRooms[i].name)
+            {
+                return templates.bossRooms[i];
+            }
+        }
+
+        Debug.Log("Room not found!");
+        return null;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entred OnTriggerEnter");
         if (other.CompareTag("SpawnPoint"))
         {
-            Debug.Log("entred if SpawnPoint");
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
             {
-                Debug.Log("entred if closedRoom");
                 Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

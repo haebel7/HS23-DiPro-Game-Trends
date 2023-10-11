@@ -113,7 +113,15 @@ public class Movement : MonoBehaviour
 
     private void Attack1(InputAction.CallbackContext context)
     {
-        Debug.Log("attack1");
+        Animator naimtorn = GetComponent<Animator>();
+        naimtorn.SetBool("isAttacking", true);
+
+    }
+
+    public void StopAttack()
+    {
+        Animator naimtorn = GetComponent<Animator>();
+        naimtorn.SetBool("isAttacking", false);
     }
 
     private void Attack2(InputAction.CallbackContext context)
