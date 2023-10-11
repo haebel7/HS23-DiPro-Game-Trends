@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
+    public int dungeonSize;
+    [HideInInspector]
+    public int roomsCount;
+
     public GameObject[] northRooms;
     public GameObject[] southRooms;
     public GameObject[] westRooms;
     public GameObject[] eastRooms;
-
     public GameObject closedRoom;
+    public GameObject[] bossRooms;
 
+    public List<GameObject> spawnPoints;
     public List<GameObject> rooms;
 
-    public float waitTime;
-    private bool spawnedBoss;
+    private bool spawnedBoss = false;
     public GameObject boss;
+
+    private void Start()
+    {
+        roomsCount = dungeonSize - 1;
+    }
 
     private void Update()
     {
-        if (waitTime <= 0 && spawnedBoss == false)
+        if (roomsCount == 0 && spawnedBoss == false)
         {
             for (int i = 0; i < rooms.Count; i++)
             {
@@ -29,10 +38,6 @@ public class RoomTemplates : MonoBehaviour
                     spawnedBoss = true;
                 }
             }
-        }
-        else
-        {
-            waitTime -= Time.deltaTime;
         }
     }
 }
