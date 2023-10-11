@@ -354,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 3699738212025669058, guid: accd85d81989de947a40d391436fd018,
         type: 3}
       propertyPath: m_Name
-      value: E
+      value: Entry
       objectReference: {fileID: 0}
     - target: {fileID: 4040798561096093560, guid: accd85d81989de947a40d391436fd018,
         type: 3}
@@ -405,6 +405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136028133471385558, guid: accd85d81989de947a40d391436fd018,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -568,29 +573,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0e86f5c4ba08245ac4cbc5f02d805b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dungeonSize: 5
+  roomsCount: 0
   northRooms:
-  - {fileID: 3790749554237774127, guid: 64f05d6707b616045b582d0651f768be, type: 3}
   - {fileID: 588070444485363261, guid: 41f80d2c9848fd743b362b66fadf2d04, type: 3}
   - {fileID: 4673740140417647518, guid: c597b4ce0ba86f74e80260a8931ec5ba, type: 3}
   - {fileID: 6256251077552672680, guid: dc47658d80d50de4daa8cea3c50f7724, type: 3}
   southRooms:
-  - {fileID: 1668075842617534225, guid: f0989aa65a6fa0b40a8b6c09ae5ad419, type: 3}
   - {fileID: 4673740140417647518, guid: c597b4ce0ba86f74e80260a8931ec5ba, type: 3}
   - {fileID: 5202056379941271203, guid: dc1949af2f07e0f4e9aac29f4d8a230a, type: 3}
   westRooms:
-  - {fileID: 6111871056487177906, guid: adc81c0a93d449441b2521403bbb9333, type: 3}
   - {fileID: 6256251077552672680, guid: dc47658d80d50de4daa8cea3c50f7724, type: 3}
   - {fileID: 8779554308443644125, guid: c98c092eace8c1744baae1651111b3fd, type: 3}
   - {fileID: 4002188526191265682, guid: 3849e22e00a641a43ae5f66e0be74db1, type: 3}
   eastRooms:
-  - {fileID: 3699738212025669058, guid: accd85d81989de947a40d391436fd018, type: 3}
   - {fileID: 588070444485363261, guid: 41f80d2c9848fd743b362b66fadf2d04, type: 3}
   - {fileID: 5202056379941271203, guid: dc1949af2f07e0f4e9aac29f4d8a230a, type: 3}
   - {fileID: 4002188526191265682, guid: 3849e22e00a641a43ae5f66e0be74db1, type: 3}
   closedRoom: {fileID: 80362422974696645, guid: 2d30b14acf939e1439a3bcd8695b21a5,
     type: 3}
+  bossRooms:
+  - {fileID: 3699738212025669058, guid: accd85d81989de947a40d391436fd018, type: 3}
+  - {fileID: 3790749554237774127, guid: 64f05d6707b616045b582d0651f768be, type: 3}
+  - {fileID: 1668075842617534225, guid: f0989aa65a6fa0b40a8b6c09ae5ad419, type: 3}
+  - {fileID: 6111871056487177906, guid: adc81c0a93d449441b2521403bbb9333, type: 3}
   rooms: []
-  waitTime: 2
   boss: {fileID: 5792744366562842766, guid: 64705c74b9392e44ea92694d6a3fa8fe, type: 3}
 --- !u!4 &1836800130
 Transform:
