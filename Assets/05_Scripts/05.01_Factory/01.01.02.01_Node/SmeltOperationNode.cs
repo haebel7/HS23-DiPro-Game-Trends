@@ -15,13 +15,16 @@ namespace RuntimeNodeEditor.Examples
         public TMP_Text outputText;
         public TMP_Text inputRessource;
         public TMP_Text outputRessource;
+        public TMP_Text processingTimeText;
         public RessourceInventar ressourceInventory;
         public List<FurnaceRecepie> recepieList;
+        public int internalInputInventory;
+        public int internalOutputInventory;
+        public int processingTime;
 
         private List<IOutput> _incomingOutputs;
         private List<Ressource> incomingValues;
         private int fixedUpdateCount = 0;
-        private int internalInventory = 50;
 
         // Setup is called when first creating the Node
         public override void Setup()
@@ -70,9 +73,9 @@ namespace RuntimeNodeEditor.Examples
             }
 
             int inputAmount = int.Parse(inputText.text);
-            if (inputAmount < internalInventory)
+            if (inputAmount < internalInputInventory)
             {
-                transferToInput(internalInventory - inputAmount);
+                transferToInput(internalInputInventory - inputAmount);
             }
         }
 
@@ -151,11 +154,11 @@ namespace RuntimeNodeEditor.Examples
             int inputAmount = int.Parse(inputText.text);
             if (inputAmount > 0)
             {
-                if (fixedUpdateCount%50 == 0 && inputAmount < internalInventory)
+                if (fixedUpdateCount%50 == 0 && inputAmount < internalInputInventory)
                 {
-                    transferToInput(internalInventory - inputAmount);                
+                    transferToInput(internalInputInventory - inputAmount);                
                 }
-                else if (fixedUpdateCount % 25 == 0 && int.Parse(outputText.text) < internalInventory)
+                else if (fixedUpdateCount % processingTime == 0 && int.Parse(outputText.text) < internalOutputInventory)
                 {
                     if ((outputSocket.ressource._name == CalcRessource(inputRessource.text) || outputSocket.ressource._name == null) && (inputSocket.ressources[0].ownedAmount > 0 || outputSocket.ressource.ownedAmount == 0))
                     { 

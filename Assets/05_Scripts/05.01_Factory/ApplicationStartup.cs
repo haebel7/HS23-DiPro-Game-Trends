@@ -10,7 +10,7 @@ namespace RuntimeNodeEditor.Examples
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
+            //Application.targetFrameRate = 60;
             var graph = editor.CreateGraph<NodeGraph>(editorHolder);
             editor.StartEditor(graph);
         }
