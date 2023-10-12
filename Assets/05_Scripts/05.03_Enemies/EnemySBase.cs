@@ -15,7 +15,7 @@ public enum EnemySState
     DIE
 }
 
-public class EnemyMelee : MonoBehaviour
+public class EnemySBase : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
@@ -27,6 +27,10 @@ public class EnemyMelee : MonoBehaviour
     private int idleChance;
     [SerializeField]
     private int huntChance;
+    [SerializeField]
+    private int dodgeChance;
+    [SerializeField]
+    private float dodgeSpeed;
 
     private Animator anim;
     //private HurtBox hurtBox;
@@ -34,25 +38,39 @@ public class EnemyMelee : MonoBehaviour
     private EnemySState lastState;
     private float stateInterval = 2f;
     private float lastStateInterval = 0;
+    private Vector3 dodgeDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        state = EnemySState.HUNT;
+        state = EnemySState.IDLE;
         lastState = state;
         anim = GetComponent<Animator>();
         //hurtBox = GetComponent<HurtBox>();
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
+        
+    }
+
+
+
+    protected void ChangeEnemyState()
+    {
+        // Change states
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             state = EnemySState.ATTACK;
         }
         else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
-            if (Random.Range(1, 100) < idleChance)
+            if (Random.Range(1, 100) < dodgeChance)
+            {
+                state = EnemySState.DODGE;
+            }
+            else if (Random.Range(1, 100) < idleChance)
             {
                 state = EnemySState.IDLE;
             }
@@ -68,12 +86,12 @@ public class EnemyMelee : MonoBehaviour
         }
 
         CheckEnemyState();
-    }
 
-    public void LeaveAttackState()
-    {
-        state = EnemySState.HUNT;
-        CheckEnemyState();
+        // Dodge for as long as in dodge state
+        if (state == EnemySState.DODGE)
+        {
+            GetComponent<CharacterController>().Move(dodgeDirection * dodgeSpeed);
+        }
     }
 
     private void CheckEnemyState()
@@ -94,7 +112,7 @@ public class EnemyMelee : MonoBehaviour
                     anim.SetBool("Attack", false);
                     break;
                 case EnemySState.DODGE:
-
+                    anim.SetBool("Dodge", false);
                     break;
                 default:
                     break;
@@ -114,7 +132,9 @@ public class EnemyMelee : MonoBehaviour
                     anim.SetBool("Attack", true);
                     break;
                 case EnemySState.DODGE:
-
+                    anim.SetBool("Dodge", true);
+                    int dodgeAngle = Random.Range(0, 360);
+                    dodgeDirection = Quaternion.AngleAxis(dodgeAngle, Vector3.up) * Vector3.forward;
                     break;
                 default:
                     break;
@@ -122,5 +142,17 @@ public class EnemyMelee : MonoBehaviour
         }
 
         lastState = state;
+    }
+
+    public void LeaveAttackState()
+    {
+        state = EnemySState.HUNT;
+        CheckEnemyState();
+    }
+
+    public void LeaveDodgeState()
+    {
+        state = EnemySState.HUNT;
+        CheckEnemyState();
     }
 }
