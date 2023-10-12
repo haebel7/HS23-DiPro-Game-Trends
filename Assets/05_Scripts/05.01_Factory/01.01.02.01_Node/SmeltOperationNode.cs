@@ -17,14 +17,16 @@ namespace RuntimeNodeEditor.Examples
         public TMP_Text outputRessource;
         public TMP_Text processingTimeText;
         public RessourceInventar ressourceInventory;
-        public List<FurnaceRecepie> recepieList;
         public int internalInputInventory;
         public int internalOutputInventory;
         public int processingTime;
+        public List<FurnaceRecepie> recepieList;
 
         private List<IOutput> _incomingOutputs;
         private List<Ressource> incomingValues;
         private int fixedUpdateCount = 0;
+        private int timer = 0;
+        private bool timerIsRunning = false;
 
         // Setup is called when first creating the Node
         public override void Setup()
@@ -35,8 +37,10 @@ namespace RuntimeNodeEditor.Examples
             Register(outputSocket);
 
             SetHeader("Furnace");
+
             inputText.text = "0";
             outputText.text = "0";
+            processingTimeText.text = "0";
             inputRessource.text = null;
             outputRessource.text = null;
 
@@ -148,29 +152,58 @@ namespace RuntimeNodeEditor.Examples
             return null;
         }
 
+        private void updateProcessingTimeText()
+        {
+            if (timerIsRunning && outputSocket.ressource.ownedAmount < internalOutputInventory)
+            {
+                if (timer <= 0)
+                {
+                    timerIsRunning = false;
+                }
+                else
+                {
+                    timer--;
+                    float f = timer / 50f;
+                    f = (float)(Math.Round(f * 10f) * 0.1f);
+                    processingTimeText.text = f.ToString() + " sec";
+                }
+            }
+            else if (int.Parse(inputText.text) > 0 && !timerIsRunning)
+            {
+                timerIsRunning = true;
+                timer = processingTime;
+                float f = timer / 50f;
+                f = (float)(Math.Round(f * 10f) * 0.1f);
+                processingTimeText.text = f.ToString() + " sec";
+            }
+        }
+
 
         private void FixedUpdate()
         {
             int inputAmount = int.Parse(inputText.text);
+            //int timer = processingTime;
             if (inputAmount > 0)
             {
                 if (fixedUpdateCount%50 == 0 && inputAmount < internalInputInventory)
                 {
                     transferToInput(internalInputInventory - inputAmount);                
                 }
-                else if (fixedUpdateCount % processingTime == 0 && int.Parse(outputText.text) < internalOutputInventory)
+                else if (timer <= 0 && int.Parse(outputText.text) < internalOutputInventory && !timerIsRunning)
                 {
                     if ((outputSocket.ressource._name == CalcRessource(inputRessource.text) || outputSocket.ressource._name == null) && (inputSocket.ressources[0].ownedAmount > 0 || outputSocket.ressource.ownedAmount == 0))
-                    { 
+                    {
                         moveToOutput(1);
                     }
-                }
+                }  
             }
             if (outputSocket.ressource.ownedAmount <= 0 && outputRessource.text != null)
             {
                 outputText.text = "0";
                 outputRessource.text = null;
             }
+
+            updateProcessingTimeText();
 
             fixedUpdateCount %= 10000;
             fixedUpdateCount++;
