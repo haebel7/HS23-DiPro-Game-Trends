@@ -101,7 +101,7 @@
 }
 
 .item {
-    width: 30%;
+    width: 29%;
     height: 10%;
     border-top-width: 1px;
     border-right-width: 1px;
@@ -112,4 +112,70 @@
     border-top-color: rgb(160, 144, 144);
     border-bottom-color: rgb(160, 144, 144);
     margin-bottom: 6%;
+    margin-right: 2.1%;
+    margin-left: 2.1%;
+}
+
+.item-counter {
+    flex-grow: 1;
+    background-image: url('project://database/Assets/_development/Omar/imgs/nummerWwabe.png?fileID=2800000&guid=f618cabb024931c4ea0baeb720db2806&type=3#nummerWwabe');
+    -unity-background-scale-mode: scale-to-fit;
+    height: 30%;
+    width: 95%;
+    position: absolute;
+    right: -8px;
+    translate: 0 -50%;
+}
+
+.item-count {
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/_development/Omar/fonts/JetBrains/JetBrainsMono-Regular%20SDF.asset?fileID=11400000&guid=7a5fa82fbcb019b49bca966f2d55cad6&type=2#JetBrainsMono-Regular SDF');
+    font-size: 15px;
+    letter-spacing: 92px;
+    -unity-text-align: middle-right;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 9px;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item-icon {
+    flex-grow: 1;
+    height: 75%;
+    background-image: url('project://database/Assets/_development/Omar/imgs/Iron-Ore%201.png?fileID=2800000&guid=6b7be18f04ba5c347afce7c7abff19b9&type=3#Iron-Ore 1');
+    -unity-background-scale-mode: scale-to-fit;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.item-text {
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    height: 25%;
+}
+
+.item-name {
+    -unity-font-definition: url('project://database/Assets/_development/Omar/fonts/Technos-PKDZP/Technos-PKDZP%20SDF.asset?fileID=11400000&guid=b29ff297ff0084647b3b9ad4fe83672d&type=2#Technos-PKDZP SDF');
+    -unity-text-align: middle-center;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
