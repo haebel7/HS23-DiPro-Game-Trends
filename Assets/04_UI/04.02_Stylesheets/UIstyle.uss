@@ -1,0 +1,182 @@
+.buttonStyle {
+    height: 66px;
+    width: 235px;
+    position: relative;
+    top: auto;
+    left: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(82, 204, 59);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: rgb(0, 0, 0);
+    -unity-font-style: bold;
+    font-size: 18px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonStyle:hover {
+    height: 66px;
+    width: 235px;
+    position: relative;
+    top: auto;
+    left: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(69, 101, 63);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: rgb(0, 0, 0);
+    -unity-font-style: bold;
+    font-size: 18px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container {
+    height: 414px;
+    width: 395px;
+    flex-direction: column;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tab-link {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 49%;
+    align-items: center;
+    justify-content: center;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.tab-text {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 5%;
+    padding-right: 15%;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.02_Big_Shoulders_Display/04.01.02.01_BigShouldersDisplay-Bold%20SDF.asset?fileID=11400000&guid=4e31a37a67c10bf4687688d642756d1c&type=2#BigShouldersDisplay-Bold SDF');
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.item {
+    width: 29%;
+    height: 12%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(160, 144, 144);
+    border-right-color: rgb(160, 144, 144);
+    border-top-color: rgb(160, 144, 144);
+    border-bottom-color: rgb(160, 144, 144);
+    margin-bottom: 0;
+    margin-right: 2.1%;
+    margin-left: 2.1%;
+    margin-top: 8%;
+}
+
+.item-counter {
+    flex-grow: 1;
+    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.05_FactoryUICounterUmriss.png?fileID=2800000&guid=9e7cb1a231433c145b2869b943b224cc&type=3#04.04.05_FactoryUICounterUmriss');
+    -unity-background-scale-mode: scale-to-fit;
+    height: 30%;
+    width: 95%;
+    position: absolute;
+    right: -8px;
+    translate: 0 -50%;
+}
+
+.item-count {
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.03_JetBrains/04.01.03.01_JetBrainsMono-Regular%20SDF.asset?fileID=11400000&guid=9fb69f7d55ababc4680d9c824a9e2412&type=2#JetBrainsMono-Regular SDF');
+    font-size: 15px;
+    letter-spacing: 92px;
+    -unity-text-align: middle-right;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 9px;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item-icon {
+    flex-grow: 1;
+    height: 80%;
+    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.04_FactoryUIironOre.png?fileID=2800000&guid=6db09aa452115fa4bb0555cc09d5cf1c&type=3#04.04.04_FactoryUIironOre');
+    -unity-background-scale-mode: scale-to-fit;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.item-text {
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    height: 20%;
+}
+
+.item-name {
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.01_Technos-PKDZP%20SDF.asset?fileID=11400000&guid=defeed33c567cbe468b27c7fb685d691&type=2#Technos-PKDZP SDF');
+    -unity-text-align: middle-center;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
