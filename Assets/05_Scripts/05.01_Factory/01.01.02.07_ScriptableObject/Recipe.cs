@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RuntimeNodeEditor
 {
     [CreateAssetMenu(fileName = "RecepieData", menuName = "ScriptableObjects/Recepie", order = 1)]
-    public class FurnaceRecepie : ScriptableObject
+    public class Recipe : ScriptableObject
     {
         public List<Ressource> InputRessources;
         public List<Ressource> OutputRessources;

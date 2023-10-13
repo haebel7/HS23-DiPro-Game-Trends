@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7efb1683828e6c64e85bc1c19053ca50, type: 3}
-  m_Name: Iron
+  m_Name: Circuit
   m_EditorClassIdentifier: 
-  _name: Iron
-  ownedAmount: 2000
+  _name: Cringe
+  ownedAmount: 42069

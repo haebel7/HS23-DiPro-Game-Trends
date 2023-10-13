@@ -47,7 +47,6 @@ namespace RuntimeNodeEditor
         public static T CreatePrefab<T>(string path, RectTransform parent)
         {
             var prefab = Resources.Load<GameObject>(path);
-            Debug.Log(prefab);
             var instance = GameObject.Instantiate(prefab, parent);
             var component = instance.GetComponent<T>();
 

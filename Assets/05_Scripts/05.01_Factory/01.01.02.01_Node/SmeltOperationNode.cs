@@ -19,8 +19,9 @@ namespace RuntimeNodeEditor.Examples
         public RessourceInventar ressourceInventory;
         public int internalInputInventory;
         public int internalOutputInventory;
+        // in 0.1 sec
         public int processingTime;
-        public List<FurnaceRecepie> recepieList;
+        public List<Recipe> recipeList;
 
         private List<IOutput> _incomingOutputs;
         private List<Ressource> incomingValues;
@@ -128,7 +129,6 @@ namespace RuntimeNodeEditor.Examples
             int valueNow = int.Parse(inputText.text);
             int newValue = valueNow + value;
             inputText.text = newValue.ToString();
-            Debug.Log(valueNow);
             inputSocket.ressources[0].ownedAmount = newValue;
 
             if (newValue == 0)
@@ -142,7 +142,7 @@ namespace RuntimeNodeEditor.Examples
         // Check from the Recipe List which Ressource should be smelted
         private string CalcRessource(string s)
         {
-            foreach (FurnaceRecepie fure in recepieList)
+            foreach (Recipe fure in recipeList)
             {
                 if (fure.InputRessources[0]._name == s)
                 {
@@ -159,21 +159,25 @@ namespace RuntimeNodeEditor.Examples
                 if (timer <= 0)
                 {
                     timerIsRunning = false;
+                    bool b1 = (outputSocket.ressource._name == CalcRessource(inputRessource.text) || outputSocket.ressource._name == null);
+                    bool b2 = (inputSocket.ressources[0].ownedAmount > 0 || outputSocket.ressource.ownedAmount == 0);
+                    if (b1 && b2)
+                    {
+                        moveToOutput(1);
+                    }
                 }
                 else
                 {
                     timer--;
-                    float f = timer / 50f;
-                    f = (float)(Math.Round(f * 10f) * 0.1f);
+                    float f = timer / 10f;
                     processingTimeText.text = f.ToString() + " sec";
                 }
             }
-            else if (int.Parse(inputText.text) > 0 && !timerIsRunning)
+            else if (int.Parse(inputText.text) > 0 && !timerIsRunning && outputSocket.ressource.ownedAmount < internalOutputInventory)
             {
                 timerIsRunning = true;
                 timer = processingTime;
-                float f = timer / 50f;
-                f = (float)(Math.Round(f * 10f) * 0.1f);
+                float f = timer / 10f;
                 processingTimeText.text = f.ToString() + " sec";
             }
         }
@@ -183,31 +187,24 @@ namespace RuntimeNodeEditor.Examples
         {
             int inputAmount = int.Parse(inputText.text);
             //int timer = processingTime;
-            if (inputAmount > 0)
-            {
-                if (fixedUpdateCount%50 == 0 && inputAmount < internalInputInventory)
-                {
-                    transferToInput(internalInputInventory - inputAmount);                
-                }
-                else if (timer <= 0 && int.Parse(outputText.text) < internalOutputInventory && !timerIsRunning)
-                {
-                    if ((outputSocket.ressource._name == CalcRessource(inputRessource.text) || outputSocket.ressource._name == null) && (inputSocket.ressources[0].ownedAmount > 0 || outputSocket.ressource.ownedAmount == 0))
-                    {
-                        moveToOutput(1);
-                    }
-                }  
-            }
+
             if (outputSocket.ressource.ownedAmount <= 0 && outputRessource.text != null)
             {
                 outputText.text = "0";
                 outputRessource.text = null;
             }
 
-            updateProcessingTimeText();
+            if (fixedUpdateCount%5 == 0)
+            {
+                updateProcessingTimeText();
+                if (fixedUpdateCount % 50 == 0 && inputAmount < internalInputInventory && inputAmount > 0)
+                {
+                    transferToInput(internalInputInventory - inputAmount);
+                }
+            }
 
             fixedUpdateCount %= 10000;
             fixedUpdateCount++;
-            
         }
     }
 }
