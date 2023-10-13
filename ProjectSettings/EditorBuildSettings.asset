@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/_development/Omar/scenes/UIPlayground.unity
     guid: 830bb5299f3a6fe4180c5c4386ac451a
+  - enabled: 1
+    path: Assets/01_Development/01.04_Enemies/01.04.01_Scenes/EnemyPrototyping.unity
+    guid: 51bc6a3c283ee6443a4e75bc2ea02318
   m_configObjects: {}
