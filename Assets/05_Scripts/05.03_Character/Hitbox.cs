@@ -21,10 +21,5 @@ public class Hitbox : MonoBehaviour
         {
             other.GetComponent<HurtBox>().TakeDamage(damageStat.damage, damageType);
         }
-        // TODO: Remove after testing !!
-        if (other.GetComponent<HealthTest>())
-        {
-            other.GetComponent<HealthTest>().TakeDamage(damageStat.damage, damageType);
-        }
     }
 }

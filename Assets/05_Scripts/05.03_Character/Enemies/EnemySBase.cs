@@ -33,8 +33,7 @@ public class EnemySBase : MonoBehaviour
     protected float dodgeSpeed;
 
     private Animator anim;
-    //private HurtBox hurtBox;
-    private HealthTest healthTest;
+    private HurtBox hurtBox;
     private NavMeshAgent agent;
 
     private EnemySState lastState;
@@ -48,19 +47,18 @@ public class EnemySBase : MonoBehaviour
         state = EnemySState.IDLE;
         lastState = EnemySState.HUNT;
         anim = GetComponent<Animator>();
-        //hurtBox = GetComponent<HurtBox>();
-        healthTest = GetComponent<HealthTest>();
+        hurtBox = GetComponent<HurtBox>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     protected void ChangeEnemyState()
     {
         // Change states
-        /*if (healthTest.health.currentHealth <= 0)
+        if (hurtBox.GetOwnHealth().currentHealth <= 0)
         {
-
+            
         }
-        else */if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
+        else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
             if (Random.Range(1, 100) < dodgeChance)
             {
