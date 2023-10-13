@@ -2,6 +2,7 @@ using Friedforfun.ContextSteering.Demo;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,22 +19,24 @@ public enum EnemySState
 public class EnemySBase : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
+    protected Transform player;
     [SerializeField]
-    private EnemySState state;
+    protected EnemySState state;
     [SerializeField]
-    private float attackDistance = 2f;
+    protected float attackDistance = 2f;
     [SerializeField]
-    private int idleChance;
+    protected int idleChance;
     [SerializeField]
-    private int huntChance;
+    protected int huntChance;
     [SerializeField]
-    private int dodgeChance;
+    protected int dodgeChance;
     [SerializeField]
-    private float dodgeSpeed;
+    protected float dodgeSpeed;
 
     private Animator anim;
     //private HurtBox hurtBox;
+    private HealthTest healthTest;
+    private NavMeshAgent agent;
 
     private EnemySState lastState;
     private float stateInterval = 2f;
@@ -44,27 +47,21 @@ public class EnemySBase : MonoBehaviour
     void Start()
     {
         state = EnemySState.IDLE;
-        lastState = state;
+        lastState = EnemySState.HUNT;
         anim = GetComponent<Animator>();
         //hurtBox = GetComponent<HurtBox>();
+        healthTest = GetComponent<HealthTest>();
+        agent = GetComponent<NavMeshAgent>();
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
-
-
 
     protected void ChangeEnemyState()
     {
         // Change states
-        if (Vector3.Distance(transform.position, player.position) < attackDistance)
+        /*if (healthTest.health.currentHealth <= 0)
         {
-            state = EnemySState.ATTACK;
+
         }
-        else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
+        else */if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
             if (Random.Range(1, 100) < dodgeChance)
             {
@@ -92,9 +89,14 @@ public class EnemySBase : MonoBehaviour
         {
             GetComponent<CharacterController>().Move(dodgeDirection * dodgeSpeed);
         }
+
+        // Update navmesh destination to player pos
+        if (!agent.isStopped) {
+            agent.destination = player.position;
+        }
     }
 
-    private void CheckEnemyState()
+    protected void CheckEnemyState()
     {
         if (lastState != state)
         {
@@ -106,13 +108,17 @@ public class EnemySBase : MonoBehaviour
                     break;
                 case EnemySState.HUNT:
                     anim.SetBool("Hunt", false);
-                    GetComponent<PlanarMovement>().SetIsMoving(false);
+                    //GetComponent<PlanarMovement>().SetIsMoving(false);
+                    agent.isStopped = true;
                     break;
                 case EnemySState.ATTACK:
                     anim.SetBool("Attack", false);
                     break;
                 case EnemySState.DODGE:
                     anim.SetBool("Dodge", false);
+                    break;
+                case EnemySState.DIE:
+                    anim.SetBool("Die", false);
                     break;
                 default:
                     break;
@@ -126,7 +132,8 @@ public class EnemySBase : MonoBehaviour
                     break;
                 case EnemySState.HUNT:
                     anim.SetBool("Hunt", true);
-                    GetComponent<PlanarMovement>().SetIsMoving(true);
+                    //GetComponent<PlanarMovement>().SetIsMoving(true);
+                    agent.isStopped = false;
                     break;
                 case EnemySState.ATTACK:
                     anim.SetBool("Attack", true);
@@ -135,6 +142,9 @@ public class EnemySBase : MonoBehaviour
                     anim.SetBool("Dodge", true);
                     int dodgeAngle = Random.Range(0, 360);
                     dodgeDirection = Quaternion.AngleAxis(dodgeAngle, Vector3.up) * Vector3.forward;
+                    break;
+                case EnemySState.DIE:
+                    anim.SetBool("Die", true);
                     break;
                 default:
                     break;
