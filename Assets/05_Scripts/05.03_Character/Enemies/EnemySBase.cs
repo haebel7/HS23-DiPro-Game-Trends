@@ -33,11 +33,12 @@ public class EnemySBase : MonoBehaviour
     protected float dodgeSpeed;
     [SerializeField]
     private GameObject deadBody;
+    [SerializeField]
+    private GameObject loot;
 
     private Animator anim;
     private HurtBox hurtBox;
     private NavMeshAgent agent;
-    private CharacterController charController;
 
     private EnemySState lastState;
     private float stateInterval = 2f;
@@ -52,7 +53,6 @@ public class EnemySBase : MonoBehaviour
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
         agent = GetComponent<NavMeshAgent>();
-        charController = GetComponent<CharacterController>();
     }
 
     protected void ChangeEnemyState()
@@ -92,7 +92,8 @@ public class EnemySBase : MonoBehaviour
         }
 
         // Update navmesh destination to player pos
-        if (!agent.isStopped) {
+        if (!agent.isStopped)
+        {
             agent.destination = player.position;
         }
     }
@@ -170,6 +171,13 @@ public class EnemySBase : MonoBehaviour
     public void ReplaceWithDeadBody()
     {
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
+        // Drop Loot on Dying Position
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject lootPiece = Instantiate(loot, spawnPos, transform.rotation);
+            lootPiece.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+        }
+        // Instantiate dead body prefab and destroy this enemy object
         Instantiate(deadBody, spawnPos, transform.rotation);
         Destroy(gameObject);
     }
