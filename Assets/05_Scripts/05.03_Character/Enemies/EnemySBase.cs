@@ -31,10 +31,13 @@ public class EnemySBase : MonoBehaviour
     protected int dodgeChance;
     [SerializeField]
     protected float dodgeSpeed;
+    [SerializeField]
+    private GameObject deadBody;
 
     private Animator anim;
     private HurtBox hurtBox;
     private NavMeshAgent agent;
+    private CharacterController charController;
 
     private EnemySState lastState;
     private float stateInterval = 2f;
@@ -49,6 +52,7 @@ public class EnemySBase : MonoBehaviour
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
         agent = GetComponent<NavMeshAgent>();
+        charController = GetComponent<CharacterController>();
     }
 
     protected void ChangeEnemyState()
@@ -56,7 +60,7 @@ public class EnemySBase : MonoBehaviour
         // Change states
         if (hurtBox.GetOwnHealth().currentHealth <= 0)
         {
-            
+            state = EnemySState.DIE;
         }
         else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
@@ -161,5 +165,12 @@ public class EnemySBase : MonoBehaviour
     {
         state = EnemySState.HUNT;
         CheckEnemyState();
+    }
+
+    public void ReplaceWithDeadBody()
+    {
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
+        Instantiate(deadBody, spawnPos, transform.rotation);
+        Destroy(gameObject);
     }
 }
