@@ -31,10 +31,13 @@ public class EnemySBase : MonoBehaviour
     protected int dodgeChance;
     [SerializeField]
     protected float dodgeSpeed;
+    [SerializeField]
+    private GameObject deadBody;
+    [SerializeField]
+    private GameObject loot;
 
     private Animator anim;
-    //private HurtBox hurtBox;
-    private HealthTest healthTest;
+    private HurtBox hurtBox;
     private NavMeshAgent agent;
 
     private EnemySState lastState;
@@ -48,19 +51,18 @@ public class EnemySBase : MonoBehaviour
         state = EnemySState.IDLE;
         lastState = EnemySState.HUNT;
         anim = GetComponent<Animator>();
-        //hurtBox = GetComponent<HurtBox>();
-        healthTest = GetComponent<HealthTest>();
+        hurtBox = GetComponent<HurtBox>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     protected void ChangeEnemyState()
     {
         // Change states
-        /*if (healthTest.health.currentHealth <= 0)
+        if (hurtBox.GetOwnHealth().currentHealth <= 0)
         {
-
+            state = EnemySState.DIE;
         }
-        else */if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
+        else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
             if (Random.Range(1, 100) < dodgeChance)
             {
@@ -90,7 +92,8 @@ public class EnemySBase : MonoBehaviour
         }
 
         // Update navmesh destination to player pos
-        if (!agent.isStopped) {
+        if (!agent.isStopped)
+        {
             agent.destination = player.position;
         }
     }
@@ -163,5 +166,19 @@ public class EnemySBase : MonoBehaviour
     {
         state = EnemySState.HUNT;
         CheckEnemyState();
+    }
+
+    public void ReplaceWithDeadBody()
+    {
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
+        // Drop Loot on Dying Position
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject lootPiece = Instantiate(loot, spawnPos, transform.rotation);
+            lootPiece.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+        }
+        // Instantiate dead body prefab and destroy this enemy object
+        Instantiate(deadBody, spawnPos, transform.rotation);
+        Destroy(gameObject);
     }
 }

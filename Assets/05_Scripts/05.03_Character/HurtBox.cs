@@ -5,8 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof (Collider))]
 public class HurtBox : MonoBehaviour
 {
-    public HealthObject health;
+    [SerializeField]
+    private HealthObject health;
+
     public List<DamageType> canBeHitBy;
+
+    private HealthObject ownHealth;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ownHealth = Instantiate(health);
+    }
 
     public void TakeDamage(int damageAmount, DamageType damageType)
     {
@@ -14,16 +24,21 @@ public class HurtBox : MonoBehaviour
         Debug.Log(damageType);
         if (canBeHitBy.Contains(damageType))
         {
-            health.currentHealth -= damageAmount;
+            ownHealth.currentHealth -= damageAmount;
             CheckDied();
         }
     }
 
     public void CheckDied()
     {
-        if (health.currentHealth < 0)
+        if (ownHealth.currentHealth < 0)
         {
             Debug.Log("IM DEAD!?");
         }
+    }
+
+    public HealthObject GetOwnHealth()
+    {
+        return ownHealth;
     }
 }

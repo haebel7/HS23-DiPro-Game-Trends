@@ -578,7 +578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000006854534, y: -55.00003}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -55.00003}
   m_SizeDelta: {x: -0.000013709068, y: -110.00005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6923324542395937791
@@ -824,7 +824,7 @@ MonoBehaviour:
   ressourceInventory: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8, type: 2}
   internalInputInventory: 15
   internalOutputInventory: 5
-  processingTime: 50
+  processingTime: 5
   recepieList:
   - {fileID: 11400000, guid: 4d26235240f869f45a9efb8d6f745637, type: 2}
   - {fileID: 11400000, guid: f031d96c7feb8cd41ac5477006083665, type: 2}
