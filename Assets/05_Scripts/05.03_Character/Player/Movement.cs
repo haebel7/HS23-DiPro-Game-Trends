@@ -126,7 +126,7 @@ public class Movement : MonoBehaviour
 
     private void Attack2(InputAction.CallbackContext context)
     {
-        Debug.Log("attack2");
+        Debug.Log(CharacterState.IDLE);
     }
 
     private void TriggerDash(InputAction.CallbackContext context)
