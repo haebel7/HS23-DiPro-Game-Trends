@@ -72,6 +72,7 @@ namespace RuntimeNodeEditor
         {
             foreach (Ressource res in incomingValues)
             {
+                Debug.Log(res._name);
                 try
                 {
                     int index = ressourceInventar.getRessourceIndex(res._name);

@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e9fef5c494dfcd428352f75a9995bcb, type: 3}
-  m_Name: Assembling Recipe Circuit
+  m_Name: Refined Copper
   m_EditorClassIdentifier: 
   InputRessources:
-  - {fileID: 11400000, guid: 88fcba5519285d34b9e6b00cdc6667f3, type: 2}
-  - {fileID: 11400000, guid: 88fcba5519285d34b9e6b00cdc6667f3, type: 2}
   - {fileID: 11400000, guid: 41a625d7254d00c489e732d893028228, type: 2}
   OutputRessources:
-  - {fileID: 11400000, guid: d73d4a22f0b2c4344943b64945d9132c, type: 2}
+  - {fileID: 11400000, guid: 94c771e0cdab295469bec118dee03eed, type: 2}

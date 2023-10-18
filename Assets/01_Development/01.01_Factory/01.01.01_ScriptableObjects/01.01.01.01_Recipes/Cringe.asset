@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e9fef5c494dfcd428352f75a9995bcb, type: 3}
-  m_Name: Furnace Recipe Refined Copper
+  m_Name: Cringe
   m_EditorClassIdentifier: 
   InputRessources:
+  - {fileID: 11400000, guid: 88fcba5519285d34b9e6b00cdc6667f3, type: 2}
+  - {fileID: 11400000, guid: 88fcba5519285d34b9e6b00cdc6667f3, type: 2}
   - {fileID: 11400000, guid: 41a625d7254d00c489e732d893028228, type: 2}
   OutputRessources:
-  - {fileID: 11400000, guid: 94c771e0cdab295469bec118dee03eed, type: 2}
+  - {fileID: 11400000, guid: 95a7060eed10dcb428452ad03bced375, type: 2}
