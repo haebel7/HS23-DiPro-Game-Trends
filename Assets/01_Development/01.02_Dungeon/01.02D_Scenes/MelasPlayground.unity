@@ -406,6 +406,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -135
       objectReference: {fileID: 0}
+    - target: {fileID: 2013360291929541413, guid: dab623320c4b80546bf274ef63053bc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2527981645118423009, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -515,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerAndCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794470268670579465, guid: dab623320c4b80546bf274ef63053bc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9086349977430053161, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
