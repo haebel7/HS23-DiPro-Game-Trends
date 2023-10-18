@@ -172,7 +172,7 @@ public class EnemySBase : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
         // Drop Loot on Dying Position
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject lootPiece = Instantiate(loot, spawnPos, transform.rotation);
             lootPiece.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
