@@ -20,7 +20,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private AnimationCurve dashSpeedCurve;
 
     private CharacterController characterController;
-    private PlayerControls playerControls;
+    [HideInInspector]
+    public PlayerControls playerControls;
     private InputAction move;
     private InputAction mousePosition;
     private InputAction dodge;

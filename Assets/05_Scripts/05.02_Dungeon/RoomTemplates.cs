@@ -14,8 +14,6 @@ public class RoomTemplates : MonoBehaviour
     public List<GameObject> eastRooms;
     public GameObject closedRoom;
     public GameObject[] bossRooms;
-
-    public List<GameObject> spawnPoints;
     public List<GameObject> rooms;
 
     private bool spawnedBoss = false;
