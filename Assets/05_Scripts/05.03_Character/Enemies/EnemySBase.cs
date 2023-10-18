@@ -31,6 +31,10 @@ public class EnemySBase : MonoBehaviour
     protected int dodgeChance;
     [SerializeField]
     protected float dodgeSpeed;
+    [SerializeField]
+    private GameObject deadBody;
+    [SerializeField]
+    private GameObject loot;
 
     private Animator anim;
     private HurtBox hurtBox;
@@ -44,7 +48,7 @@ public class EnemySBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        state = EnemySState.IDLE;
+        state = EnemySState.SPAWN;
         lastState = EnemySState.HUNT;
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
@@ -56,7 +60,7 @@ public class EnemySBase : MonoBehaviour
         // Change states
         if (hurtBox.GetOwnHealth().currentHealth <= 0)
         {
-            
+            state = EnemySState.DIE;
         }
         else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
         {
@@ -88,7 +92,8 @@ public class EnemySBase : MonoBehaviour
         }
 
         // Update navmesh destination to player pos
-        if (!agent.isStopped) {
+        if (!agent.isStopped)
+        {
             agent.destination = player.position;
         }
     }
@@ -100,6 +105,8 @@ public class EnemySBase : MonoBehaviour
             // Cleanup last state behaviour
             switch (lastState)
             {
+                case EnemySState.SPAWN:
+                    break;
                 case EnemySState.IDLE:
                     // stop idle anim
                     break;
@@ -124,6 +131,8 @@ public class EnemySBase : MonoBehaviour
             // Trigger any behaviours of the new state
             switch (state)
             {
+                case EnemySState.SPAWN:
+                    break;
                 case EnemySState.IDLE:
                     // start idle anim
                     break;
@@ -151,15 +160,23 @@ public class EnemySBase : MonoBehaviour
         lastState = state;
     }
 
-    public void LeaveAttackState()
+    public void LeaveTemporaryState()
     {
         state = EnemySState.HUNT;
         CheckEnemyState();
     }
 
-    public void LeaveDodgeState()
+    public void ReplaceWithDeadBody()
     {
-        state = EnemySState.HUNT;
-        CheckEnemyState();
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
+        // Drop Loot on Dying Position
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject lootPiece = Instantiate(loot, spawnPos, transform.rotation);
+            lootPiece.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+        }
+        // Instantiate dead body prefab and destroy this enemy object
+        Instantiate(deadBody, spawnPos, transform.rotation);
+        Destroy(gameObject);
     }
 }

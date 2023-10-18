@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class EnemyMelee : EnemySBase
 {
-
     void FixedUpdate()
     {
+        if (state == EnemySState.DIE)
+        {
+            return;
+        }
+
         ChangeEnemyState();
         ChangeEnemyStateMelee();
     }
