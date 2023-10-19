@@ -48,7 +48,7 @@ public class ReplaceWithPrefab : EditorWindow
                 newObject.transform.parent = selected.transform.parent;
                 newObject.transform.localPosition = selected.transform.localPosition;
                 newObject.transform.localRotation = selected.transform.localRotation;
-                newObject.transform.localScale = selected.transform.localScale;
+                //newObject.transform.localScale = selected.transform.localScale;
                 newObject.transform.SetSiblingIndex(selected.transform.GetSiblingIndex());
                 Undo.DestroyObjectImmediate(selected);
             }
