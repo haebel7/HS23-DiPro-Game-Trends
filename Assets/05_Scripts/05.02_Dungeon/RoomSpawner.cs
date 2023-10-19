@@ -132,23 +132,23 @@ public class RoomSpawner : MonoBehaviour
 
     private GameObject GetBossRoom()
     {
-        string bossRoomName = null;
+        string bossRoomTag = null;
 
         if(name == "SpawnPointN")
         {
-            bossRoomName = "S";
+            bossRoomTag = "S";
         }
         else if(name == "SpawnPointS")
         {
-            bossRoomName = "N";
+            bossRoomTag = "N";
         }
         else if (name == "SpawnPointE")
         {
-            bossRoomName = "W";
+            bossRoomTag = "W";
         }
         else if (name == "SpawnPointW")
         {
-            bossRoomName = "E";
+            bossRoomTag = "E";
         }
         else
         {
@@ -157,7 +157,7 @@ public class RoomSpawner : MonoBehaviour
 
         for (int i = 0; i < templates.bossRooms.Length; i++)
         {
-            if (bossRoomName == templates.bossRooms[i].name)
+            if (templates.bossRooms[i].CompareTag(bossRoomTag))
             {
                 return templates.bossRooms[i];
             }

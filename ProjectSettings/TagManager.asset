@@ -9,6 +9,11 @@ TagManager:
   - SpawnPoint
   - Exit
   - Entry
+  - BoundingWall
+  - N
+  - E
+  - S
+  - W
   layers:
   - Default
   - TransparentFX
