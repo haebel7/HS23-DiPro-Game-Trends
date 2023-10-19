@@ -117,6 +117,7 @@ namespace RuntimeNodeEditor.Examples
 
             outputText.text = outputSocket.ressource.ownedAmount.ToString();
 
+            Debug.Log(res);
             outputRessource.text = res;
 
             outputSocket.SetValue(outputSocket.getRessource());
