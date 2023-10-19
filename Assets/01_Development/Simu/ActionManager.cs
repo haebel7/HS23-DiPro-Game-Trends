@@ -2,47 +2,107 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerAttack))]
 public class ActionManager : MonoBehaviour
 {
-    public bool canMove { get; private set; }
-    public bool canDash { get; private set; }
-    public bool canAttack { get; private set; }
-    //triggers for buffer
 
-    private CharacterState currentState = CharacterState.IDLE;
-    private Dictionary<string, Action> stateSwitchBehaviour;
-    private CharacterState bufferedNextState = CharacterState.IDLE;
+    [SerializeField] private ComboAttack firstComboAttack;
+    [SerializeField] private ComboAttack firstComboFinisher;
 
+    private PlayerControls playerControls;
+    private InputAction mousePosition;
+    private InputAction attack1;
+    private InputAction attack2;
+
+    private BUFFERED_MOVE bufferedNextMove = BUFFERED_MOVE.NONE;
+
+    private PlayerAttack playerAttackScript;
+    private bool canAttack = true;
+    private ComboAttack nextComboBasic;
+    private ComboAttack nextComboFinisher;
+    private ComboAttack currentAttack;
+
+    //private CHARACTER_STATE currentState = CHARACTER_STATE.MOVING;
+    //private Dictionary<string, Action> stateSwitchBehaviour;
 
     private void Start()
     {
-        stateSwitchBehaviour.Add("" + CharacterState.IDLE + CharacterState.KNOCKED_BACK, ACTIVEtoKNOCKBACKED);
+        playerAttackScript = GetComponent<PlayerAttack>();
+        nextComboBasic = firstComboAttack;
+        nextComboFinisher = firstComboFinisher;
+
+        //stateSwitchBehaviour = new Dictionary<string, Action>
+        //{
+        //    //{ "" + CharacterState.IDLE + CharacterState.ATTACKING, ACTIVEtoKNOCKBACKED }
+        //};
     }
 
-    public void goToState(CharacterState nextState)
+    private void Awake()
     {
-        if (nextState == CharacterState.KNOCKED_BACK)
+        playerControls = new PlayerControls();
+        mousePosition = playerControls.Gameplay.MousePosition;
+        attack1 = playerControls.Gameplay.Attack;
+        attack2 = playerControls.Gameplay.Attack2;
+
+        attack1.performed += BasicAttack;
+        attack2.performed += FinisherAttack;
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Gameplay.Disable();
+    }
+
+    private void BasicAttack(InputAction.CallbackContext context)
+    {
+        if (canAttack)
         {
-            ACTIVEtoKNOCKBACKED();
+            currentAttack = nextComboBasic;
+            //nextComboBasic = currentAttack.nextBasicAttack;
+            //nextComboFinisher = currentAttack.nextFinisherAttack;
+            playerAttackScript.TriggerAttack(currentAttack, mousePosition.ReadValue<Vector2>());
         }
         else
         {
-            stateSwitchBehaviour["" + currentState + nextState]();
-        }
-        if (currentState == CharacterState.KNOCKED_BACK)
-        {
-            bufferedNextState = nextState;
+            bufferedNextMove = BUFFERED_MOVE.BASIC_ATTACK;
         }
     }
 
-
-
-    private void ACTIVEtoKNOCKBACKED()
+    private void FinisherAttack(InputAction.CallbackContext context)
     {
-        canMove = false;
-        canDash = false;
-        canAttack = false;
-        //cancel any ongoing attacks, dashes, momentum.
+        if (canAttack)
+        {
+            currentAttack = nextComboFinisher;
+            nextComboBasic = currentAttack.nextBasicAttack;
+            nextComboFinisher = currentAttack.nextFinisherAttack;
+            playerAttackScript.TriggerAttack(currentAttack, mousePosition.ReadValue<Vector2>());
+        }
+        else
+        {
+            bufferedNextMove = BUFFERED_MOVE.FINISHER_ATTACK;
+        }
     }
+
+    //public void goToState(CHARACTER_STATE nextState)
+    //{
+    //    Debug.Log(currentState);
+    //    Debug.Log(nextState);
+    //    Debug.Log(stateSwitchBehaviour["" + currentState + nextState]);
+    //    stateSwitchBehaviour["" + currentState + nextState]();
+    //}
+
+    //private void ACTIVEtoKNOCKBACKED()
+    //{
+    //    canMove = false;
+    //    canDash = false;
+    //    canAttack = false;
+    //    cancel any ongoing attacks, dashes, momentum.
+    //}
 }

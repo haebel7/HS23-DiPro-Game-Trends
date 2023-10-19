@@ -48,7 +48,7 @@ public class EnemySBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        state = EnemySState.IDLE;
+        state = EnemySState.SPAWN;
         lastState = EnemySState.HUNT;
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
@@ -105,6 +105,8 @@ public class EnemySBase : MonoBehaviour
             // Cleanup last state behaviour
             switch (lastState)
             {
+                case EnemySState.SPAWN:
+                    break;
                 case EnemySState.IDLE:
                     // stop idle anim
                     break;
@@ -129,6 +131,8 @@ public class EnemySBase : MonoBehaviour
             // Trigger any behaviours of the new state
             switch (state)
             {
+                case EnemySState.SPAWN:
+                    break;
                 case EnemySState.IDLE:
                     // start idle anim
                     break;
@@ -156,13 +160,7 @@ public class EnemySBase : MonoBehaviour
         lastState = state;
     }
 
-    public void LeaveAttackState()
-    {
-        state = EnemySState.HUNT;
-        CheckEnemyState();
-    }
-
-    public void LeaveDodgeState()
+    public void LeaveTemporaryState()
     {
         state = EnemySState.HUNT;
         CheckEnemyState();

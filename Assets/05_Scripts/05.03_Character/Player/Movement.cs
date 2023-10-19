@@ -4,36 +4,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-
-
-    /*
-        running
-        ----------------------
-        speedup
-        maxspeed
-        stopspeed
-        slide?
-        turnspeed?
-        turning around?
-
-
-        attack and move priority
-        0. getting hit
-        1. dash
-        2. attack
-        3. walk
-
-     */
-
-
-
     [SerializeField] private float movespeed;
 
     //TODO: playerstatus with priority hierarchy/state machine
     private bool canWalk = true;
     private bool canDash = true;
     private bool isDashing = false;
-
 
     [SerializeField] private float dashDistance;
     [SerializeField] private float dashDuration;
@@ -48,11 +24,8 @@ public class Movement : MonoBehaviour
     public PlayerControls playerControls;
     private InputAction move;
     private InputAction mousePosition;
-    private InputAction attack1;
-    private InputAction attack2;
     private InputAction dodge;
 
-    private Vector2 moveDirection;
     private Vector2 mouseCoordinates;
 
     private void Awake()
@@ -62,12 +35,7 @@ public class Movement : MonoBehaviour
         playerControls = new PlayerControls();
         move = playerControls.Gameplay.Move;
         mousePosition = playerControls.Gameplay.MousePosition;
-        attack1 = playerControls.Gameplay.Attack;
-        attack2 = playerControls.Gameplay.Attack2;
         dodge = playerControls.Gameplay.Dodge;
-
-        attack1.performed += Attack1;
-        attack2.performed += Attack2;
         dodge.performed += TriggerDash;
     }
 
@@ -83,7 +51,6 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        LookAtCursor();
         Walk();
         PerformDash();
     }
@@ -96,6 +63,8 @@ public class Movement : MonoBehaviour
 
             if (direction.magnitude >= 0.1f)
             {
+                float rotationToLook = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+                transform.rotation = Quaternion.Euler(0f, rotationToLook, 0f);
                 characterController.Move(GetPerspectiveDirection(direction) * movespeed * Time.deltaTime);
             }
         }
@@ -112,26 +81,9 @@ public class Movement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotationToLookAtCursor, 0f);
     }
 
-    private void Attack1(InputAction.CallbackContext context)
-    {
-        Animator naimtorn = GetComponent<Animator>();
-        naimtorn.SetBool("isAttacking", true);
-
-    }
-
-    public void StopAttack()
-    {
-        Animator naimtorn = GetComponent<Animator>();
-        naimtorn.SetBool("isAttacking", false);
-    }
-
-    private void Attack2(InputAction.CallbackContext context)
-    {
-        Debug.Log(CharacterState.IDLE);
-    }
-
     private void TriggerDash(InputAction.CallbackContext context)
     {
+        Debug.Log("DASH");
         if (canDash)
         {
             canWalk = false;
@@ -141,6 +93,7 @@ public class Movement : MonoBehaviour
             dashDirection = GetPerspectiveDirection(inputDirection);
             if (inputDirection.Equals(Vector2.zero))
             {
+                LookAtCursor();
                 dashDirection = transform.forward;
             } else
             {

@@ -1,13 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.CompilerServices;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
 using Button = UnityEngine.UI.Button;
 
 namespace RuntimeNodeEditor.Examples
@@ -36,12 +30,14 @@ namespace RuntimeNodeEditor.Examples
             buttonAdd10.onClick.AddListener(delegate { priority(int.Parse(buttonAdd10.GetComponentInChildren<TextMeshProUGUI>().text)); });
             buttonAdd_1.onClick.AddListener(delegate { priority(int.Parse(buttonAdd_1.GetComponentInChildren<TextMeshProUGUI>().text)); });
             buttonAdd_10.onClick.AddListener(delegate { priority(int.Parse(buttonAdd_10.GetComponentInChildren<TextMeshProUGUI>().text)); });
-            
-            dropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+
+            List<TMP_Dropdown.OptionData> dropdownList = new List<TMP_Dropdown.OptionData>();
+            foreach (Ressource r in ressourceInventar.getListOfRessources())
             {
-                new TMP_Dropdown.OptionData("Iron"),
-                new TMP_Dropdown.OptionData("Copper")
-            });
+                dropdownList.Add(new TMP_Dropdown.OptionData(r.name));
+            }
+
+            dropdown.AddOptions(dropdownList);
 
             dropdown.onValueChanged.AddListener(selected =>
             {
