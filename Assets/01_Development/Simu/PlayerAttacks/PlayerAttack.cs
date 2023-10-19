@@ -9,7 +9,6 @@ public class PlayerAttack : MonoBehaviour
 {
     private bool isAttacking;
     private ComboAttack currentAttack;
-    private Vector2 mouseCoordinates;
 
     private Animator animator;
     private Hitbox hitbox;
@@ -34,8 +33,7 @@ public class PlayerAttack : MonoBehaviour
         currentAttack.moveStartTime = Time.time;
         currentAttack.moveEndTime = currentAttack.moveStartTime + currentAttack.moveDuration;
         hitbox.damageStat = currentAttack.damage;
-        mouseCoordinates = mouseCoords;
-        LookAtCursor();
+        LookAtCursor(mouseCoords);
         animator.Play(currentAttack.animationName);
         isAttacking = true;
     }
@@ -57,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void LookAtCursor()
+    private void LookAtCursor(Vector2 mouseCoordinates)
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         float xDifference = mouseCoordinates.x - screenPos.x;

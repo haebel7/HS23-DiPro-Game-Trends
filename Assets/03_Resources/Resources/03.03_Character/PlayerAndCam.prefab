@@ -271,8 +271,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6574ccbd999a49243b9e536e616276f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashCooldown: 0.5
+  knockbackImmunityTime: 1
+  comboWindowTime: 0.5
   firstComboAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
   firstComboFinisher: {fileID: 11400000, guid: 4e3040d9394d5694fb5fc2007efef620, type: 2}
+  dashAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
+  dashFinisher: {fileID: 11400000, guid: 4e3040d9394d5694fb5fc2007efef620, type: 2}
 --- !u!114 &9086349977430053161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +293,6 @@ MonoBehaviour:
   movespeed: 6
   dashDistance: 5
   dashDuration: 0.22
-  dashCooldown: 0.8
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
