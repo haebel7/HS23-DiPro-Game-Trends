@@ -5,7 +5,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum EnemySState
+/*public enum EnemySState
 {
     SPAWN,
     IDLE,
@@ -13,14 +13,15 @@ public enum EnemySState
     ATTACK,
     DODGE,
     DIE
-}
+}*/
 
 public class EnemySBase : MonoBehaviour
 {
     [SerializeField]
     protected Transform player;
     [SerializeField]
-    protected EnemySState state;
+    //protected EnemySState state;
+    protected int state;
     [SerializeField]
     protected float attackDistance = 2f;
     [SerializeField]
@@ -36,20 +37,40 @@ public class EnemySBase : MonoBehaviour
     [SerializeField]
     private GameObject loot;
 
-    private Animator anim;
-    private HurtBox hurtBox;
-    private NavMeshAgent agent;
+    protected static Dictionary<string, int> EnemyState = new Dictionary<string, int>()
+    {
+        {"Spawn", 0 },
+        {"Idle", 1 },
+        {"Hunt", 2 },
+        {"Attack", 3 },
+        {"Dodge", 4 },
+        {"Die", 5 },
+    };
 
-    private EnemySState lastState;
-    private float stateInterval = 2f;
-    private float lastStateInterval = 0;
+    protected Animator anim;
+    protected HurtBox hurtBox;
+    protected NavMeshAgent agent;
+
+    //protected EnemySState lastState;
+    protected int lastState;
+    protected float stateInterval = 2f;
+    protected float lastStateInterval = 0;
     private Vector3 dodgeDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        state = EnemySState.SPAWN;
-        lastState = EnemySState.HUNT;
+        /*EnemyState.Add("Spawn", 0);
+        EnemyState.Add("Idle", 1);
+        EnemyState.Add("Hunt", 2);
+        EnemyState.Add("Attack", 3);
+        EnemyState.Add("Dodge", 4);
+        EnemyState.Add("Die", 5);*/
+
+        //state = EnemySState.SPAWN;
+        state = EnemyState["Spawn"];
+        //lastState = EnemySState.HUNT;
+        lastState = EnemyState["Hunt"];
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
         agent = GetComponent<NavMeshAgent>();
@@ -60,33 +81,37 @@ public class EnemySBase : MonoBehaviour
         // Change states
         if (hurtBox.GetOwnHealth().currentHealth <= 0)
         {
-            state = EnemySState.DIE;
+            //state = EnemySState.DIE;
+            state = EnemyState["Die"];
         }
-        else if (state == EnemySState.HUNT && Time.fixedTime > lastStateInterval + stateInterval)
+        else if (/*state == EnemySState.HUNT*/state == EnemyState["Hunt"] && Time.fixedTime > lastStateInterval + stateInterval)
         {
             if (Random.Range(1, 100) < dodgeChance)
             {
-                state = EnemySState.DODGE;
+                //state = EnemySState.DODGE;
+                state = EnemyState["Dodge"];
             }
             else if (Random.Range(1, 100) < idleChance)
             {
-                state = EnemySState.IDLE;
+                //state = EnemySState.IDLE;
+                state = EnemyState["Idle"];
             }
             lastStateInterval = Time.fixedTime;
         }
-        else if (state == EnemySState.IDLE && Time.fixedTime > lastStateInterval + stateInterval)
+        else if (/*state == EnemySState.IDLE*/state == EnemyState["Idle"] && Time.fixedTime > lastStateInterval + stateInterval)
         {
             if (Random.Range(1, 100) < huntChance)
             {
-                state = EnemySState.HUNT;
+                //state = EnemySState.HUNT;
+                state = EnemyState["Hunt"];
             }
             lastStateInterval = Time.fixedTime;
         }
 
-        CheckEnemyState();
+        //CheckEnemyState();
 
         // Dodge for as long as in dodge state
-        if (state == EnemySState.DODGE)
+        if (/*state == EnemySState.DODGE*/state == EnemyState["Dodge"])
         {
             GetComponent<CharacterController>().Move(dodgeDirection * dodgeSpeed);
         }
@@ -103,7 +128,8 @@ public class EnemySBase : MonoBehaviour
         if (lastState != state)
         {
             // Cleanup last state behaviour
-            switch (lastState)
+
+            /*switch (lastState)
             {
                 case EnemySState.SPAWN:
                     break;
@@ -126,15 +152,43 @@ public class EnemySBase : MonoBehaviour
                     break;
                 default:
                     break;
+            }*/
+
+            if (lastState == EnemyState["Spawn"])
+            {
+
+            }
+            else if (lastState == EnemyState["Idle"])
+            {
+
+            }
+            else if (lastState == EnemyState["Hunt"])
+            {
+                anim.SetBool("Hunt", false);
+                //GetComponent<PlanarMovement>().SetIsMoving(false);
+                agent.isStopped = true;
+            }
+            else if (lastState == EnemyState["Attack"])
+            {
+                anim.SetBool("Attack", false);
+            }
+            else if (lastState == EnemyState["Dodge"])
+            {
+                anim.SetBool("Dodge", false);
+            }
+            else if (lastState == EnemyState["Die"])
+            {
+                anim.SetBool("Die", false);
             }
 
             // Trigger any behaviours of the new state
-            switch (state)
+
+            /*switch (state)
             {
                 case EnemySState.SPAWN:
                     break;
                 case EnemySState.IDLE:
-                    // start idle anim
+                    // start idle ani
                     break;
                 case EnemySState.HUNT:
                     anim.SetBool("Hunt", true);
@@ -154,15 +208,49 @@ public class EnemySBase : MonoBehaviour
                     break;
                 default:
                     break;
+            }*/
+
+            if (state == EnemyState["Spawn"])
+            {
+
+            }
+            else if (state == EnemyState["Idle"])
+            {
+
+            }
+            else if (state == EnemyState["Hunt"])
+            {
+                anim.SetBool("Hunt", true);
+                //GetComponent<PlanarMovement>().SetIsMoving(true);
+                agent.isStopped = false;
+            }
+            else if (state == EnemyState["Attack"])
+            {
+                anim.SetBool("Attack", true);
+            }
+            else if (state == EnemyState["Dodge"])
+            {
+                anim.SetBool("Dodge", true);
+                int dodgeAngle = Random.Range(0, 360);
+                dodgeDirection = Quaternion.AngleAxis(dodgeAngle, Vector3.up) * Vector3.forward;
+            }
+            else if (state == EnemyState["Die"])
+            {
+                anim.SetBool("Die", true);
             }
         }
 
         lastState = state;
     }
 
+    public virtual void ChangeEnemyStateAdditional() { }
+
+    public virtual void CheckEnemyStateAdditional() { }
+
     public void LeaveTemporaryState()
     {
-        state = EnemySState.HUNT;
+        //state = EnemySState.HUNT;
+        state = EnemyState["Hunt"];
         CheckEnemyState();
     }
 
