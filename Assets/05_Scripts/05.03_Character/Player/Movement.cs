@@ -18,6 +18,14 @@ public class Movement : MonoBehaviour
     [SerializeField] private AnimationCurve dashSpeedCurve;
                      private bool isDashing = false;
 
+    [SerializeField] private float knockbackDistance;
+    [SerializeField] private float knockbackDuration;
+                     private float knockbackStartTime;
+                     public float knockbackEndTime { get; private set; }
+                     private Vector3 knockbackDirection;
+    [SerializeField] private AnimationCurve knockbackSpeedCurve;
+                     private bool isKnockbacking = false;
+
 
     private void Start()
     {
@@ -28,6 +36,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         PerformDash();
+        PerformKnockback();
     }
 
     public void Walk(Vector2 direction)
@@ -61,7 +70,6 @@ public class Movement : MonoBehaviour
     {
         if (isDashing)
         {
-            //lerp from 0 to 1
             float progress = Mathf.Clamp01((Time.time - dashStartTime) / dashDuration);
             float easedProgress = dashSpeedCurve.Evaluate(progress);
             float dashSpeed = dashDistance / dashDuration;
@@ -96,13 +104,34 @@ public class Movement : MonoBehaviour
         isDashing = false;
     }
 
-    public void TriggerKnockback()
+    public void TriggerKnockback(Vector3 attackOrigin)
     {
-        Debug.Log("DO A FLIP! (knockbacked)");
+        isKnockbacking = true;
+        Vector3 attackDirection = transform.position - attackOrigin;
+        if (attackDirection.Equals(Vector3.zero))
+        {
+            attackDirection = - 1 * transform.forward;
+        }
+        knockbackDirection = new Vector3(attackDirection.x, 0, attackDirection.z).normalized;
+        animator.Play("knockback");
+        knockbackStartTime = Time.time;
+        knockbackEndTime = knockbackStartTime + knockbackDuration;
     }
 
     private void PerformKnockback()
     {
+        if (isKnockbacking)
+        {
+            float progress = Mathf.Clamp01((Time.time - knockbackStartTime) / knockbackDuration);
+            float easedProgress = knockbackSpeedCurve.Evaluate(progress);
+            float knockbackSpeed = knockbackDistance / knockbackDuration;
+            float currentSpeed = knockbackSpeed * easedProgress;
+            characterController.Move(knockbackDirection * currentSpeed * Time.deltaTime);
 
+            if (knockbackEndTime < Time.time)
+            {
+                isKnockbacking = false;
+            }
+        }
     }
 }

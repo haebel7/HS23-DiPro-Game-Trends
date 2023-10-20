@@ -14,6 +14,7 @@ public class ActionManager : MonoBehaviour
     private InputAction dodge;
     private InputAction attack1;
     private InputAction attack2;
+    private InputAction debugU;
 
     private CHARACTER_STATE currentState = CHARACTER_STATE.MOVING;
     private BUFFERED_MOVE bufferedNextMove = BUFFERED_MOVE.NONE;
@@ -71,10 +72,12 @@ public class ActionManager : MonoBehaviour
         dodge = playerControls.Gameplay.Dodge;
         attack1 = playerControls.Gameplay.Attack;
         attack2 = playerControls.Gameplay.Attack2;
+        debugU = playerControls.Gameplay.TestingU;
 
         dodge.performed += Dash;
         attack1.performed += BasicAttack;
         attack2.performed += FinisherAttack;
+        debugU.performed += TriggerKnockedBack;
     }
 
     private void OnEnable()
@@ -140,12 +143,12 @@ public class ActionManager : MonoBehaviour
             bufferedNextMove = BUFFERED_MOVE.FINISHER_ATTACK;
         }
     }
-    public void TriggerKnockedBack()
+    public void TriggerKnockedBack(InputAction.CallbackContext context)
     {
         if (canBeKnockedBack && gotOutOfKnockedBackAtTime + knockbackImmunityTime < Time.time)
         {
             goToState(CHARACTER_STATE.KNOCKED_BACK);
-            playerMovementScript.TriggerKnockback();
+            playerMovementScript.TriggerKnockback(Vector3.zero);
         }
     }
 
