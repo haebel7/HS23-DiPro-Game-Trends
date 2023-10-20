@@ -15,7 +15,7 @@ public class EnemyRange : EnemySBase
     {
         isInAttackDistance = Vector3.Distance(transform.position, player.position) < attackDistance;
 
-        if (/*state == EnemySState.DIE*/state == EnemyState["Die"])
+        if (state == EnemyState["Die"])
         {
             return;
         }
@@ -40,12 +40,10 @@ public class EnemyRange : EnemySBase
         {
             if (Time.fixedTime > timeLastShot + shotCooldown)
             {
-                //state = EnemySState.ATTACK;
                 state = EnemyState["Attack"];
             }
             else
             {
-                //state = EnemySState.IDLE;
                 state = EnemyState["Idle"];
             }
         }

@@ -7,6 +7,8 @@ public class EnemyBoss : EnemySBase
 {
     [SerializeField]
     private int summonChance;
+    [SerializeField]
+    private GameObject summonEnemy;
 
     private static Dictionary<string, int> EnemyB1State = new Dictionary<string, int>()
     {
@@ -16,7 +18,7 @@ public class EnemyBoss : EnemySBase
 
     void FixedUpdate()
     {
-        if (/*state == EnemySState.DIE*/state == EnemyState["Die"])
+        if (state == EnemyState["Die"])
         {
             return;
         }
@@ -32,12 +34,11 @@ public class EnemyBoss : EnemySBase
         // Boss specific states
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            //state = EnemySState.ATTACK;
             state = EnemyState["Attack"];
         }
         else if (state == EnemyState["Hunt"] && Time.fixedTime > lastStateInterval + stateInterval)
         {
-            if (Random.Range(1, 100) < summonChance)
+            if (enemyList.enemies.Count <= 1 && Random.Range(1, 100) < summonChance)
             {
                 state = EnemyB1State["Summon"];
             }
@@ -68,9 +69,11 @@ public class EnemyBoss : EnemySBase
         }
     }
 
-    public void SummonEnemy()
+    public void SummonEnemies()
     {
-
-        print("Summoned!");
+        Instantiate(summonEnemy, transform.position + Vector3.left, transform.rotation);
+        Instantiate(summonEnemy, transform.position + Vector3.forward, transform.rotation);
+        Instantiate(summonEnemy, transform.position + Vector3.right, transform.rotation);
+        Instantiate(summonEnemy, transform.position + Vector3.back, transform.rotation);
     }
 }
