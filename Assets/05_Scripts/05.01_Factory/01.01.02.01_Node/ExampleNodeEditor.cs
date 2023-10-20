@@ -37,6 +37,7 @@ namespace RuntimeNodeEditor.Examples
                     var ctx = new ContextMenuBuilder()
                     .Add("nodes/Ressource",     CreateRessourceNode)
                     .Add("nodes/Smelter",       CreateSmelterNode)
+                    .Add("nodes/Assembling",    CreateAssemblingNode)
                     .Add("nodes/Inventory",     CreateInventoryNode)
                     .Add("graph/load",          ()=>LoadGraph(_savePath))
                     .Add("graph/save",          ()=>SaveGraph(_savePath))
@@ -105,6 +106,13 @@ namespace RuntimeNodeEditor.Examples
             Graph.Create("03.01_Factory/03.01.01_Nodes/SmelterNode");
             CloseContextMenu();
         }
+
+        private void CreateAssemblingNode()
+        {
+            Graph.Create("03.01_Factory/03.01.01_Nodes/AssemblingNode");
+            CloseContextMenu();
+        }
+
         private void CreateInventoryNode()
         {
             Graph.Create("03.01_Factory/03.01.01_Nodes/InventoryNode");

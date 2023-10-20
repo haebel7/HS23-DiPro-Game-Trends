@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IronRefined
   m_EditorClassIdentifier: 
   _name: IronRefined
-  ownedAmount: 0
+  ownedAmount: 1000

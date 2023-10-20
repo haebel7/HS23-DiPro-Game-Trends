@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CopperRefined
   m_EditorClassIdentifier: 
   _name: CopperRefined
-  ownedAmount: 0
+  ownedAmount: 1000
