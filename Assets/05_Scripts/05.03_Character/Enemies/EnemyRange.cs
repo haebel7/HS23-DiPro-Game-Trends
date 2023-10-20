@@ -15,13 +15,14 @@ public class EnemyRange : EnemySBase
     {
         isInAttackDistance = Vector3.Distance(transform.position, player.position) < attackDistance;
 
-        if (state == EnemySState.DIE)
+        if (/*state == EnemySState.DIE*/state == EnemyState["Die"])
         {
             return;
         }
 
+        ChangeEnemyStateAdditional();
         ChangeEnemyState();
-        ChangeEnemyStateRange();
+        CheckEnemyState();
 
         // When in attack range, aim at player
         if (isInAttackDistance)
@@ -32,18 +33,20 @@ public class EnemyRange : EnemySBase
         }
     }
 
-    private void ChangeEnemyStateRange()
+    public override void ChangeEnemyStateAdditional()
     {
         // Ranged specific state changes
         if (isInAttackDistance)
         {
             if (Time.fixedTime > timeLastShot + shotCooldown)
             {
-                state = EnemySState.ATTACK;
+                //state = EnemySState.ATTACK;
+                state = EnemyState["Attack"];
             }
             else
             {
-                state = EnemySState.IDLE;
+                //state = EnemySState.IDLE;
+                state = EnemyState["Idle"];
             }
         }
     }
