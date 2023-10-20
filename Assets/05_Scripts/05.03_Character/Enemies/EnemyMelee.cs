@@ -5,7 +5,7 @@ public class EnemyMelee : EnemySBase
 {
     void FixedUpdate()
     {
-        if (/*state == EnemySState.DIE*/state == EnemyState["Die"])
+        if (state == EnemyState["Die"])
         {
             return;
         }
@@ -20,7 +20,6 @@ public class EnemyMelee : EnemySBase
         // Melee specific states
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            //state = EnemySState.ATTACK;
             state = EnemyState["Attack"];
         }
     }

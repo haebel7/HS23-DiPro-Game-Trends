@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageType: {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
-  damageStat: {fileID: 11400000, guid: 3197ea430f726b24392cd3b98ba5b637, type: 2}
+  damageStat: 0
 --- !u!1 &2290559584761157160
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2290559584761157160}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.94, y: 0.6, z: 8.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6161bbe0205134897780220ae4bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  enemyList: {fileID: 11400000, guid: 373fc0b22fa68e74585b4ab9d6bbddd8, type: 2}
   state: 0
   attackDistance: 2
   idleChance: 20
