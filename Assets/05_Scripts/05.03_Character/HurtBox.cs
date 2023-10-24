@@ -10,6 +10,9 @@ public class HurtBox : MonoBehaviour
 
     public List<DamageType> canBeHitBy;
 
+    [SerializeField]
+    private Transform dmgNumberpf;
+
     private HealthObject ownHealth;
 
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class HurtBox : MonoBehaviour
         Debug.Log(damageType);
         if (canBeHitBy.Contains(damageType))
         {
+            DamagePopup.Create(dmgNumberpf, gameObject.transform.position, damageAmount, damageType);
             ownHealth.currentHealth -= damageAmount;
             CheckDied();
         }

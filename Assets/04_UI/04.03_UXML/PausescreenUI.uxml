@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/04_UI/04.02_Stylesheets/UIstyle.uss?fileID=7433441132597879392&amp;guid=54dc195a78b2702408d5c481c4fbaa10&amp;type=3#UIstyle" />
+    <ui:VisualElement name="container" style="flex-grow: 1; background-color: rgb(0, 0, 0); background-image: none;">
+        <ui:VisualElement name="menu-wrapper" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 12%; height: 22%; position: absolute; left: 50%; top: 50%; translate: -50% -50%; align-items: center; justify-content: space-around; background-image: url(&apos;project://database/Assets/04_UI/04.04_UIsprites/04.04.11_MenuWindow.png?fileID=2800000&amp;guid=808205d4303f83b4fa1576fed6a0361e&amp;type=3#04.04.11_MenuWindow&apos;); display: flex; margin-top: 0; margin-bottom: 0; padding-top: 0.5%; padding-bottom: 0.5%;">
+            <ui:VisualElement class="menu-button-wrapper">
+                <ui:Button text="SAVE GAME" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" class="menu-button" />
+            </ui:VisualElement>
+            <ui:VisualElement class="menu-button-wrapper" style="flex-grow: 0;">
+                <ui:Button text="SETTINGS" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" />
+            </ui:VisualElement>
+            <ui:VisualElement class="menu-button-wrapper" style="flex-grow: 0;">
+                <ui:Button text="BACK TO START" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" />
+            </ui:VisualElement>
+            <ui:VisualElement class="menu-button-wrapper" style="flex-grow: 0;">
+                <ui:Button text="QUIT GAME" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
