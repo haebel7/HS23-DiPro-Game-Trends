@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 1513505274134292817}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,7 +424,8 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 291376cb970c4db4a8d876dc57e8db31, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
-  dmgNumberpf: {fileID: 0}
+  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+    type: 3}
 --- !u!1 &2489020529057869611
 GameObject:
   m_ObjectHideFlags: 0

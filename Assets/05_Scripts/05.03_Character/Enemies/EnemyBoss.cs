@@ -13,6 +13,10 @@ public class EnemyBoss : EnemySBase
     private int chargeChance;
     [SerializeField]
     private float chargeSpeed = 10;
+    [SerializeField]
+    private LayerMask ignoreCharactersLayer;
+    [SerializeField]
+    private LayerMask characterLayer;
 
     private bool isCharging = false;
 
@@ -75,6 +79,7 @@ public class EnemyBoss : EnemySBase
             {
                 anim.SetBool("Charge", false);
                 isLookingAtPlayer = false;
+                gameObject.layer = (int) Mathf.Log(characterLayer.value, 2);
             }
             else if (lastState == EnemyB1State["Summon"])
             {
@@ -90,6 +95,7 @@ public class EnemyBoss : EnemySBase
             {
                 anim.SetBool("Charge", true);
                 isLookingAtPlayer = true;
+                gameObject.layer = (int) Mathf.Log(ignoreCharactersLayer.value, 2);
             }
             else if (state == EnemyB1State["Summon"])
             {
@@ -117,7 +123,7 @@ public class EnemyBoss : EnemySBase
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (isCharging && !hit.gameObject.GetComponent<CharacterController>())
+        if (isCharging /*&& !hit.gameObject.GetComponent<CharacterController>()*/)
         {
             isCharging = false;
             state = EnemyB1State["CollidedWhileCharging"];

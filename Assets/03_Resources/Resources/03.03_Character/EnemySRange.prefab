@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2452390001385046761}
   - component: {fileID: 5559073572310852992}
   - component: {fileID: 1309348605765428472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySRange
   m_TagString: Agent
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 3535875708066200582}
   - component: {fileID: 1930470730276784694}
   - component: {fileID: 1252383151770321457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

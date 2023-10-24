@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 290144}
   - component: {fileID: 290143}
   - component: {fileID: 290142}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoundingWall (4)
   m_TagString: BoundingWall
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 67839754}
   - component: {fileID: 67839753}
   - component: {fileID: 67839752}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 194610344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2944682, y: -12.746721, z: 1.2845984}
+  m_LocalPosition: {x: 10.4, y: -22.7, z: 1.2845984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,20 +378,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySMelee
       objectReference: {fileID: 0}
-    - target: {fileID: 2290559584761157160, guid: 877b13e63190ac2478612dcd1e320e6f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7392368715447742480, guid: 877b13e63190ac2478612dcd1e320e6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.194092
+      value: 0.9114399
       objectReference: {fileID: 0}
     - target: {fileID: 7392368715447742480, guid: 877b13e63190ac2478612dcd1e320e6f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06672764
+      value: -9.886552
       objectReference: {fileID: 0}
     - target: {fileID: 7392368715447742480, guid: 877b13e63190ac2478612dcd1e320e6f,
         type: 3}
@@ -568,7 +563,7 @@ GameObject:
   - component: {fileID: 528498837}
   - component: {fileID: 528498836}
   - component: {fileID: 528498835}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoundingWall (2)
   m_TagString: BoundingWall
   m_Icon: {fileID: 0}
@@ -856,7 +851,7 @@ GameObject:
   - component: {fileID: 674784977}
   - component: {fileID: 674784976}
   - component: {fileID: 674784975}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoundingWall (3)
   m_TagString: BoundingWall
   m_Icon: {fileID: 0}
@@ -961,7 +956,7 @@ GameObject:
   - component: {fileID: 973752368}
   - component: {fileID: 973752367}
   - component: {fileID: 973752366}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoundingWall
   m_TagString: BoundingWall
   m_Icon: {fileID: 0}
@@ -1132,7 +1127,7 @@ GameObject:
   - component: {fileID: 1730564523}
   - component: {fileID: 1730564522}
   - component: {fileID: 1730564521}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,12 +1337,12 @@ PrefabInstance:
     - target: {fileID: 2835315973714604466, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.494175
+      value: 5.6113567
       objectReference: {fileID: 0}
     - target: {fileID: 2835315973714604466, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.066729546
+      value: -9.88655
       objectReference: {fileID: 0}
     - target: {fileID: 2835315973714604466, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
         type: 3}
@@ -1394,11 +1389,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySRange
       objectReference: {fileID: 0}
-    - target: {fileID: 3223468154324146823, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1416,7 +1406,7 @@ GameObject:
   - component: {fileID: 1965452526}
   - component: {fileID: 1965452525}
   - component: {fileID: 1965452524}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoundingWall (1)
   m_TagString: BoundingWall
   m_Icon: {fileID: 0}
@@ -1520,12 +1510,12 @@ PrefabInstance:
     - target: {fileID: 910964180799347218, guid: b0df772dd34869349a9920df7705b3ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.4
+      value: 13.505531
       objectReference: {fileID: 0}
     - target: {fileID: 910964180799347218, guid: b0df772dd34869349a9920df7705b3ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: -9.353279
       objectReference: {fileID: 0}
     - target: {fileID: 910964180799347218, guid: b0df772dd34869349a9920df7705b3ca,
         type: 3}
@@ -1572,6 +1562,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 3620604099934640283, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
+      propertyPath: characterLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3620604099934640283, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
+      propertyPath: ignoreCharactersLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332851463276803186, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1585,12 +1590,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1513505274134292817, guid: dab623320c4b80546bf274ef63053bc5,
+    - target: {fileID: 179141195332900656, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
-      propertyPath: dmgNumberpf
-      value: 
-      objectReference: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013360291929541413, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489020529057869611, guid: dab623320c4b80546bf274ef63053bc5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3870974312689776145, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1640,6 +1654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153775304587472429, guid: dab623320c4b80546bf274ef63053bc5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8794470268670579465, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
