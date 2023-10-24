@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
@@ -10,7 +11,7 @@ public class RoomSpawner : MonoBehaviour
 
     private void Start()
     {
-        if(name == "SpawnPoint")
+        if (name == "SpawnPoint")
         {
             spawned = true;
         }
@@ -20,7 +21,7 @@ public class RoomSpawner : MonoBehaviour
         }
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f); // Delays Spawn()
+        Invoke("Spawn", 1f); // Delays Spawn()
     }
 
     private void Spawn()
@@ -40,16 +41,26 @@ public class RoomSpawner : MonoBehaviour
         {
             GameObject newRoom = Instantiate(room, transform.position, room.transform.rotation);
             GameObject currentRoom = gameObject.transform.parent.gameObject;
+            GameObject currentExitDoor = null;
             GameObject currentExit = null;
 
             // set entry and exit of new room.
             string currentExitDirection = name[^1..];
+            
 
             for (int i = 0; i < currentRoom.transform.childCount; i++)
             {
                 if (currentRoom.transform.GetChild(i).name == "Door" + currentExitDirection)
                 {
-                    currentExit = currentRoom.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                    currentExitDoor = currentRoom.transform.GetChild(i).gameObject;
+                    
+                    for (int j = 0; j < currentExitDoor.transform.childCount; j++)
+                    {
+                        if (currentExitDoor.transform.GetChild(j).CompareTag("Exit"))
+                        {
+                            currentExit = currentExitDoor.transform.GetChild(j).gameObject;
+                        }
+                    }
                 }
             }
 
@@ -71,7 +82,7 @@ public class RoomSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("Entry next room unknown!");
+                Debug.LogWarning("Entry next room unknown!");
             }
 
             spawned = true;
@@ -124,7 +135,7 @@ public class RoomSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("Name of spawn point unknown!");
+            Debug.LogWarning("Name of spawn point unknown!");
         }
 
         return room;
@@ -132,38 +143,38 @@ public class RoomSpawner : MonoBehaviour
 
     private GameObject GetBossRoom()
     {
-        string bossRoomName = null;
+        string bossRoomTag = null;
 
-        if(name == "SpawnPointN")
+        if (name == "SpawnPointN")
         {
-            bossRoomName = "S";
+            bossRoomTag = "S";
         }
-        else if(name == "SpawnPointS")
+        else if (name == "SpawnPointS")
         {
-            bossRoomName = "N";
+            bossRoomTag = "N";
         }
         else if (name == "SpawnPointE")
         {
-            bossRoomName = "W";
+            bossRoomTag = "W";
         }
         else if (name == "SpawnPointW")
         {
-            bossRoomName = "E";
+            bossRoomTag = "E";
         }
         else
         {
-            Debug.Log("Unknown name of spawn point!");
+            Debug.LogWarning("Unknown name of spawn point!");
         }
 
         for (int i = 0; i < templates.bossRooms.Length; i++)
         {
-            if (bossRoomName == templates.bossRooms[i].name)
+            if (templates.bossRooms[i].CompareTag(bossRoomTag))
             {
                 return templates.bossRooms[i];
             }
         }
 
-        Debug.Log("Room not found!");
+        Debug.LogWarning("Room not found!");
         return null;
     }
 

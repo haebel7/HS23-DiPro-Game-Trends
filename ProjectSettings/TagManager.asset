@@ -10,6 +10,11 @@ TagManager:
   - Exit
   - Entry
   - Agent
+  - Undefined
+  - N
+  - E
+  - S
+  - W
   layers:
   - Default
   - TransparentFX
