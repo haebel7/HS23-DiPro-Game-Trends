@@ -1562,21 +1562,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 3620604099934640283, guid: b0df772dd34869349a9920df7705b3ca,
-        type: 3}
-      propertyPath: characterLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3620604099934640283, guid: b0df772dd34869349a9920df7705b3ca,
-        type: 3}
-      propertyPath: ignoreCharactersLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332851463276803186, guid: b0df772dd34869349a9920df7705b3ca,
-        type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1590,21 +1575,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 179141195332900656, guid: dab623320c4b80546bf274ef63053bc5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013360291929541413, guid: dab623320c4b80546bf274ef63053bc5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2489020529057869611, guid: dab623320c4b80546bf274ef63053bc5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3870974312689776145, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1654,11 +1624,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153775304587472429, guid: dab623320c4b80546bf274ef63053bc5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8794470268670579465, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}

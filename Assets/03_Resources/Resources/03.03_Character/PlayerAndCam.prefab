@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8349568448312557437}
   - component: {fileID: 344831764394104707}
   - component: {fileID: 2965654132149575095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 9086349977430053161}
   - component: {fileID: 9145640201587838096}
   - component: {fileID: 1513505274134292817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 192653487505449199}
   - component: {fileID: 813195479423526351}
   - component: {fileID: 196458585742686570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061235108386822692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCameraRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

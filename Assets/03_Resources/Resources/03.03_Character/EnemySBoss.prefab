@@ -65,6 +65,12 @@ MonoBehaviour:
     type: 3}
   chargeChance: 30
   chargeSpeed: 0.3
+  ignoreCharactersLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3444815263504390170
 MonoBehaviour:
   m_ObjectHideFlags: 0
