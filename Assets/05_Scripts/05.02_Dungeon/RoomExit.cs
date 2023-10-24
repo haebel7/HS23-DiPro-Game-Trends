@@ -10,8 +10,6 @@ public class RoomExit : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entred OnTriggerEnter");
-
         if (other.CompareTag("Player"))
         {
             // Disable player input
@@ -21,8 +19,6 @@ public class RoomExit : MonoBehaviour
 
             //Debug.Log("action map: " + actionMap);
             actionMap.Disable();
-            //Debug.Log("actionMap enabled? " + actionMap.enabled);
-            
 
             // Fade out
             // To do
