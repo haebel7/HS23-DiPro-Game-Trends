@@ -9,6 +9,7 @@ TagManager:
   - SpawnPoint
   - Exit
   - Entry
+  - Agent
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: top
+    uniqueID: 642356687
     locked: 0
