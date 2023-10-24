@@ -1,160 +1,75 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-
-
-    /*
-        running
-        ----------------------
-        speedup
-        maxspeed
-        stopspeed
-        slide?
-        turnspeed?
-        turning around?
-
-
-        attack and move priority
-        0. getting hit
-        1. dash
-        2. attack
-        3. walk
-
-     */
-
-
+    private Animator animator;
+    private CharacterController characterController;
 
     [SerializeField] private float movespeed;
-
-    //TODO: playerstatus with priority hierarchy/state machine
-    private bool canWalk = true;
-    private bool canDash = true;
-    private bool isDashing = false;
-
 
     [SerializeField] private float dashDistance;
     [SerializeField] private float dashDuration;
                      private float dashStartTime;
-                     private float dashEndTime;
-    [SerializeField] private float dashCooldown;
+                     public float dashEndTime { get; private set; }
                      private Vector3 dashDirection;
     [SerializeField] private AnimationCurve dashSpeedCurve;
+                     private bool isDashing = false;
 
-    private CharacterController characterController;
-    private PlayerControls playerControls;
-    private InputAction move;
-    private InputAction mousePosition;
-    private InputAction attack1;
-    private InputAction attack2;
-    private InputAction dodge;
+    [SerializeField] private float knockbackDistance;
+    [SerializeField] private float knockbackDuration;
+                     private float knockbackStartTime;
+                     public float knockbackEndTime { get; private set; }
+                     private Vector3 knockbackDirection;
+    [SerializeField] private AnimationCurve knockbackSpeedCurve;
+                     private bool isKnockbacking = false;
 
-    private Vector2 moveDirection;
-    private Vector2 mouseCoordinates;
 
-    private void Awake()
+    private void Start()
     {
+        animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-
-        playerControls = new PlayerControls();
-        move = playerControls.Gameplay.Move;
-        mousePosition = playerControls.Gameplay.MousePosition;
-        attack1 = playerControls.Gameplay.Attack;
-        attack2 = playerControls.Gameplay.Attack2;
-        dodge = playerControls.Gameplay.Dodge;
-
-        attack1.performed += Attack1;
-        attack2.performed += Attack2;
-        dodge.performed += TriggerDash;
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Gameplay.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerControls.Gameplay.Disable();
     }
 
     private void Update()
     {
-        LookAtCursor();
-        Walk();
         PerformDash();
+        PerformKnockback();
     }
 
-    private void Walk()
+    public void Walk(Vector2 direction)
     {
-        if (canWalk)
+        if (direction.magnitude >= 0.1f)
         {
-            Vector2 direction = move.ReadValue<Vector2>();
-
-            if (direction.magnitude >= 0.1f)
-            {
-                characterController.Move(GetPerspectiveDirection(direction) * movespeed * Time.deltaTime);
-            }
+            float rotationToLook = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0f, rotationToLook, 0f);
+            characterController.Move(GetPerspectiveDirection(direction) * movespeed * Time.deltaTime);
         }
     }
 
-    private void LookAtCursor()
+    public void TriggerDash(Vector2 inputDirection, Vector2 mouseCoords)
     {
-        mouseCoordinates = mousePosition.ReadValue<Vector2>();
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        float xDifference = mouseCoordinates.x - screenPos.x;
-        float yDifference = mouseCoordinates.y - screenPos.y;
-        Vector2 posDifference = new Vector2(xDifference, yDifference).normalized;
-        float rotationToLookAtCursor = Mathf.Atan2(posDifference.x, posDifference.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0f, rotationToLookAtCursor, 0f);
-    }
-
-    private void Attack1(InputAction.CallbackContext context)
-    {
-        Animator naimtorn = GetComponent<Animator>();
-        naimtorn.SetBool("isAttacking", true);
-
-    }
-
-    public void StopAttack()
-    {
-        Animator naimtorn = GetComponent<Animator>();
-        naimtorn.SetBool("isAttacking", false);
-    }
-
-    private void Attack2(InputAction.CallbackContext context)
-    {
-        Debug.Log("attack2");
-    }
-
-    private void TriggerDash(InputAction.CallbackContext context)
-    {
-        if (canDash)
+        isDashing = true;
+        dashDirection = GetPerspectiveDirection(inputDirection);
+        if (inputDirection.Equals(Vector2.zero))
         {
-            canWalk = false;
-            canDash = false;
-            isDashing = true;
-            Vector2 inputDirection = move.ReadValue<Vector2>();
+            LookAtCursor(mouseCoords);
+            dashDirection = transform.forward;
+        } else
+        {
             dashDirection = GetPerspectiveDirection(inputDirection);
-            if (inputDirection.Equals(Vector2.zero))
-            {
-                dashDirection = transform.forward;
-            } else
-            {
-                dashDirection = GetPerspectiveDirection(inputDirection);
-            }
-            dashStartTime = Time.time;
-            dashEndTime = dashStartTime + dashDuration;
         }
+        animator.Play("dash");
+        dashStartTime = Time.time;
+        dashEndTime = dashStartTime + dashDuration;
     }
 
     private void PerformDash()
     {
         if (isDashing)
         {
-            //lerp from 0 to 1
             float progress = Mathf.Clamp01((Time.time - dashStartTime) / dashDuration);
             float easedProgress = dashSpeedCurve.Evaluate(progress);
             float dashSpeed = dashDistance / dashDuration;
@@ -164,18 +79,59 @@ public class Movement : MonoBehaviour
             if (dashEndTime < Time.time)
             {
                 isDashing = false;
-                canWalk = true;
             }
         }
-        if (dashStartTime + dashCooldown < Time.time)
-        {
-                canDash = true;
-        }
+    }
+
+    private void LookAtCursor(Vector2 mouseCoordinates)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        float xDifference = mouseCoordinates.x - screenPos.x;
+        float yDifference = mouseCoordinates.y - screenPos.y;
+        Vector2 posDifference = new Vector2(xDifference, yDifference).normalized;
+        float rotationToLookAtCursor = Mathf.Atan2(posDifference.x, posDifference.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0f, rotationToLookAtCursor, 0f);
     }
 
     private Vector3 GetPerspectiveDirection(Vector2 inputDirection)
     {
         float cameraAdjustedInputDirection = Mathf.Atan2(inputDirection.x, inputDirection.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
         return Quaternion.Euler(0, cameraAdjustedInputDirection, 0) * Vector3.forward;
+    }
+
+    public void InterruptDash()
+    {
+        isDashing = false;
+    }
+
+    public void TriggerKnockback(Vector3 attackOrigin)
+    {
+        isKnockbacking = true;
+        Vector3 attackDirection = transform.position - attackOrigin;
+        if (attackDirection.Equals(Vector3.zero))
+        {
+            attackDirection = - 1 * transform.forward;
+        }
+        knockbackDirection = new Vector3(attackDirection.x, 0, attackDirection.z).normalized;
+        animator.Play("knockback");
+        knockbackStartTime = Time.time;
+        knockbackEndTime = knockbackStartTime + knockbackDuration;
+    }
+
+    private void PerformKnockback()
+    {
+        if (isKnockbacking)
+        {
+            float progress = Mathf.Clamp01((Time.time - knockbackStartTime) / knockbackDuration);
+            float easedProgress = knockbackSpeedCurve.Evaluate(progress);
+            float knockbackSpeed = knockbackDistance / knockbackDuration;
+            float currentSpeed = knockbackSpeed * easedProgress;
+            characterController.Move(knockbackDirection * currentSpeed * Time.deltaTime);
+
+            if (knockbackEndTime < Time.time)
+            {
+                isKnockbacking = false;
+            }
+        }
     }
 }

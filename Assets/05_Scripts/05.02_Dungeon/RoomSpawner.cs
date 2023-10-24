@@ -19,20 +19,16 @@ public class RoomSpawner : MonoBehaviour
             spawned = false;
         }
 
-        GameObject roomTemplates = GameObject.FindGameObjectWithTag("Rooms");
-        templates = roomTemplates.GetComponent<RoomTemplates>();
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f); // Delays Spawn()
     }
 
     private void Spawn()
     {
-        templates.spawnPoints.Add(gameObject);
-
         GameObject room = null;
 
         if (spawned == false && templates.roomsCount > 1)
         {
-            
             room = GetRoom();
         }
         else if (spawned == false && templates.rooms.Count == templates.dungeonSize - 1)
@@ -42,7 +38,42 @@ public class RoomSpawner : MonoBehaviour
 
         if (room != null)
         {
-            Instantiate(room, transform.position, room.transform.rotation);
+            GameObject newRoom = Instantiate(room, transform.position, room.transform.rotation);
+            GameObject currentRoom = gameObject.transform.parent.gameObject;
+            GameObject currentExit = null;
+
+            // set entry and exit of new room.
+            string currentExitDirection = name[^1..];
+
+            for (int i = 0; i < currentRoom.transform.childCount; i++)
+            {
+                if (currentRoom.transform.GetChild(i).name == "Door" + currentExitDirection)
+                {
+                    currentExit = currentRoom.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                }
+            }
+
+            if (currentExitDirection == "N")
+            {
+                newRoom.GetComponent<AddRoom>().SetEntry("S", currentExit);
+            }
+            else if (currentExitDirection == "E")
+            {
+                newRoom.GetComponent<AddRoom>().SetEntry("W", currentExit);
+            }
+            else if (currentExitDirection == "S")
+            {
+                newRoom.GetComponent<AddRoom>().SetEntry("N", currentExit);
+            }
+            else if (currentExitDirection == "W")
+            {
+                newRoom.GetComponent<AddRoom>().SetEntry("E", currentExit);
+            }
+            else
+            {
+                Debug.Log("Entry next room unknown!");
+            }
+
             spawned = true;
             templates.roomsCount--;
         }
@@ -117,7 +148,7 @@ public class RoomSpawner : MonoBehaviour
         }
         else if (name == "SpawnPointW")
         {
-            bossRoomName = "S";
+            bossRoomName = "E";
         }
         else
         {
@@ -140,12 +171,6 @@ public class RoomSpawner : MonoBehaviour
     {
         if (other.CompareTag("SpawnPoint"))
         {
-            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
-            {
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-
             spawned = true;
         }
     }

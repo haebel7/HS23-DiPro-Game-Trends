@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Rooms
+  - Door
   - SpawnPoint
-  - BoundingWall
-  - Agent
+  - Exit
+  - Entry
   layers:
   - Default
   - TransparentFX
@@ -43,7 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Top
-    uniqueID: 3885224433
     locked: 0

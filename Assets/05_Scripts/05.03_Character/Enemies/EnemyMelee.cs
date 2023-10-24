@@ -3,19 +3,24 @@ using UnityEngine;
 
 public class EnemyMelee : EnemySBase
 {
-
     void FixedUpdate()
     {
+        if (state == EnemyState["Die"])
+        {
+            return;
+        }
+
+        ChangeEnemyStateAdditional();
         ChangeEnemyState();
-        ChangeEnemyStateMelee();
+        CheckEnemyState();
     }
 
-    private void ChangeEnemyStateMelee()
+    public override void ChangeEnemyStateAdditional()
     {
         // Melee specific states
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            state = EnemySState.ATTACK;
+            state = EnemyState["Attack"];
         }
     }
 }
