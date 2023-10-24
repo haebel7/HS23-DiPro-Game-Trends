@@ -16,10 +16,10 @@ MonoBehaviour:
   knockBack: 0
   nextBasicAttack: {fileID: 11400000, guid: 12e36de5791bf7a4099ef79b5f3c8497, type: 2}
   nextFinisherAttack: {fileID: 11400000, guid: 3596fc655aa608f4c8ff84948e9a9291, type: 2}
-  moveDistance: 3
+  moveDistance: 10
   moveDuration: 0.5
-  moveStartTime: 11.858819
-  moveEndTime: 11.858819
+  moveStartTime: 19.174162
+  moveEndTime: 19.674162
   moveSpeedCurve:
     serializedVersion: 2
     m_Curve:

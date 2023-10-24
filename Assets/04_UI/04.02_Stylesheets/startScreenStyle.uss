@@ -11,4 +11,20 @@
     padding-left: 0;
     margin-top: 1.5%;
     min-width: 15%;
+    transition-duration: 0.2s;
+}
+
+.button:hover {
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.01_Technos-PKDZP%20SDF.asset?fileID=11400000&guid=defeed33c567cbe468b27c7fb685d691&type=2#Technos-PKDZP SDF');
+    font-size: 20px;
+    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.10_ButtonHover.png?fileID=2800000&guid=bcb9424755989724d8d24c640ecbb802&type=3#04.04.10_ButtonHover');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding-top: 1.5%;
+    padding-right: 0;
+    padding-bottom: 1.5%;
+    padding-left: 0;
+    margin-top: 1.5%;
+    min-width: 15%;
 }

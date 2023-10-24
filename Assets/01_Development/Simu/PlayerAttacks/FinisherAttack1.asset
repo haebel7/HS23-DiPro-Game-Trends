@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   knockBack: 0
-  possibleComboAttacks: []
-  movementDistance: 0
-  movementDuration: 0
-  movementSpeedCurve:
+  nextBasicAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
+  nextFinisherAttack: {fileID: 11400000, guid: 4e3040d9394d5694fb5fc2007efef620, type: 2}
+  moveDistance: 0
+  moveDuration: 0
+  moveStartTime: 0
+  moveEndTime: 0
+  moveSpeedCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animationName: 
+  animationName: samplefinisher0

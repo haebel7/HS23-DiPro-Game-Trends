@@ -155,6 +155,8 @@ Transform:
   - {fileID: 1540933560}
   - {fileID: 1389324185}
   - {fileID: 1193144488}
+  - {fileID: 1660793491}
+  - {fileID: 1266966108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302379124
@@ -343,6 +345,55 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 619133a4b00b306409952a8118e4ef7a,
     type: 3}
   m_SortingOrder: 0
+--- !u!1 &1266966107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266966108}
+  - component: {fileID: 1266966109}
+  m_Layer: 5
+  m_Name: PausescreenUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266966108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266966107}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111686134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1266966109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266966107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: dd879e97b193d7d45bd39f384fd83f76, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 45d09d01f157bc94ab276db8d0d65f06,
+    type: 3}
+  m_SortingOrder: 0
 --- !u!1 &1389324184
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0a9d887337b574fa58d882329d782f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  machineButtonBackground: {fileID: 21300000, guid: 8714867624fc94542ad4331ce978b33e,
+    type: 3}
+  machineWrapperBackground: {fileID: 21300000, guid: 49db09e5a5903f64e860afd9d2b93ec4,
+    type: 3}
 --- !u!1 &1540933559
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1540933560
 Transform:
   m_ObjectHideFlags: 0
@@ -468,6 +523,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1365c7dcb6fa3584bbeee030f5582aed, type: 2}
+--- !u!1 &1660793490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660793491}
+  - component: {fileID: 1660793492}
+  m_Layer: 0
+  m_Name: DeathscreenUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1660793491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660793490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111686134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1660793492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660793490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: dd879e97b193d7d45bd39f384fd83f76, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 03734a36015f5f342b74300d3d80d8fe,
+    type: 3}
+  m_SortingOrder: 0
 --- !u!1 &2040471650
 GameObject:
   m_ObjectHideFlags: 0

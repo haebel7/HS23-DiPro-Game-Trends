@@ -15,7 +15,7 @@ public class RoomExit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Disable player input
-            PlayerControls playerControls = other.transform.GetComponent<Movement>().playerControls;
+            PlayerControls playerControls = other.transform.GetComponent<ActionManager>().playerControls;
             InputActionAsset asset = playerControls.asset;
             InputActionMap actionMap = asset.FindActionMap("Gameplay");
             actionMap.Disable();
