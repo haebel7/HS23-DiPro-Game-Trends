@@ -9,9 +9,9 @@ public class RoomTemplates : MonoBehaviour
     public int roomsCount;
 
     public List<GameObject> northRooms;
+    public List<GameObject> eastRooms;
     public List<GameObject> southRooms;
     public List<GameObject> westRooms;
-    public List<GameObject> eastRooms;
     public GameObject closedRoom;
     public GameObject[] bossRooms;
     public List<GameObject> rooms;
