@@ -10,14 +10,14 @@ public class RoomExit : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entred OnTriggerEnter");
-
         if (other.CompareTag("Player"))
         {
             // Disable player input
             PlayerControls playerControls = other.transform.GetComponent<ActionManager>().playerControls;
             InputActionAsset asset = playerControls.asset;
             InputActionMap actionMap = asset.FindActionMap("Gameplay");
+
+            //Debug.Log("action map: " + actionMap);
             actionMap.Disable();
 
             // Fade out
@@ -27,8 +27,13 @@ public class RoomExit : MonoBehaviour
 
 
             // Move player to next room
+            //Debug.Log("nextRoomEntry: " + nextRoomEntry);
+            //Debug.Log("other.transform.position: " + other.transform.position);
+            //Debug.Log("nextRoomEntry.transform.position: " + nextRoomEntry.transform.position);
+
             other.transform.position = nextRoomEntry.transform.position;
-            actionMap.Enable();
+            //Debug.Log("other.transform.position: " + other.transform.position);
+            //actionMap.Enable();
 
             // Deactivate current room
 

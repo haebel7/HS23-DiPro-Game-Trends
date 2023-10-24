@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,14 @@ using UnityEngine;
 public class AddRoom : MonoBehaviour
 {
     private RoomTemplates templates;
-    public string entryDirect = "";
-    public string exitDirect = "";
-    public GameObject entry;
-    public GameObject exit;
+    private string entryDirect = "";
+    private string exitDirect = "";
+    private GameObject entry;
+    private GameObject exit;
 
     private void Start()
     {
-        GameObject room = GameObject.FindGameObjectWithTag("Rooms");
-        templates = room.GetComponent<RoomTemplates>();
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(gameObject);
     }
 
@@ -31,9 +31,15 @@ public class AddRoom : MonoBehaviour
             {
                 entryDirect = door.name[^1..];
                 door.tag = "Entry";
+
+                // For debugging
+                door.transform.Find("ShowDoor").GetComponent<MeshRenderer>().material.mainTexture = Resources.Load<Texture>("prototype_512x512_green3");
+
+                
                 doorFunction = (GameObject)Instantiate(Resources.Load("Entry"), door.transform.position, Quaternion.identity);
                 entry = doorFunction;
-            } else if (door.CompareTag("Door") && door.name[^1..] != entryDirect)
+            }
+            else if (door.CompareTag("Door") && door.name[^1..] != entryDirect)
             {
                 exitDirect = door.name[^1..];
                 door.tag = "Exit";
