@@ -20,6 +20,7 @@ namespace RuntimeNodeEditor
         public TMP_Text                     headerText;
         public GameObject                   draggableBody;
 
+        private int                         triggerCounter = 0;
         private NodeDraggablePanel          _dragPanel;
         private RectTransform               _panelRectTransform;
         private INodeEvents                 _nodeEvents;
@@ -38,6 +39,17 @@ namespace RuntimeNodeEditor
             _dragPanel          = draggableBody.AddComponent<NodeDraggablePanel>();
             _dragPanel.Init(this, _nodeEvents);
             SetPosition(pos);
+        }
+        public int getTriggerCounter() { return triggerCounter; }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            triggerCounter++;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            triggerCounter--;
         }
 
         public virtual void Setup() { }
@@ -86,6 +98,9 @@ namespace RuntimeNodeEditor
 
         public void SetPosition(Vector2 pos)
         {
+            int multiplier = 20;
+            pos.x = (float)(Math.Round(pos.x / multiplier) * multiplier);
+            pos.y = (float)(Math.Round(pos.y / multiplier) * multiplier);
             _panelRectTransform.localPosition = pos;
         }
 

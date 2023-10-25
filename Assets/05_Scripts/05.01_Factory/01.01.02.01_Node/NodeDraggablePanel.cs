@@ -29,6 +29,5 @@ namespace RuntimeNodeEditor
         {
             _events.InvokeNodePointerDrag(_ownerNode, eventData);
         }
-
     }
 }
