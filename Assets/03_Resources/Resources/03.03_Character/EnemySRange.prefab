@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2452390001385046761}
   - component: {fileID: 5559073572310852992}
   - component: {fileID: 1309348605765428472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySRange
   m_TagString: Agent
   m_Icon: {fileID: 0}
@@ -77,6 +77,8 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 4eef5b99ffaf48e4eb8f9e6cabc0af0c, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: d1b3a2f99e542dc49bd246e09701c397, type: 2}
+  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+    type: 3}
 --- !u!95 &2452390001385046761
 Animator:
   serializedVersion: 5
@@ -157,7 +159,7 @@ GameObject:
   - component: {fileID: 3535875708066200582}
   - component: {fileID: 1930470730276784694}
   - component: {fileID: 1252383151770321457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

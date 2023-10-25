@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5463759150118080598}
   - component: {fileID: 8470775533859802633}
   - component: {fileID: 1807852600189644168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 6573155651310757542}
   - component: {fileID: 4382050207837017118}
   - component: {fileID: 8501478881570608527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySMelee
   m_TagString: Agent
   m_Icon: {fileID: 0}
@@ -195,6 +195,8 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 4eef5b99ffaf48e4eb8f9e6cabc0af0c, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: d1b3a2f99e542dc49bd246e09701c397, type: 2}
+  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+    type: 3}
 --- !u!95 &6573155651310757542
 Animator:
   serializedVersion: 5
@@ -275,7 +277,7 @@ GameObject:
   - component: {fileID: 1395928467420235330}
   - component: {fileID: 2297430576900367842}
   - component: {fileID: 1287612145073029699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

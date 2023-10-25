@@ -14,7 +14,7 @@ public class DamagePopup : MonoBehaviour
 
     public static DamagePopup Create(Transform pfDamagePopup, Vector3 position, int damageAmount, DamageType damageType)
     {
-        Transform damagePopupTransform = Instantiate(pfDamagePopup, position , Quaternion.Euler(new Vector3(30f, 45f, 0f)));
+        Transform damagePopupTransform = Instantiate(pfDamagePopup, position , Quaternion.Euler(new Vector3(30f, -135f, 0f)));
         DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
         damagePopup.Setup(damageAmount, damageType);
         damagePopupTransform.Translate(new Vector3(0,1,0));
