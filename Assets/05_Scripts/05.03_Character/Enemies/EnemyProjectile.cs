@@ -6,6 +6,8 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private LayerMask characterLayer;
 
     private float spawnTime;
 
@@ -21,6 +23,13 @@ public class EnemyProjectile : MonoBehaviour
 
         if (Time.fixedTime >= spawnTime + 10)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer != (int)Mathf.Log(characterLayer.value, 2)) {
             Destroy(gameObject);
         }
     }

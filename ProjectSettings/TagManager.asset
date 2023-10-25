@@ -9,15 +9,22 @@ TagManager:
   - SpawnPoint
   - Exit
   - Entry
+  - Agent
+  - Undefined
+  - N
+  - E
+  - S
+  - W
+  - CameraRootNavMesh
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CameraDoNotRender
   - Water
   - UI
-  - 
-  - 
+  - Character
+  - IgnoreCharacters
   - 
   - 
   - 
@@ -45,4 +52,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: top
+    uniqueID: 642356687
     locked: 0

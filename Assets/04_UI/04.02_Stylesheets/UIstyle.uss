@@ -1,55 +1,3 @@
-.buttonStyle {
-    height: 66px;
-    width: 235px;
-    position: relative;
-    top: auto;
-    left: auto;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(82, 204, 59);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    color: rgb(0, 0, 0);
-    -unity-font-style: bold;
-    font-size: 18px;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.buttonStyle:hover {
-    height: 66px;
-    width: 235px;
-    position: relative;
-    top: auto;
-    left: auto;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(69, 101, 63);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    color: rgb(0, 0, 0);
-    -unity-font-style: bold;
-    font-size: 18px;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .container {
     height: 414px;
     width: 395px;
@@ -179,4 +127,60 @@
     top: 0;
     right: 0;
     bottom: 0;
+}
+
+.machine-wrapper {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 15px;
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.01_Technos-PKDZP%20SDF.asset?fileID=11400000&guid=defeed33c567cbe468b27c7fb685d691&type=2#Technos-PKDZP SDF');
+    color: rgb(255, 255, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    padding-top: 11%;
+    padding-right: 3%;
+    padding-bottom: 11%;
+    padding-left: 3%;
+    display: flex;
+}
+
+.machine-border {
+    flex-grow: 1;
+    width: 70%;
+    height: 12%;
+    min-height: auto;
+    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.08_Linie%20maschine.png?fileID=2800000&guid=05c59fdd648656c489ece517f2464a9b&type=3#04.04.08_Linie maschine');
+    -unity-background-scale-mode: scale-to-fit;
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 50%;
+    translate: 50% 0;
+}
+
+.menu-button {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 10%;
+    padding-right: 0;
+    padding-bottom: 10%;
+    padding-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(56, 56, 56, 0);
+    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.01_StartScreenButton.png?fileID=2800000&guid=8714867624fc94542ad4331ce978b33e&type=3#04.04.01_StartScreenButton');
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.01_Technos-PKDZP%20SDF.asset?fileID=11400000&guid=defeed33c567cbe468b27c7fb685d691&type=2#Technos-PKDZP SDF');
+    width: 100%;
+}
+
+.menu-button-wrapper {
+    flex-grow: 0;
+    width: 70%;
 }

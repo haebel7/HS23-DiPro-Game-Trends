@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1546654088410377016}
   - component: {fileID: 7214780884034454472}
   - component: {fileID: 3386628438341063827}
+  - component: {fileID: 3798633809433006542}
   m_Layer: 0
   m_Name: EnemyProjectile
   m_TagString: Untagged
@@ -120,6 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3386628438341063827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,4 +137,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageType: {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
-  damageStat: {fileID: 11400000, guid: 3197ea430f726b24392cd3b98ba5b637, type: 2}
+  damageStat: 0
+--- !u!54 &3798633809433006542
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464547530381080227}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

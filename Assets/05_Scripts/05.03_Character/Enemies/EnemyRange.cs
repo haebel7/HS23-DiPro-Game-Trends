@@ -14,36 +14,31 @@ public class EnemyRange : EnemySBase
     void FixedUpdate()
     {
         isInAttackDistance = Vector3.Distance(transform.position, player.position) < attackDistance;
+        // When in attack range, aim at player
+        isLookingAtPlayer = isInAttackDistance;
 
-        if (state == EnemySState.DIE)
+        if (state == EnemyState["Die"])
         {
             return;
         }
 
+        ChangeEnemyStateAdditional();
         ChangeEnemyState();
-        ChangeEnemyStateRange();
-
-        // When in attack range, aim at player
-        if (isInAttackDistance)
-        {
-            var targetPosition = player.transform.position;
-            targetPosition.y = transform.position.y;
-            transform.LookAt(targetPosition);
-        }
+        CheckEnemyState();
     }
 
-    private void ChangeEnemyStateRange()
+    public override void ChangeEnemyStateAdditional()
     {
         // Ranged specific state changes
         if (isInAttackDistance)
         {
             if (Time.fixedTime > timeLastShot + shotCooldown)
             {
-                state = EnemySState.ATTACK;
+                state = EnemyState["Attack"];
             }
             else
             {
-                state = EnemySState.IDLE;
+                state = EnemyState["Idle"];
             }
         }
     }

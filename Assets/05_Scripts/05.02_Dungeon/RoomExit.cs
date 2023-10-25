@@ -7,34 +7,32 @@ using UnityEngine.InputSystem;
 public class RoomExit : MonoBehaviour
 {
     public GameObject nextRoomEntry;
+    private GDTFadeEffect fade;
+    private InputActionMap actionMap;
+
+    public void Start()
+    {
+        fade = GameObject.Find("GDT-Canvas-Fade-Object").GetComponent<GDTFadeEffect>();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entred OnTriggerEnter");
-
         if (other.CompareTag("Player"))
         {
-            // Disable player input
-            PlayerControls playerControls = other.transform.GetComponent<Movement>().playerControls;
-            InputActionAsset asset = playerControls.asset;
-            InputActionMap actionMap = asset.FindActionMap("Gameplay");
+            actionMap = other.transform.GetComponent<ActionManager>().playerControls.asset.FindActionMap("Gameplay");
             actionMap.Disable();
 
             // Fade out
-            // To do
-
-            // Activate next room
-
+            fade.enabled = true;
 
             // Move player to next room
             other.transform.position = nextRoomEntry.transform.position;
-            actionMap.Enable();
-
-            // Deactivate current room
-
-
-            // Fade in
-            // To do
+            Invoke("EnableActionMap", 2.2f); // Delay
         }
+    }
+
+    private void EnableActionMap()
+    {
+        actionMap.Enable();
     }
 }
