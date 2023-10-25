@@ -1562,6 +1562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
