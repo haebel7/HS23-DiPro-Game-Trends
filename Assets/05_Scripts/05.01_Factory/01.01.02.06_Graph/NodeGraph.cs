@@ -31,6 +31,8 @@ namespace RuntimeNodeEditor
         private float               _maxZoom;
         private RectTransform       _nodeContainer;
 	    private RectTransform       _graphContainer;
+        private int                 _triggerCounter;
+        private Vector3             _initialPosition;
 
         private SignalSystem        _signalSystem;
 
@@ -50,6 +52,7 @@ namespace RuntimeNodeEditor
             _signalSystem.OnOutputSocketDragDropEvent     += OnOutputDragDroppedTo;
             _signalSystem.OnInputSocketClickEvent         += OnInputSocketClicked;
             _signalSystem.OnOutputSocketClickEvent        += OnOutputSocketClicked;
+            _signalSystem.OnNodePointerClickEvent         += OnNodePointerClick;
             _signalSystem.OnNodePointerDownEvent          += OnNodePointerDown;
             _signalSystem.OnNodePointerDragEvent          += OnNodePointerDrag;
             _signalSystem.OnGraphPointerDragEvent         += OnGraphPointerDragged;
@@ -342,14 +345,40 @@ namespace RuntimeNodeEditor
         protected virtual void OnNodePointerDown(Node node, PointerEventData eventData)
         {
             node.SetAsLastSibling();
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(node.PanelRect, eventData.position,
-                                                                    eventData.pressEventCamera, out _pointerOffset);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(node.PanelRect, eventData.position, eventData.pressEventCamera, out _pointerOffset);
+            try
+            {
+                _initialPosition = node.transform.position;
+                node.GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError(ex);
+            }
             DragNode(node, eventData);
         }
 
         protected virtual void OnNodePointerDrag(Node node, PointerEventData eventData)
         {
             DragNode(node, eventData);
+        }
+
+        protected virtual void OnNodePointerClick(Node node, PointerEventData eventData)
+        {
+            if (node.getTriggerCounter() != 0)
+            {
+                node.transform.position = _initialPosition;
+                drawer.UpdateDraw();
+            }
+
+            try
+            {
+                node.GetComponent<BoxCollider2D>().isTrigger = false;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError(ex);
+            }
         }
 
         protected virtual void OnGraphPointerScrolled(PointerEventData eventData)

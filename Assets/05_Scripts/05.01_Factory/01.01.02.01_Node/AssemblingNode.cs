@@ -38,7 +38,6 @@ namespace RuntimeNodeEditor
         private List<IOutput> _incomingOutputs;
         private List<SocketInput> _listOfInputs;
         private List<Ressource> incomingValues;
-        private SocketInput socketInput;
         private int index = 0;
         private int fixedUpdateCount = 0;
         private int timer = 0;
@@ -92,7 +91,6 @@ namespace RuntimeNodeEditor
         // Function that is called after you connect a Node to this one
         public void OnConnection(SocketInput input, IOutput output)
         {
-            socketInput = input;
             output.ValueUpdated += OnConnectedValueUpdated;
             _incomingOutputs.Add(output);
             _listOfInputs.Add(input);
@@ -161,6 +159,7 @@ namespace RuntimeNodeEditor
             }
         }
 
+        //get the current recipe that is selected in the dropdown
         private Recipe getRecipe()
         {
             foreach (Recipe r in recipeList)
@@ -352,7 +351,6 @@ namespace RuntimeNodeEditor
                 outputRessourceNum.text = "0";
                 outputRessourceText.text = null;
             }
-            Debug.Log(inputSocket1.ressources[0].ownedAmount + ", " + inputSocket1.ressources[0]._name + ", " + inputSocket2.ressources[0].ownedAmount + ", " + inputSocket2.ressources[0]._name);
 
             if (fixedUpdateCount % 5 == 0)
             {

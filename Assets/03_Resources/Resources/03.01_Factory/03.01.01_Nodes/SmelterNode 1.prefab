@@ -768,11 +768,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6290086046137204442}
+  - component: {fileID: 2933563799894391206}
   - component: {fileID: 2664588119334424603}
   - component: {fileID: 8257028054617138647}
-  - component: {fileID: 1408526725784063097}
   m_Layer: 5
-  m_Name: SmelterNode
+  m_Name: SmelterNode 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,6 +802,35 @@ RectTransform:
   m_AnchoredPosition: {x: 569, y: -234}
   m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2933563799894391206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290086046137204443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b634a7916e4d99649a3644d67b801651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: {fileID: 4050287918490397133}
+  draggableBody: {fileID: 6290086045451085351}
+  triggerCounter: 0
+  inputSocket: {fileID: 3144920582833568803}
+  outputSocket: {fileID: 5471337332462809024}
+  inputText: {fileID: 5609598211738666783}
+  outputText: {fileID: 3215346497309916110}
+  inputRessource: {fileID: 3122163590768810779}
+  outputRessource: {fileID: 3658452057410112947}
+  processingTimeText: {fileID: 5550035003484040441}
+  ressourceInventory: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8, type: 2}
+  internalInputInventory: 15
+  internalOutputInventory: 5
+  processingTime: 5
+  recipeList:
+  - {fileID: 11400000, guid: 4d26235240f869f45a9efb8d6f745637, type: 2}
+  - {fileID: 11400000, guid: f031d96c7feb8cd41ac5477006083665, type: 2}
 --- !u!61 &2664588119334424603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -874,45 +903,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1408526725784063097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6290086046137204443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414f502612fa70d40a540dd011233949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headerText: {fileID: 4050287918490397133}
-  draggableBody: {fileID: 6290086045451085351}
-  _listOfInputs:
-  - {fileID: 3144920582833568803}
-  _listOfOutputs:
-  - {fileID: 5471337332462809024}
-  _listOfInputTexts:
-  - {fileID: 5609598211738666783}
-  _listOfOutputTexts:
-  - {fileID: 3215346497309916110}
-  _listOfOutputNums:
-  - {fileID: 3658452057410112947}
-  _listOfInputNums:
-  - {fileID: 3122163590768810779}
-  _listOfRecipes:
-  - {fileID: 11400000, guid: 4d26235240f869f45a9efb8d6f745637, type: 2}
-  - {fileID: 11400000, guid: f031d96c7feb8cd41ac5477006083665, type: 2}
-  _dropdown: {fileID: 0}
-  _retrieveButton: {fileID: 0}
-  _ressourceInventory: {fileID: 11400000, guid: 4b35d5b2f4bd2084499bb9ce61abe5e8,
-    type: 2}
-  _header: Furnace
-  _internalInputInventory: 10
-  _internalOutputInventory: 5
-  _processingTime: 5
-  _outputMultiplier: 1
-  _processingTimeText: {fileID: 5550035003484040441}
 --- !u!1 &6984215475758050675
 GameObject:
   m_ObjectHideFlags: 0
