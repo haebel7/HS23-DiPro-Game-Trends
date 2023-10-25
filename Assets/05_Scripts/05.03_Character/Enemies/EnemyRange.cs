@@ -48,6 +48,7 @@ public class EnemyRange : EnemySBase
         timeLastShot = Time.fixedTime;
 
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z);
-        Instantiate(projectile, spawnPos, transform.rotation);
+        GameObject proj = Instantiate(projectile, spawnPos, transform.rotation);
+        proj.GetComponent<Hitbox>().damageStat = attackDmg;
     }
 }

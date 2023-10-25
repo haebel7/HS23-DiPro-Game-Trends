@@ -20,6 +20,7 @@ public class EnemyMelee : EnemySBase
         // Melee specific states
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
+            hitBox.damageStat = attackDmg;
             state = EnemyState["Attack"];
         }
     }

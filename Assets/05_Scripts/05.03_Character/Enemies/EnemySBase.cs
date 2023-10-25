@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class EnemySBase : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class EnemySBase : MonoBehaviour
     private GameObject deadBody;
     [SerializeField]
     private GameObject loot;
+    [SerializeField]
+    protected int attackDmg;
 
     protected static Dictionary<string, int> EnemyState = new Dictionary<string, int>()
     {
@@ -39,6 +42,7 @@ public class EnemySBase : MonoBehaviour
     protected Transform player;
     protected Animator anim;
     protected HurtBox hurtBox;
+    protected Hitbox hitBox;
     protected NavMeshAgent agent;
 
     protected bool isLookingAtPlayer = false;
@@ -65,8 +69,13 @@ public class EnemySBase : MonoBehaviour
         player = GameObject.Find("Player").transform;
         anim = GetComponent<Animator>();
         hurtBox = GetComponent<HurtBox>();
+        hitBox = GetComponentInChildren<Hitbox>(true);
         agent = GetComponent<NavMeshAgent>();
+
+        StartAdditional();
     }
+
+    public virtual void StartAdditional() { }
 
     protected void ChangeEnemyState()
     {
