@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 8349568448312557437}
   - component: {fileID: 344831764394104707}
   - component: {fileID: 2965654132149575095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,9 +2577,9 @@ GameObject:
   - component: {fileID: 9086349977430053161}
   - component: {fileID: 9145640201587838096}
   - component: {fileID: 1513505274134292817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2865,8 +2865,14 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 291376cb970c4db4a8d876dc57e8db31, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
+<<<<<<< HEAD
   dmgNumberpf: {fileID: 0}
 --- !u!1 &2039956475572438599
+=======
+  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+    type: 3}
+--- !u!1 &2489020529057869611
+>>>>>>> 9a19dce3652e4a4184786db15e90d60a0d379508
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2874,9 +2880,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4977461256497230706}
   m_Layer: 0
   m_Name: chest
+=======
+  - component: {fileID: 192653487505449199}
+  - component: {fileID: 813195479423526351}
+  - component: {fileID: 196458585742686570}
+  m_Layer: 6
+  m_Name: Cube
+>>>>>>> 9a19dce3652e4a4184786db15e90d60a0d379508
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8894,7 +8908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061235108386822692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCameraRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

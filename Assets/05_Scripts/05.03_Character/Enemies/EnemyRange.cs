@@ -14,6 +14,8 @@ public class EnemyRange : EnemySBase
     void FixedUpdate()
     {
         isInAttackDistance = Vector3.Distance(transform.position, player.position) < attackDistance;
+        // When in attack range, aim at player
+        isLookingAtPlayer = isInAttackDistance;
 
         if (state == EnemyState["Die"])
         {
@@ -23,14 +25,6 @@ public class EnemyRange : EnemySBase
         ChangeEnemyStateAdditional();
         ChangeEnemyState();
         CheckEnemyState();
-
-        // When in attack range, aim at player
-        if (isInAttackDistance)
-        {
-            var targetPosition = player.transform.position;
-            targetPosition.y = transform.position.y;
-            transform.LookAt(targetPosition);
-        }
     }
 
     public override void ChangeEnemyStateAdditional()

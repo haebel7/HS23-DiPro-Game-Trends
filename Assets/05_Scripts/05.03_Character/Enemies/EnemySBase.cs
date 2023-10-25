@@ -41,6 +41,7 @@ public class EnemySBase : MonoBehaviour
     protected HurtBox hurtBox;
     protected NavMeshAgent agent;
 
+    protected bool isLookingAtPlayer = false;
     protected int lastState;
     protected float stateInterval = 2f;
     protected float lastStateInterval = 0;
@@ -106,6 +107,14 @@ public class EnemySBase : MonoBehaviour
         {
             agent.destination = player.position;
         }
+
+        // Look at player
+        if (isLookingAtPlayer)
+        {
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10);
+        }
     }
 
     protected void CheckEnemyState()
@@ -119,7 +128,7 @@ public class EnemySBase : MonoBehaviour
             }
             else if (lastState == EnemyState["Idle"])
             {
-
+                isLookingAtPlayer = false;
             }
             else if (lastState == EnemyState["Hunt"])
             {
@@ -129,6 +138,7 @@ public class EnemySBase : MonoBehaviour
             else if (lastState == EnemyState["Attack"])
             {
                 anim.SetBool("Attack", false);
+                isLookingAtPlayer = false;
             }
             else if (lastState == EnemyState["Dodge"])
             {
@@ -146,7 +156,7 @@ public class EnemySBase : MonoBehaviour
             }
             else if (state == EnemyState["Idle"])
             {
-
+                isLookingAtPlayer = true;
             }
             else if (state == EnemyState["Hunt"])
             {
@@ -156,6 +166,7 @@ public class EnemySBase : MonoBehaviour
             else if (state == EnemyState["Attack"])
             {
                 anim.SetBool("Attack", true);
+                isLookingAtPlayer = true;
             }
             else if (state == EnemyState["Dodge"])
             {
@@ -176,9 +187,15 @@ public class EnemySBase : MonoBehaviour
 
     public virtual void CheckEnemyStateAdditional() { }
 
+    public void StopLookingAtPlayer()
+    {
+        isLookingAtPlayer = false;
+    }
+
     public void LeaveTemporaryState()
     {
         state = EnemyState["Hunt"];
+        CheckEnemyStateAdditional();
         CheckEnemyState();
     }
 

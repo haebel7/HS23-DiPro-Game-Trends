@@ -9,11 +9,22 @@ public class EnemyBoss : EnemySBase
     private int summonChance;
     [SerializeField]
     private GameObject summonEnemy;
+    [SerializeField]
+    private int chargeChance;
+    [SerializeField]
+    private float chargeSpeed = 10;
+    [SerializeField]
+    private LayerMask ignoreCharactersLayer;
+    [SerializeField]
+    private LayerMask characterLayer;
+
+    private bool isCharging = false;
 
     private static Dictionary<string, int> EnemyB1State = new Dictionary<string, int>()
     {
         {"Charge", EnemyState.Count + 0 },
         {"Summon", EnemyState.Count + 1 },
+        {"CollidedWhileCharging", EnemyState.Count + 2 },
     };
 
     void FixedUpdate()
@@ -27,12 +38,21 @@ public class EnemyBoss : EnemySBase
         ChangeEnemyState();
         CheckEnemyStateAdditional();
         CheckEnemyState();
+
+        // Move forward during charge attack
+        if (isCharging)
+        {
+            //transform.Translate(Vector3.forward * Time.deltaTime * chargeSpeed);
+            GetComponent<CharacterController>().Move(transform.forward * chargeSpeed);
+        }
     }
 
     public override void ChangeEnemyStateAdditional()
     {
         // Boss specific states
-        if (Vector3.Distance(transform.position, player.position) < attackDistance)
+        if (state != EnemyB1State["Charge"] 
+            && state != EnemyB1State["CollidedWhileCharging"] 
+            && Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             state = EnemyState["Attack"];
         }
@@ -42,30 +62,49 @@ public class EnemyBoss : EnemySBase
             {
                 state = EnemyB1State["Summon"];
             }
+            else if (Random.Range(1, 100) < chargeChance)
+            {
+                state = EnemyB1State["Charge"];
+            }
             lastStateInterval = Time.fixedTime;
         }
     }
 
     public override void CheckEnemyStateAdditional()
     {
-        // Cleanup last state behaviour
-        if (lastState == EnemyB1State["Charge"])
+        if (lastState != state)
         {
+            // Cleanup last state behaviour
+            if (lastState == EnemyB1State["Charge"])
+            {
+                anim.SetBool("Charge", false);
+                isLookingAtPlayer = false;
+                gameObject.layer = (int) Mathf.Log(characterLayer.value, 2);
+            }
+            else if (lastState == EnemyB1State["Summon"])
+            {
+                anim.SetBool("Summon", false);
+            }
+            else if (lastState == EnemyB1State["CollidedWhileCharging"])
+            {
+                anim.SetBool("CollidedWhileCharging", false);
+            }
 
-        }
-        else if (lastState == EnemyB1State["Summon"])
-        {
-            anim.SetBool("Summon", false);
-        }
-
-        // Activate new state behaviour
-        if (state == EnemyB1State["Charge"])
-        {
-
-        }
-        else if (state == EnemyB1State["Summon"])
-        {
-            anim.SetBool("Summon", true);
+            // Activate new state behaviour
+            if (state == EnemyB1State["Charge"])
+            {
+                anim.SetBool("Charge", true);
+                isLookingAtPlayer = true;
+                gameObject.layer = (int) Mathf.Log(ignoreCharactersLayer.value, 2);
+            }
+            else if (state == EnemyB1State["Summon"])
+            {
+                anim.SetBool("Summon", true);
+            }
+            else if (state == EnemyB1State["CollidedWhileCharging"])
+            {
+                anim.SetBool("CollidedWhileCharging", true);
+            }
         }
     }
 
@@ -75,5 +114,19 @@ public class EnemyBoss : EnemySBase
         Instantiate(summonEnemy, transform.position + Vector3.forward, transform.rotation);
         Instantiate(summonEnemy, transform.position + Vector3.right, transform.rotation);
         Instantiate(summonEnemy, transform.position + Vector3.back, transform.rotation);
+    }
+
+    public void StartCharge()
+    {
+        isCharging = true;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (isCharging /*&& !hit.gameObject.GetComponent<CharacterController>()*/)
+        {
+            isCharging = false;
+            state = EnemyB1State["CollidedWhileCharging"];
+        }
     }
 }
