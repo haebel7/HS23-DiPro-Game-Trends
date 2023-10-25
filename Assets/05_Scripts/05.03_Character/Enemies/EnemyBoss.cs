@@ -80,6 +80,7 @@ public class EnemyBoss : EnemySBase
                 anim.SetBool("Charge", false);
                 isLookingAtPlayer = false;
                 gameObject.layer = (int) Mathf.Log(characterLayer.value, 2);
+                agent.radius = 0.5f;
             }
             else if (lastState == EnemyB1State["Summon"])
             {
@@ -96,6 +97,7 @@ public class EnemyBoss : EnemySBase
                 anim.SetBool("Charge", true);
                 isLookingAtPlayer = true;
                 gameObject.layer = (int) Mathf.Log(ignoreCharactersLayer.value, 2);
+                agent.radius = 0.01f;
             }
             else if (state == EnemyB1State["Summon"])
             {
