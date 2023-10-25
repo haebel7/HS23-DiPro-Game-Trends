@@ -15,11 +15,12 @@ TagManager:
   - E
   - S
   - W
+  - CameraRootNavMesh
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CameraDoNotRender
   - Water
   - UI
   - Character

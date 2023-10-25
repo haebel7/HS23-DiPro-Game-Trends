@@ -36,14 +36,14 @@ public class AddRoom : MonoBehaviour
                 door.transform.Find("ShowDoor").GetComponent<MeshRenderer>().material.mainTexture = Resources.Load<Texture>("prototype_512x512_green3");
 
                 
-                doorFunction = (GameObject)Instantiate(Resources.Load("Entry"), door.transform.position, Quaternion.identity);
+                doorFunction = (GameObject)Instantiate(Resources.Load("Entry"), door.transform.position, door.transform.rotation);
                 entry = doorFunction;
             }
             else if (door.CompareTag("Door") && door.name[^1..] != entryDirect)
             {
                 exitDirect = door.name[^1..];
                 door.tag = "Exit";
-                doorFunction = (GameObject)Instantiate(Resources.Load("Exit"), door.transform.position, Quaternion.identity);
+                doorFunction = (GameObject)Instantiate(Resources.Load("Exit"), door.transform.position, door.transform.rotation);
                 exit = doorFunction;
             }
 
