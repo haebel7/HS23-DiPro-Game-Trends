@@ -15,4 +15,5 @@ public class ComboAttack : ScriptableObject
     [HideInInspector] public float moveEndTime;
     public AnimationCurve moveSpeedCurve;
     public string animationName;
+
 }
