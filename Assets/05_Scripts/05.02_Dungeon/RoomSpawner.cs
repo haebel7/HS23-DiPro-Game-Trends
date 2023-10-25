@@ -39,7 +39,7 @@ public class RoomSpawner : MonoBehaviour
 
         if (room != null)
         {
-            GameObject newRoom = Instantiate(room, transform.position, room.transform.rotation);
+            GameObject newRoom = Instantiate(room, transform.position, transform.rotation);
             GameObject currentRoom = gameObject.transform.parent.gameObject;
             GameObject currentExitDoor = null;
             GameObject currentExit = null;

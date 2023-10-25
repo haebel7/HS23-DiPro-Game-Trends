@@ -12,7 +12,6 @@ public class RoomTemplates : MonoBehaviour
     public List<GameObject> eastRooms;
     public List<GameObject> southRooms;
     public List<GameObject> westRooms;
-    public GameObject closedRoom;
     public GameObject[] bossRooms;
     public List<GameObject> rooms;
 
