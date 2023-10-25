@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 2344288594952429260, guid: 922764d3529d1ed4db2195a322dce0c9,
         type: 3}
       propertyPath: m_Name
-      value: RoomTemplate_SW Variant
+      value: Room_64x64.008.SW
       objectReference: {fileID: 0}
     - target: {fileID: 4273157050823056559, guid: 922764d3529d1ed4db2195a322dce0c9,
         type: 3}
@@ -111,7 +111,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 968635f0e5c3a564ebd167516d88935c,
+      objectReference: {fileID: 23800000, guid: 123e7940d55ab214280a895afaaaacda,
         type: 2}
     - target: {fileID: 6687649924617787315, guid: 922764d3529d1ed4db2195a322dce0c9,
         type: 3}

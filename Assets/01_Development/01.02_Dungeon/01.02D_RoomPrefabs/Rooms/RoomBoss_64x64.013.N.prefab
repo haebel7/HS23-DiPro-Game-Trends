@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 34a651045de2a04419514c43401671b9,
+      objectReference: {fileID: 23800000, guid: bafa8d88c4320144d8fb2b0126da42a8,
         type: 2}
     - target: {fileID: 4472687436286831421, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
@@ -77,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 4779996667017159234, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
       propertyPath: m_Name
-      value: Room_64x64.013.N Variant
+      value: RoomBoss_64x64.013.N
       objectReference: {fileID: 0}
     - target: {fileID: 6531230645474094230, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}

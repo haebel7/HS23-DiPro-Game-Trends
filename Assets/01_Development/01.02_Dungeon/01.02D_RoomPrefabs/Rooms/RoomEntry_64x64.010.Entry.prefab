@@ -13,6 +13,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomEntry_64x64.010.Entry
       objectReference: {fileID: 0}
+    - target: {fileID: 4500376048045777761, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033016923848688542, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372102363393703388, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7132800014587307779, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +78,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7158056397213439127, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410229958960901856, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: f409db666cba99f4f8e7de50ad0e9fb5,
+        type: 2}
     - target: {fileID: 8567894732039787965, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
         type: 3}
       propertyPath: m_Enabled
@@ -109,6 +135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341718664961035602, guid: 8e5c7b462dc0fe245ae245cffc1c77f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2341718664961035602, guid: 8e5c7b462dc0fe245ae245cffc1c77f5,
         type: 3}
@@ -240,6 +271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShowDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6675526311470015106, guid: fb7f34d84c02693439585e2522435ccf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -263,6 +299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 877328968023028067, guid: b04fcfffb514b6f43b3107a432f15f93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6086318899398508270, guid: b04fcfffb514b6f43b3107a432f15f93,
         type: 3}

@@ -16,6 +16,7 @@ TagManager:
   - S
   - W
   - CameraRootNavMesh
+  - NavMeshAgent
   layers:
   - Default
   - TransparentFX

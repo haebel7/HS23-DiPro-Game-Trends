@@ -151,7 +151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: b3c354121987bc640bce7790d9c5d43d,
+      objectReference: {fileID: 23800000, guid: 8b492cba09eea1141b70cf48aace4c57,
         type: 2}
     - target: {fileID: 3729026132409347294, guid: 020e2124c0e9ed64bacaf3c5ab09ba05,
         type: 3}
@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 8436784873102622590, guid: 020e2124c0e9ed64bacaf3c5ab09ba05,
         type: 3}
       propertyPath: m_Name
-      value: RoomTemplate_NS Variant
+      value: Room_64x64.011.NS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

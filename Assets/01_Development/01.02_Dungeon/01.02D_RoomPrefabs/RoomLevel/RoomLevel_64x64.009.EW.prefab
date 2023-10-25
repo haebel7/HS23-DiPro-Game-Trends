@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 6017377783671629308}
   - component: {fileID: 5997561361107630193}
   - component: {fileID: 5513997073296086966}
+  - component: {fileID: -5083817921112589037}
   m_Layer: 0
   m_Name: RoomLevel_64x64.009.EW
   m_TagString: Untagged
@@ -274,3 +275,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-5083817921112589037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829084851478849144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1880111483739510404, guid: c9118dac29b7e404d8fe250de2772de5, type: 3}

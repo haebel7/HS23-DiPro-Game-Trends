@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 4420270744701850267, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: m_Name
-      value: RoomTemplate_W Variant
+      value: RoomBoss_64x64.007.W
       objectReference: {fileID: 0}
     - target: {fileID: 4688296624066141156, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
@@ -77,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: c974a59ab46c7984c9538ef64eb59f82,
+      objectReference: {fileID: 23800000, guid: 1814699f55377a9488e22521ef756e22,
         type: 2}
     - target: {fileID: 8899858832373743931, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}

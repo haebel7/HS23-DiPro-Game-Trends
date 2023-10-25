@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: ab2201fc6d3fa1f4d8630b91143202fe,
+      objectReference: {fileID: 23800000, guid: 955eb451a57828742bcbd9dd0821c442,
         type: 2}
     - target: {fileID: 3797023593768170249, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 5257500619714165366, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
       propertyPath: m_Name
-      value: Room_64x64.010_E
+      value: RoomBoss_64x64.010.E
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
