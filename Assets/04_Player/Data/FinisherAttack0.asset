@@ -18,12 +18,12 @@ MonoBehaviour:
   nextFinisherAttack: {fileID: 11400000}
   moveDistance: 0
   moveDuration: 0
-  moveStartTime: 0
-  moveEndTime: 0
+  moveStartTime: 9.4924965
+  moveEndTime: 9.4924965
   moveSpeedCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animationName: samplefinisher0
+  animationName: DashAttack

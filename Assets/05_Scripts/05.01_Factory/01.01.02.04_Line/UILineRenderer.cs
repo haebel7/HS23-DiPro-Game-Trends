@@ -140,6 +140,7 @@ namespace UnityEngine.UI.Extensions
 				if (_polygon == null)
 				{
 					_polygon = gameObject.AddComponent<EdgeCollider2D>();
+                    _polygon.enabled = false;
 					_polygon.offset = rectTransform.rect.center;
 					this.raycastTarget = true;
 				}
