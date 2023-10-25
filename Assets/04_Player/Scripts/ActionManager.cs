@@ -196,11 +196,12 @@ public class ActionManager : MonoBehaviour
 
         canMove = false;
         canDash = false;
-        canAttack = true;
-        canBeKnockedBack = true;
 
         nextComboBasic = dashAttack;
         nextComboFinisher = dashFinisher;
+        
+        canAttack = true;
+        canBeKnockedBack = true;
     }
     private void toStateAttacking()
     {
