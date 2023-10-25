@@ -26,6 +26,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private AnimationCurve knockbackSpeedCurve;
                      private bool isKnockbacking = false;
 
+    private readonly string WALK_BOOLEAN_NAME = "isRunning";
+    private readonly string DASH_ANIMATION_NAME = "Dash";
+    private readonly string KNOCKBACKED_ANIMATION_NAME = "KnockedBack";
+
 
     private void Start()
     {
@@ -46,6 +50,11 @@ public class Movement : MonoBehaviour
             float rotationToLook = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0f, rotationToLook, 0f);
             characterController.Move(GetPerspectiveDirection(direction) * movespeed * Time.deltaTime);
+            animator.SetBool(WALK_BOOLEAN_NAME, true);
+        }
+        else
+        {
+            animator.SetBool(WALK_BOOLEAN_NAME, false);
         }
     }
 
@@ -61,7 +70,7 @@ public class Movement : MonoBehaviour
         {
             dashDirection = GetPerspectiveDirection(inputDirection);
         }
-        animator.Play("dash");
+        animator.Play(DASH_ANIMATION_NAME);
         dashStartTime = Time.time;
         dashEndTime = dashStartTime + dashDuration;
     }
@@ -113,7 +122,7 @@ public class Movement : MonoBehaviour
             attackDirection = - 1 * transform.forward;
         }
         knockbackDirection = new Vector3(attackDirection.x, 0, attackDirection.z).normalized;
-        animator.Play("knockback");
+        animator.Play(KNOCKBACKED_ANIMATION_NAME);
         knockbackStartTime = Time.time;
         knockbackEndTime = knockbackStartTime + knockbackDuration;
     }

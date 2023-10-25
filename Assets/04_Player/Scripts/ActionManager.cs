@@ -196,7 +196,7 @@ public class ActionManager : MonoBehaviour
 
         canMove = false;
         canDash = false;
-        canAttack = false;
+        canAttack = true;
         canBeKnockedBack = true;
 
         nextComboBasic = dashAttack;
