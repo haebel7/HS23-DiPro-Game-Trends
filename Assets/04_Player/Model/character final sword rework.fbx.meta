@@ -3,7 +3,32 @@ guid: cbe66751e124b1b41858f4ccc4ed5b12
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: 814c5eb634304e04f81b414b326361e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metall
+    second: {fileID: 2100000, guid: 5754b81566334ba49b6b3d0ff509af64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 982e6f42b63fcff43999a6c39d58256d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plating
+    second: {fileID: 2100000, guid: 84e6f63b9c5d4c84f9628ab33f8e6e1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 3b81e710f286aa74e8a56df489a5b2ea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
