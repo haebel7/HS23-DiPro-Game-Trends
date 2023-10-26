@@ -16,6 +16,7 @@ namespace RuntimeNodeEditor
         private ContextMenu             _contextMenu;
         private ContextItemData         _contextMenuData;
         private SignalSystem            _signalSystem;
+        private bool                    _menuActive { get; set; }
 
         public virtual void StartEditor(NodeGraph graph)
         {
@@ -36,12 +37,14 @@ namespace RuntimeNodeEditor
         {
             _contextMenu.Clear();
             _contextMenu.Show(_contextMenuData, Utility.GetCtxMenuPointerPosition(Graph.contextMenuContainer));
+            _menuActive = true;
         }
 
         public void CloseContextMenu()
         {
             _contextMenu.Hide();
             _contextMenu.Clear();
+            _menuActive = false;
         }
 
         public void SetContextMenu(ContextItemData ctx)
