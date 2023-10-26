@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7392368715447742480
 Transform:
   m_ObjectHideFlags: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   deadBody: {fileID: 7407756893184401894, guid: d3627c3c7c3144b448f1d8301f53390b,
     type: 3}
   loot: {fileID: 5080165401790994600, guid: 3fddc18490e51764d98476e3c2d27aa0, type: 3}
+  attackDmg: 10
 --- !u!114 &2722168816939555589
 MonoBehaviour:
   m_ObjectHideFlags: 0
