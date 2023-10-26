@@ -7,8 +7,7 @@ using UnityEngine.AI;
 
 public class PlayerLimitedRoot : MonoBehaviour
 {
-    [SerializeField]
-    private float radius;
+    public float radius;
     [SerializeField]
     private Transform playerRoot;
 

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f07b96075a94f4c897343a8aa477ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 1
+  playOnAwake: 0
   firstColor: {r: 0, g: 0, b: 0, a: 0}
   lastColor: {r: 0, g: 0, b: 0, a: 1}
   timeEffect: 1

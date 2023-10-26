@@ -11,7 +11,7 @@ public class GDTFadeEffect : MonoBehaviour
     public bool firstToLast = true;
     public bool pingPong;
     public float pingPongDelay;
-    public bool disableWhenFinish = true;
+    //public bool disableWhenFinish = true;
     public float disableDelay;
     private float speed;
     private Image blackImage;
@@ -113,10 +113,10 @@ public class GDTFadeEffect : MonoBehaviour
             if (finished)
             {
                 performEffect = false;
-                if (disableWhenFinish)
-                {
-                    Invoke("Disable", disableDelay);
-                }
+                //if (disableWhenFinish)
+                //{
+                //    Invoke("Disable", disableDelay);
+                //}
             }
         }
 
@@ -150,11 +150,11 @@ public class GDTFadeEffect : MonoBehaviour
         return false;
     }
 
-    private void Disable()
-    {
-        gameObject.SetActive(false);
+    //private void Disable()
+    //{
+    //    gameObject.SetActive(false);
 
-    }
+    //}
 
     private void HalfCycleDelay()
     {

@@ -5,32 +5,27 @@ using UnityEngine.UIElements;
 
 public class UIfactory : MonoBehaviour
 {
-    public Button ressourceTab;
-    public Button equipmentTab;
     public Button openMachinesButton;
-    public VisualElement tablinks;
     private VisualElement root;
     public VisualElement machinesList;
     public VisualElement machineWrapper;
-    private bool ressourceActive = true;
+    public VisualElement containerWrapper;
     private bool machinesOpen = false;
     public Sprite machineButtonBackground;
     public Sprite machineWrapperBackground;
+   // public VisualTreeAsset tabs;
 
     // Start is called before the first frame update
     void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         machinesList = root.Q<VisualElement>("machines-list");
-        ressourceTab = root.Q<Button>("inventory-tab");
-        equipmentTab = root.Q<Button>("equipment-tab");
         openMachinesButton = root.Q<Button>("openMachines");
-        tablinks = root.Q<VisualElement>("tablinks");
         machineWrapper = root.Q<VisualElement>("machines-wrapper");
-        ressourceTab.clicked += ressourceTabPressed;
-        equipmentTab.clicked += equipmentTabPressed;
+        containerWrapper = root.Q<VisualElement>("container-wrapper");
         openMachinesButton.clicked += toggleMachines;
-        updateTabs();
+        //VisualElement UItabs = tabs.Instantiate();
+       // containerWrapper.Add(UItabs);
     }
 
     void toggleMachines()
@@ -63,69 +58,4 @@ public class UIfactory : MonoBehaviour
         machinesOpen = true;
     }
 
-    void updateTabs()
-    {
-        if (ressourceActive)
-        {
-            activateRessource();
-            deactivateEquipment();
-        }
-        else
-        {
-            activateEquipment();
-            deactivateRessource();
-        }
-    }
-
-    void deactivateEquipment()
-    {
-        VisualElement equipmentWrapper = root.Q<VisualElement>("equipment-wrapper");
-        equipmentWrapper.style.opacity = 0.1f;
-        equipmentTab.style.opacity = 0.1f;
-    }
-
-    void activateEquipment()
-    {      
-        VisualElement equipmentWrapper = root.Q<VisualElement>("equipment-wrapper");
-        equipmentWrapper.style.opacity = 1f;
-        equipmentTab.style.opacity = 1f;
-        equipmentWrapper.BringToFront();
-        tablinks.BringToFront();
-        //Debug.Log(equipmentWrapper.parent.IndexOf(equipmentWrapper));
-    }
-
-    void deactivateRessource()
-    {
-        VisualElement ressourceWrapper = root.Q<VisualElement>("inventory-wrapper");
-        ressourceWrapper.style.opacity = 0.1f;
-        ressourceTab.style.opacity = 0.1f;
-    }
-
-    void activateRessource()
-    {
-        VisualElement ressourceWrapper = root.Q<VisualElement>("inventory-wrapper");
-        ressourceWrapper.style.opacity = 1f;
-        ressourceTab.style.opacity = 1f;
-        ressourceWrapper.BringToFront();
-        tablinks.BringToFront();
-        //Debug.Log(inventoryWrapper.parent.IndexOf(inventoryWrapper));
-    }
-
-    void ressourceTabPressed()
-    {
-        ressourceActive = true;
-        updateTabs();
-    }
-
-    void equipmentTabPressed()
-    {
-        ressourceActive = false;
-        updateTabs();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
