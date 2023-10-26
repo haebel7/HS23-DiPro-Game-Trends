@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditorInternal.VersionControl.ListControl;
 
 public class EnemyBoss : EnemySBase
 {
@@ -42,7 +41,6 @@ public class EnemyBoss : EnemySBase
         // Move forward during charge attack
         if (isCharging)
         {
-            //transform.Translate(Vector3.forward * Time.deltaTime * chargeSpeed);
             GetComponent<CharacterController>().Move(transform.forward * chargeSpeed);
         }
     }
@@ -125,7 +123,7 @@ public class EnemyBoss : EnemySBase
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (isCharging /*&& !hit.gameObject.GetComponent<CharacterController>()*/)
+        if (isCharging)
         {
             isCharging = false;
             state = EnemyB1State["CollidedWhileCharging"];

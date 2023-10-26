@@ -95,7 +95,7 @@ public class EnemyRoll : EnemySBase
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (isCharging && hit.transform == player)
+        if (isCharging && (hit.transform == player || hit.gameObject.tag != "Agent"))
         {
             isCharging = false;
             state = EnemyAddState["ChargeEnd"];
