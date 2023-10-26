@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 281707644055511238, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2214385565195955836, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
         type: 3}
       propertyPath: m_Name
@@ -105,10 +110,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1966622769433316090}
-    - targetCorrespondingSourceObject: {fileID: 7956525091872924016, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6277101515246418590}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87a2d95bf2c9c4a9ccef0a7b29b1fd, type: 3}
 --- !u!4 &7258995679782340327 stripped
@@ -207,85 +208,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3392695852992591267, guid: 8e5c7b462dc0fe245ae245cffc1c77f5,
     type: 3}
   m_PrefabInstance: {fileID: 3773908847665938265}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6291392110327065576
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7258995679782340327}
-    m_Modifications:
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6675526311470015106, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_Name
-      value: ShowDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 6675526311470015106, guid: fb7f34d84c02693439585e2522435ccf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fb7f34d84c02693439585e2522435ccf, type: 3}
---- !u!4 &6277101515246418590 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 23429873748496758, guid: fb7f34d84c02693439585e2522435ccf,
-    type: 3}
-  m_PrefabInstance: {fileID: 6291392110327065576}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7995514195807015178
 PrefabInstance:

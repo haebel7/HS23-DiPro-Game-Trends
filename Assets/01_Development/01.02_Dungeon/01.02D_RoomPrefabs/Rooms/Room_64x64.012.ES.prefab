@@ -97,10 +97,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_64x64.012.ES
       objectReference: {fileID: 0}
+    - target: {fileID: 356217683729787100, guid: d585d4d5a27219547ae749557e274832,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9
+      objectReference: {fileID: 0}
     - target: {fileID: 706024095931882811, guid: d585d4d5a27219547ae749557e274832,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570227657586069577, guid: d585d4d5a27219547ae749557e274832,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 1799001718665946542, guid: d585d4d5a27219547ae749557e274832,
         type: 3}

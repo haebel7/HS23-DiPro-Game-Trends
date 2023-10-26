@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomBoss_64x64.005.S
       objectReference: {fileID: 0}
+    - target: {fileID: 1052909318805838815, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 5551781560194560409, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
       propertyPath: m_IsActive
