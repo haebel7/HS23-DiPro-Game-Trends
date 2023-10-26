@@ -10,15 +10,22 @@ TagManager:
   - Exit
   - Entry
   - Agent
+  - Undefined
+  - N
+  - E
+  - S
+  - W
+  - CameraRootNavMesh
+  - NavMeshAgent
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CameraDoNotRender
   - Water
   - UI
-  - 
-  - 
+  - Character
+  - IgnoreCharacters
   - 
   - 
   - 
