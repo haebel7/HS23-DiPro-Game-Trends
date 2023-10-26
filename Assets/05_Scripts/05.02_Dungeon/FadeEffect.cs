@@ -12,17 +12,11 @@ public class FadeEffect : MonoBehaviour
     private float currentValue;
     private bool performEffect = false;
     private bool finished = false;
-    private bool goingToLast;
 
-    void OnEnable()
+    void Start()
     {
         speed = 1 / timeEffect;
-        goingToLast = firstToLast;
-
-        if (blackImage == null)
-        {
-            blackImage = GetComponent<Image>();
-        }
+        blackImage = GetComponent<Image>();
 
         if (firstToLast)
         {
@@ -40,7 +34,7 @@ public class FadeEffect : MonoBehaviour
     {
         if (performEffect)
         {
-            if (goingToLast)
+            if (firstToLast)
             {
                 if (PerformFadeIn())
                 {
@@ -60,10 +54,12 @@ public class FadeEffect : MonoBehaviour
             if (finished)
             {
                 performEffect = false;
+                firstToLast = !firstToLast;
             }
         }
     }
 
+    // Last to first color
     private bool PerformFadeIn()
     {
         if (currentValue != 1f)
@@ -79,6 +75,7 @@ public class FadeEffect : MonoBehaviour
         return false;
     }
 
+    // First to last color
     private bool PerformFadeOut()
     {
         if (currentValue != 0f)

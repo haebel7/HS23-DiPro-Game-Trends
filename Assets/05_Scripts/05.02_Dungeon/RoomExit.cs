@@ -10,6 +10,7 @@ public class RoomExit : MonoBehaviour
     public GameObject nextRoomEntry;
     private FadeEffect fade;
     private InputActionMap actionMap;
+    Collider player;
 
     public void Start()
     {
@@ -20,40 +21,33 @@ public class RoomExit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Fade in
-            fade.enabled = true;
+            player = other;
             fade.StartEffect();
-            fade.firstToLast = false;
-            fade.enabled = false;
-
-            // Disable player control
-            actionMap = other.transform.GetComponent<ActionManager>().playerControls.asset.FindActionMap("Gameplay");
+            actionMap = player.transform.GetComponent<ActionManager>().playerControls.asset.FindActionMap("Gameplay");
             actionMap.Disable();
-
-            // Move player to next room
-            Transform newTransform = nextRoomEntry.transform;
-            newTransform.position += Vector3.up * (other.GetComponent<CharacterController>().height / 2);
-            other.transform.position = newTransform.position;
-
-            // Move camera to next room
-            GameObject playerLimitedRoot = GameObject.FindGameObjectWithTag("NavMeshAgent");
-            newTransform.position += Vector3.up * playerLimitedRoot.GetComponent<PlayerLimitedRoot>().radius;
-            NavMeshAgent rootAgent = playerLimitedRoot.GetComponent<NavMeshAgent>();
-            rootAgent.Warp(newTransform.position);
-
-            Invoke("EnableActionMap", 2.5f); // Delay
+            Invoke("MoveToNextRoom", 1.5f); // Delay
         }
     }
 
-    private void EnableActionMap()
+    private void MoveToNextRoom()
     {
-        // Fade out
-        fade.enabled = true;
-        fade.StartEffect();
-        fade.firstToLast = true;
-        fade.enabled = false;
+        // Move player to next room
+        Transform newTransform = nextRoomEntry.transform;
+        newTransform.position += Vector3.up * (player.GetComponent<CharacterController>().height / 2);
+        player.transform.position = newTransform.position;
 
-        // Ensable player control
+        // Move camera to next room
+        GameObject playerLimitedRoot = GameObject.FindGameObjectWithTag("NavMeshAgent");
+        newTransform.position += Vector3.up * playerLimitedRoot.GetComponent<PlayerLimitedRoot>().radius;
+        NavMeshAgent rootAgent = playerLimitedRoot.GetComponent<NavMeshAgent>();
+        rootAgent.Warp(newTransform.position);
+
+        Invoke("NextRoomReady", 1.0f); // Delay
+    }
+
+    private void NextRoomReady()
+    {
+        fade.StartEffect();
         actionMap.Enable();
     }
 }
