@@ -9,6 +9,8 @@ namespace RuntimeNodeEditor
     {
         public List<Ressource> InputRessources;
         public List<Ressource> OutputRessources;
+        // in seconds
+        public float processingTime;
 
         public List<Ressource> getInputRessources()
         {
@@ -18,6 +20,11 @@ namespace RuntimeNodeEditor
         public List<Ressource> getOutputRessources() 
         { 
             return OutputRessources;
+        }
+
+        public float getProcessingTime()
+        {
+            return processingTime;
         }
     }
 }

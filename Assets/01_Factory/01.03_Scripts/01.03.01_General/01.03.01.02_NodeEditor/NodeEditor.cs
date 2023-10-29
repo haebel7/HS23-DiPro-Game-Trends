@@ -6,17 +6,19 @@ namespace RuntimeNodeEditor
 {
     public class NodeEditor : MonoBehaviour
     {
-        public NodeGraph                Graph  { get { return _graph; } }
-        public SignalSystem             Events { get { return _signalSystem; } }
-        public float                    minZoom = 0.3f;
-        public float                    maxZoom = 2f;
-        public GameObject               contextMenuPrefab;
-        
-        private NodeGraph               _graph;
-        private ContextMenu             _contextMenu;
-        private ContextItemData         _contextMenuData;
-        private SignalSystem            _signalSystem;
-        private bool                    _menuActive { get; set; }
+        public NodeGraph Graph { get { return _graph; } }
+        public SignalSystem Events { get { return _signalSystem; } }
+        public float minZoom = 0.1f;
+        public float maxZoom = 1.5f;
+        public GameObject contextMenuPrefab;
+        public float tempGraphSize = 2000f;
+        public Sprite _grid;
+
+        private NodeGraph _graph;
+        private ContextMenu _contextMenu;
+        private ContextItemData _contextMenuData;
+        private SignalSystem _signalSystem;
+        private bool _menuActive { get; set; }
 
         public virtual void StartEditor(NodeGraph graph)
         {
@@ -83,9 +85,13 @@ namespace RuntimeNodeEditor
             var graph = new GameObject("Graph");
             graph.transform.SetParent(parent.transform);
             var graphRect = graph.AddComponent<RectTransform>();
-            graphRect.sizeDelta = Vector2.one * 1000f;
-            graphRect.anchoredPosition = Vector2.zero; 
-
+            graphRect.sizeDelta = Vector2.one * tempGraphSize;
+            graphRect.anchoredPosition = Vector2.zero;
+            var img = graph.AddComponent<Image>();
+            img.sprite = _grid;
+            img.color = bgColor;
+            img.type = Image.Type.Tiled;
+            img.raycastTarget = false;
 
             //          - add line container child, stretch
             var lineContainer = new GameObject("LineContainer");
