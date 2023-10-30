@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2365852077068945155}
   m_Layer: 0
   m_Name: 02.01.01.01.007_RoomLevel
-  m_TagString: Untagged
+  m_TagString: RoomLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

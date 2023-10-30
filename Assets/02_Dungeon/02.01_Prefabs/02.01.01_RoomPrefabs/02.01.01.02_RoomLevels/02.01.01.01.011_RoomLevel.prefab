@@ -93,12 +93,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6175119953591519190}
   m_Layer: 0
-  m_Name: Spawnpoints
+  m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6175119953591519190
 Transform:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 5656083316046618201}
   m_Layer: 0
   m_Name: 02.01.01.01.011_RoomLevel
-  m_TagString: Untagged
+  m_TagString: RoomLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

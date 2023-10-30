@@ -23,10 +23,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 5082977675403686881, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
+      propertyPath: enemySpawnPoints
+      value: 
+      objectReference: {fileID: 6423086917761512649}
     - target: {fileID: 5551781560194560409, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209737805953738958, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8161511552282349658, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
@@ -98,6 +108,12 @@ PrefabInstance:
       addedObject: {fileID: 1037153573204592203}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d4b2954944170249a23bd65cb6cc613, type: 3}
+--- !u!1 &6423086917761512649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6209737805953738958, guid: 5d4b2954944170249a23bd65cb6cc613,
+    type: 3}
+  m_PrefabInstance: {fileID: 1084813523949558791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8689520975728539457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8618035286675778374, guid: 5d4b2954944170249a23bd65cb6cc613,

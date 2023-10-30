@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -48,6 +49,7 @@ public class RoomExit : MonoBehaviour
     private void NextRoomReady()
     {
         fade.StartEffect();
+        nextRoomEntry.transform.parent.gameObject.GetComponent<RoomManger>().InitSetting();
         actionMap.Enable();
     }
 }

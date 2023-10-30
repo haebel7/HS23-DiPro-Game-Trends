@@ -225,11 +225,11 @@ GameObject:
   - component: {fileID: 1171333287451904994}
   m_Layer: 0
   m_Name: SpawnPoints
-  m_TagString: Untagged
+  m_TagString: SpawnPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1171333287451904994
 Transform:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 933999384681386069}
   m_Layer: 0
   m_Name: 02.01.01.01.012_RoomLevel
-  m_TagString: Untagged
+  m_TagString: RoomLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,9 +900,9 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1171333287451904994}
   - {fileID: 8708439533800057963}
   - {fileID: 2741436585636116086}
+  - {fileID: 1171333287451904994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5232510628572100160
