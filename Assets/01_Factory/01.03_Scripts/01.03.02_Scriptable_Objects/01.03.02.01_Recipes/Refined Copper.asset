@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Refined Copper
   m_EditorClassIdentifier: 
   InputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 13254f40ff76e62419aabbb63f5273dd, type: 2}
   OutputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 134cd4f3b984c9444802aef95ea7f22e, type: 2}
+  processingTime: 0.5

@@ -55,15 +55,6 @@ namespace RuntimeNodeEditor
             {
                 incomingValues.Add(c.GetValue<Ressource>());
             }
-
-            try 
-                {
-                    Debug.Log(incomingValues[0].ownedAmount); 
-                } 
-            catch (Exception e)
-                { 
-                    Debug.LogError(e);
-                }
             moveToInventory();
             }
 
@@ -72,10 +63,10 @@ namespace RuntimeNodeEditor
         {
             foreach (Ressource res in incomingValues)
             {
-                Debug.Log(res._name);
                 try
                 {
                     int index = ressourceInventar.getRessourceIndex(res._name);
+                    Debug.Log(index);
                     Ressource r = ressourceInventar.getListOfRessources()[index];
 
                     if (res.ownedAmount > 0 && res.ownedAmount != r.ownedAmount)

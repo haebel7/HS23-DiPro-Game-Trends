@@ -8,6 +8,7 @@ namespace RuntimeNodeEditor.Examples
     public class ExampleNodeEditor : NodeEditor
     {
         private string _savePath;
+        private Vector2 finalGraphSize = Vector2.one * 800f;
 
         public override void StartEditor(NodeGraph graph)
         {
@@ -20,7 +21,7 @@ namespace RuntimeNodeEditor.Examples
             Events.OnConnectionPointerClickEvent      += OnNodeConnectionPointerClick;
             Events.OnSocketConnect                    += OnConnect;
 
-            Graph.SetSize(Vector2.one * 20000);
+            graph.SetSize(finalGraphSize);
         }
 
         private void OnConnect(SocketInput arg1, SocketOutput arg2)

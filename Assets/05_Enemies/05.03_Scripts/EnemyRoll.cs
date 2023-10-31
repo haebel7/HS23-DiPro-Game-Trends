@@ -8,9 +8,12 @@ public class EnemyRoll : EnemySBase
     private float chargeSpeed = 0.1f;
     [SerializeField]
     private float chargeCooldown = 5;
+    [SerializeField]
+    private float chargeMaxTime = 5;
 
     private bool isCharging = false;
     private float timeChargeCooldownStarted = 0;
+    private float timeChargeStarted = 0;
 
     private static Dictionary<string, int> EnemyAddState = new Dictionary<string, int>()
     {
@@ -48,11 +51,15 @@ public class EnemyRoll : EnemySBase
     public override void ChangeEnemyStateAdditional()
     {
         // RollingEnemy specific states
-        if (state == EnemyState["Hunt"] 
-            && Vector3.Distance(transform.position, player.position) < attackDistance 
+        if (state == EnemyState["Hunt"]
+            && Vector3.Distance(transform.position, player.position) < attackDistance
             && Time.fixedTime > timeChargeCooldownStarted + chargeCooldown)
         {
             state = EnemyAddState["Charge"];
+        }
+        else if (state == EnemyAddState["Charge"] && Time.fixedTime > timeChargeStarted + chargeMaxTime)
+        {
+            state = EnemyAddState["ChargeEnd"];
         }
     }
 
@@ -80,6 +87,7 @@ public class EnemyRoll : EnemySBase
                 anim.SetBool("Charge", true);
                 isLookingAtPlayer = true;
                 agent.radius = 0.01f;
+                timeChargeStarted = Time.fixedTime;
             }
             else if (state == EnemyAddState["ChargeEnd"])
             {
@@ -97,7 +105,6 @@ public class EnemyRoll : EnemySBase
     {
         if (isCharging && (hit.transform == player || hit.gameObject.tag != "Agent"))
         {
-            isCharging = false;
             state = EnemyAddState["ChargeEnd"];
         }
     }
