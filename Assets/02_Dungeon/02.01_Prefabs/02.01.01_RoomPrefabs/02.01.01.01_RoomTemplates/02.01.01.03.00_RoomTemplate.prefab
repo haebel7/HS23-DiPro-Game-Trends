@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074d25d36edc79d4591069b79735ff00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyList: {fileID: 11400000, guid: 373fc0b22fa68e74585b4ab9d6bbddd8, type: 2}
   enemySpawnPoints: {fileID: 0}
 --- !u!114 &8709351498498796454
 MonoBehaviour:

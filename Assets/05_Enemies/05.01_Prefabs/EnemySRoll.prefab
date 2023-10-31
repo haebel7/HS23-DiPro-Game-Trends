@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 1675513352364308222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1081161, y: -9.886553, z: 7.4593983}
+  m_LocalPosition: {x: 0, y: -9.886553, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -159,6 +159,7 @@ MonoBehaviour:
   attackDmg: 5
   chargeSpeed: 0.1
   chargeCooldown: 3
+  chargeMaxTime: 5
 --- !u!114 &5927285962346606902
 MonoBehaviour:
   m_ObjectHideFlags: 0

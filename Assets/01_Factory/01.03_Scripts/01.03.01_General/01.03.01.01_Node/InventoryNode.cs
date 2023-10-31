@@ -20,6 +20,7 @@ namespace RuntimeNodeEditor
         public override void Setup()
         {
             _incomingOutputs = new List<IOutput>();
+            incomingValues = new List<Ressource>();
 
             Register(inputSocket1);
             Register(inputSocket2);
@@ -49,7 +50,7 @@ namespace RuntimeNodeEditor
         // Saves the given values from every connected Output Socket in a List
         private void OnConnectedValueUpdated()
         {
-            incomingValues = new List<Ressource>();
+            incomingValues.Clear();
 
             foreach (var c in _incomingOutputs)
             {
@@ -66,14 +67,16 @@ namespace RuntimeNodeEditor
                 try
                 {
                     int index = ressourceInventar.getRessourceIndex(res._name);
-                    Debug.Log(index);
-                    Ressource r = ressourceInventar.getListOfRessources()[index];
-
-                    if (res.ownedAmount > 0 && res.ownedAmount != r.ownedAmount)
+                    if (index >= 0)
                     {
-                        r.incrementCount(res.ownedAmount);
-                        res.ownedAmount = 0;
-                        res._name = null;
+                        Ressource r = ressourceInventar.getListOfRessources()[index];
+
+                        if (res.ownedAmount > 0)
+                        {
+                            r.incrementCount(res.ownedAmount);
+                            res.ownedAmount = 0;
+                            res._name = null;
+                        }
                     }
                 }
                 catch (Exception e)
@@ -85,9 +88,12 @@ namespace RuntimeNodeEditor
 
         private void FixedUpdate()
         {
-            if (fixedUpdateCount % 50 == 0 && incomingValues != null && incomingValues[0].ownedAmount > 0)
+            if (incomingValues.Count > 0)
             {
-                OnConnectedValueUpdated();
+                if (fixedUpdateCount % 50 == 0 && incomingValues != null && incomingValues[0].ownedAmount > 0)
+                {
+                    OnConnectedValueUpdated();
+                }
             }
 
             fixedUpdateCount %= 10000;
