@@ -59,6 +59,8 @@ public class RoomSpawner : MonoBehaviour
                         if (currentExitDoor.transform.GetChild(j).CompareTag("Exit"))
                         {
                             currentExit = currentExitDoor.transform.GetChild(j).gameObject;
+                            currentExit.GetComponent<BoxCollider>().enabled = false;
+                            transform.parent.GetComponent<RoomManger>().exit = currentExit;
                         }
                     }
                 }
