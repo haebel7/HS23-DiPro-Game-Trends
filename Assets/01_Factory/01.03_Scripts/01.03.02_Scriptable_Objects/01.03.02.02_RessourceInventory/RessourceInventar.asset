@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: RessourceInventar
   m_EditorClassIdentifier: 
   ressources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 58cede51988408742b3ed8237e4997f7, type: 2}
+  - {fileID: 11400000, guid: 13254f40ff76e62419aabbb63f5273dd, type: 2}
+  - {fileID: 11400000, guid: 70ef195106f619940a00c9d861ae6501, type: 2}
+  - {fileID: 11400000, guid: 134cd4f3b984c9444802aef95ea7f22e, type: 2}
+  - {fileID: 11400000, guid: 632f877ff86a1a442bb10e2b39a1ba84, type: 2}
+  - {fileID: 11400000, guid: c488c645afdc5f345b7aa5ad8b69c1c8, type: 2}

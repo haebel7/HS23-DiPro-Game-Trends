@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc3614d155e86c4f9e273ac18f5777d, type: 3}
   m_Name: Cringe
   m_EditorClassIdentifier: 
-  _name: Circuit
+  _name: Cringe
   ownedAmount: 0

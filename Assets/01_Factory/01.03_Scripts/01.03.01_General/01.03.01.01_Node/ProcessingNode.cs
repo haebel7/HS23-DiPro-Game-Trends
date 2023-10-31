@@ -26,7 +26,6 @@ namespace RuntimeNodeEditor
         [SerializeField] private int                    _internalInputInventory;
         [SerializeField] private int                    _internalOutputInventory;
         // in 0.1 sec
-        [SerializeField] private int                    _processingTime;
         [SerializeField] private int                    _outputMultiplier;
         [SerializeField] private TMP_Text               _processingTimeText;
 
@@ -38,6 +37,7 @@ namespace RuntimeNodeEditor
         private List<Ressource>                         recipeInputs;
         private List<Ressource>                         recipeOutputs;
         private List<Ressource>                         ressourceInputsCopy;
+        private int                                     processingTime;
         private int                                     fixedUpdateCount = 0;
         private int                                     timer = 0;
         private bool                                    timerIsRunning = false;
@@ -85,9 +85,12 @@ namespace RuntimeNodeEditor
             }
 
             _processingTimeText.text = "0 sec";
+            processingTime = 0;
 
             OnConnectionEvent += OnConnection;
             OnDisconnectEvent += OnDisconnect;
+
+            _retrieveButton.onClick.AddListener(retrieveInput);
 
             // for those Nodes, which have a dropdown; if not skip
             if (_dropdown != null)
@@ -111,7 +114,7 @@ namespace RuntimeNodeEditor
                         {
                             if (recipeOutputs[index]._name == socketOutput.ressource._name || socketOutput.ressource._name == null)
                             {
-                                timer = _processingTime;
+                                timer = processingTime;
                             }
                             else
                             {
@@ -276,9 +279,11 @@ namespace RuntimeNodeEditor
                     ressourceInputsCopy.Add(Instantiate(si.ressources[0]));
                     foreach (Ressource r in recipeInputs)
                     {
+                        Debug.Log(ressourceInputsCopy[index]._name + ", " + r._name);
                         if (ressourceInputsCopy[index]._name == r._name)
                         {
                             ressourceInputsCopy[index].ownedAmount -= r.ownedAmount * howMuchUWantToDo;
+                            //r._name = "done";
                             boboo = true;
                             break;
                         }
@@ -333,10 +338,8 @@ namespace RuntimeNodeEditor
                 if (timer <= 0)
                 {
                     timerIsRunning = false;
-                    if (checkIfCanDoRecipe(_outputMultiplier) && checkOutputStatus(_outputMultiplier))
-                    {
-                        moveToOutput(_outputMultiplier);
-                    }
+                    prepRecipe();
+                    moveToOutput(_outputMultiplier);
                 }
                 else
                 {
@@ -348,7 +351,7 @@ namespace RuntimeNodeEditor
             else if (!timerIsRunning && checkIfCanDoRecipe(_outputMultiplier) && checkOutputStatus(_outputMultiplier))
             {
                 timerIsRunning = true;
-                timer = _processingTime;
+                timer = processingTime;
                 float f = timer / 10f;
                 _processingTimeText.text = f.ToString() + " sec";
             }
@@ -392,6 +395,7 @@ namespace RuntimeNodeEditor
             if (_dropdown != null)
             {
                 Recipe recipe = getRecipeInDropdown();
+                setProcessingTime(recipe);
                 //Count Recipe Inputressources
                 doPrepRecipeLoop(recipe.getInputRessources(), recipeInputs);
                 // Count Recipe Outputressources
@@ -404,11 +408,17 @@ namespace RuntimeNodeEditor
                 {
                     if (_listOfInputs[0].ressources[0]._name == r.getInputRessources()[0]._name)
                     {
+                        setProcessingTime(r);
                         doPrepRecipeLoop(r.getInputRessources(), recipeInputs);
                         doPrepRecipeLoop(r.getOutputRessources(), recipeOutputs);
                     }
                 }
             }
+        }
+
+        private void setProcessingTime(Recipe recipe)
+        {
+            processingTime = (int)Math.Floor(recipe.getProcessingTime() * 10);
         }
 
         // helper function from prepRecipe(). It does the counting of the Recipe 
@@ -431,6 +441,40 @@ namespace RuntimeNodeEditor
             }
         }
 
+        private Ressource searchRessourceInInventory(Ressource r)
+        {
+            foreach (Ressource res in _ressourceInventory.getListOfRessources())
+            {
+                if (res._name == r._name)
+                {
+                    return res;
+                }
+            }
+            return null;
+        }
+
+        private void retrieveInput()
+        {
+            foreach (SocketInput si in _listOfInputs)
+            {
+                Ressource r = searchRessourceInInventory(si.ressources[0]);
+                r.incrementCount(si.ressources[0].ownedAmount);
+                si.ressources[0]._name = null;
+                si.ressources[0].ownedAmount = 0;
+            }
+            foreach (TMP_Text t in _listOfInputTexts)
+            {
+                t.text = null;
+            }
+            foreach (TMP_Text t in _listOfInputNums)
+            {
+                t.text = "0";
+            }
+
+            timer = 0;
+            _processingTimeText.text = "0 sec";
+        }
+
         private void FixedUpdate()
         {
             if (fixedUpdateCount % 5 == 0)
@@ -439,7 +483,7 @@ namespace RuntimeNodeEditor
                 // if the next connected node sucks out the ressources, the text doesnt update. quick and dirty solution:
                 foreach (SocketOutput so in _listOfOutputs)
                 {
-                    if (so.ressource.ownedAmount <= 0 && _listOfOutputTexts[index].text != null)
+                    if (so.ressource.ownedAmount <= 0 && _listOfOutputTexts[index].text != null && so.ressource._name != _listOfOutputTexts[index].text)
                     {
                         _listOfOutputTexts[index].text = null;
                         _listOfOutputNums[index].text = "0";

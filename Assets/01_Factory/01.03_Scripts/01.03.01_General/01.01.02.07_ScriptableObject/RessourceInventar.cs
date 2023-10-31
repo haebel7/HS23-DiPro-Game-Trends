@@ -16,7 +16,7 @@ namespace RuntimeNodeEditor
             int index = 0;
             foreach (Ressource x in ressources)
             {
-                if (x.name == _name)
+                if (x._name == _name)
                 {
                     return index;
                 }

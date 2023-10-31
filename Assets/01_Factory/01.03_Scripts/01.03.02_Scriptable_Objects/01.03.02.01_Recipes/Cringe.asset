@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Cringe
   m_EditorClassIdentifier: 
   InputRessources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 134cd4f3b984c9444802aef95ea7f22e, type: 2}
+  - {fileID: 11400000, guid: 134cd4f3b984c9444802aef95ea7f22e, type: 2}
+  - {fileID: 11400000, guid: 70ef195106f619940a00c9d861ae6501, type: 2}
   OutputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c488c645afdc5f345b7aa5ad8b69c1c8, type: 2}
+  - {fileID: 11400000, guid: c488c645afdc5f345b7aa5ad8b69c1c8, type: 2}
+  processingTime: 5

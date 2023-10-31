@@ -26,12 +26,12 @@ namespace RuntimeNodeEditor
 	    private Vector2             _localPointerPos;
 	    private Vector2             _duplicateOffset;
         private Vector2             _zoomCenterPos;
+        private Vector2             _graphSize;
         private float               _currentZoom;
         private float               _minZoom;
         private float               _maxZoom;
         private RectTransform       _nodeContainer;
 	    private RectTransform       _graphContainer;
-        private int                 _triggerCounter;
         private Vector3             _initialPosition;
 
         private SignalSystem        _signalSystem;
@@ -65,6 +65,7 @@ namespace RuntimeNodeEditor
         public void SetSize(Vector2 size)
         {
             _graphContainer.sizeDelta = size;
+            _graphSize = size;
         }
 
         public void Create(string prefabPath)
@@ -80,6 +81,7 @@ namespace RuntimeNodeEditor
             var node            = Utility.CreateNodePrefab<Node>(prefabPath, nodeContainer);
             node.Init(_signalSystem, _signalSystem, pos, NewId(), prefabPath);
             node.Setup();
+            node.SetGraphSize(_graphSize);
             nodes.Add(node);
             HandleSocketRegister(node);
         }
@@ -427,7 +429,10 @@ namespace RuntimeNodeEditor
                                                                                 eventData.pressEventCamera, out _localPointerPos);
                 if (success)
                 {
-                    node.SetPosition(_localPointerPos - _pointerOffset);
+                    Vector2 vec = _localPointerPos - _pointerOffset;
+                    //vec.x += node.GetComponent<RectTransform>().rect.width / 2;
+                    //Debug.Log(vec);
+                    node.SetPosition(vec);
                     drawer.UpdateDraw();
                 }
             }
