@@ -279,10 +279,11 @@ namespace RuntimeNodeEditor
                     ressourceInputsCopy.Add(Instantiate(si.ressources[0]));
                     foreach (Ressource r in recipeInputs)
                     {
+                        Debug.Log(ressourceInputsCopy[index]._name + ", " + r._name);
                         if (ressourceInputsCopy[index]._name == r._name)
                         {
                             ressourceInputsCopy[index].ownedAmount -= r.ownedAmount * howMuchUWantToDo;
-                            r._name = "done";
+                            //r._name = "done";
                             boboo = true;
                             break;
                         }
@@ -418,7 +419,6 @@ namespace RuntimeNodeEditor
         private void setProcessingTime(Recipe recipe)
         {
             processingTime = (int)Math.Floor(recipe.getProcessingTime() * 10);
-            Debug.Log(processingTime);
         }
 
         // helper function from prepRecipe(). It does the counting of the Recipe 
@@ -483,7 +483,7 @@ namespace RuntimeNodeEditor
                 // if the next connected node sucks out the ressources, the text doesnt update. quick and dirty solution:
                 foreach (SocketOutput so in _listOfOutputs)
                 {
-                    if (so.ressource.ownedAmount <= 0 && _listOfOutputTexts[index].text != null)
+                    if (so.ressource.ownedAmount <= 0 && _listOfOutputTexts[index].text != null && so.ressource._name != _listOfOutputTexts[index].text)
                     {
                         _listOfOutputTexts[index].text = null;
                         _listOfOutputNums[index].text = "0";
