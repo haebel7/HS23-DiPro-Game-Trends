@@ -34,8 +34,8 @@ public class giveRessources : MonoBehaviour
         listOfRes = ressourceInventar.getListOfRessources();
         indexIron = ressourceInventar.getRessourceIndex("Iron");
         indexCopper = ressourceInventar.getRessourceIndex("Copper");
-        indexRefinedIron = ressourceInventar.getRessourceIndex("IronRefined");
-        indexRefinedCopper = ressourceInventar.getRessourceIndex("CopperRefined");
+        indexRefinedIron = ressourceInventar.getRessourceIndex("Refined Iron");
+        indexRefinedCopper = ressourceInventar.getRessourceIndex("Refined Copper");
 
         giveIron.clicked += giveIronButtonPressed;
         giveCopper.clicked += giveCopperButtonPressed;
