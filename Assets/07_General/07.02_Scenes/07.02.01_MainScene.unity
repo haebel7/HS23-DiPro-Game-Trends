@@ -134,23 +134,7 @@ PrefabInstance:
     - target: {fileID: 1471956376016456171, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Name
-      value: RoomEntry
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841140825716669420, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
-        type: 3}
-      propertyPath: enemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841140825716669420, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
-        type: 3}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 1675513352364308222, guid: 952277f32305ca248937239d77318b89,
-        type: 3}
-    - target: {fileID: 6441931354315249524, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
-        type: 3}
-      propertyPath: enemies.Array.size
-      value: 0
+      value: Room_64x64.010.Entry
       objectReference: {fileID: 0}
     - target: {fileID: 7505997153298563220, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
@@ -451,12 +435,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
-        type: 3}
-      propertyPath: boss
-      value: 
-      objectReference: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
-        type: 3}
     - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
         type: 3}
       propertyPath: bossRooms.Array.size
