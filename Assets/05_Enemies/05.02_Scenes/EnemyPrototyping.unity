@@ -1011,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 3223468154324146823, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1356,11 +1356,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySMelee
-      objectReference: {fileID: 0}
-    - target: {fileID: 2290559584761157160, guid: 877b13e63190ac2478612dcd1e320e6f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392368715447742480, guid: 877b13e63190ac2478612dcd1e320e6f,
         type: 3}
@@ -3099,7 +3094,7 @@ PrefabInstance:
     - target: {fileID: 1675513352364308222, guid: 952277f32305ca248937239d77318b89,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8783599076514962551, guid: 952277f32305ca248937239d77318b89,
         type: 3}
