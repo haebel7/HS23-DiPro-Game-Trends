@@ -116,12 +116,12 @@ PrefabInstance:
     - target: {fileID: 662408855971319342, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 662408855971319342, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.8
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 697318883184876494, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 1514825876383789185, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3502423817566223082, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
@@ -224,6 +224,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -14.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4978201213304555633, guid: 486583759c8965044a56c64000e77ff5,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978201213304555633, guid: 486583759c8965044a56c64000e77ff5,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
     - target: {fileID: 5257500619714165366, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
       propertyPath: m_Name
@@ -258,6 +269,11 @@ PrefabInstance:
     - {fileID: 4928779918022898065, guid: 486583759c8965044a56c64000e77ff5, type: 3}
     - {fileID: 824331798566755889, guid: 486583759c8965044a56c64000e77ff5, type: 3}
     - {fileID: 8679662791648563402, guid: 486583759c8965044a56c64000e77ff5, type: 3}
+    - {fileID: 6165581966503429849, guid: 486583759c8965044a56c64000e77ff5, type: 3}
+    - {fileID: 2211410364739893568, guid: 486583759c8965044a56c64000e77ff5, type: 3}
+    - {fileID: 9174428196127390375, guid: 486583759c8965044a56c64000e77ff5, type: 3}
+    - {fileID: 1087571677959302191, guid: 486583759c8965044a56c64000e77ff5, type: 3}
+    - {fileID: 2776117099207000646, guid: 486583759c8965044a56c64000e77ff5, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3797023593768170249, guid: 486583759c8965044a56c64000e77ff5,
         type: 3}
