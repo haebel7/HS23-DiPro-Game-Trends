@@ -49,7 +49,7 @@ public class RoomExit : MonoBehaviour
     private void NextRoomReady()
     {
         fade.StartEffect();
-        nextRoomEntry.transform.parent.gameObject.GetComponent<RoomManger>().InitSetting();
+        nextRoomEntry.transform.parent.gameObject.transform.parent.GetComponent<RoomManger>().InitSetting();
         actionMap.Enable();
     }
 }

@@ -19,6 +19,7 @@ TagManager:
   - NavMeshAgent
   - RoomLevel
   - SpawnPoints
+  - EntryRoom
   layers:
   - Default
   - TransparentFX
