@@ -105,8 +105,12 @@ namespace RuntimeNodeEditor
         public void SetPosition(Vector2 pos)
         {
             int multiplier = 20;
-            pos.x = (float)(Math.Round(pos.x / multiplier) * multiplier);
-            pos.y = (float)(Math.Round(pos.y / multiplier) * multiplier);
+            Vector2 originalPos = pos;
+            if (pos.x % multiplier != 0 && pos.y % multiplier != 0)
+            {
+                pos.x = (float)(Math.Round(originalPos.x / multiplier) * multiplier);
+                pos.y = (float)(Math.Round(originalPos.y / multiplier) * multiplier);
+            }
             float graphSize = gaphSize.x / 2;
             float nodeWidth = this.GetComponent<RectTransform>().rect.width;
             float nodeHeight = this.GetComponent<RectTransform>().rect.height;
@@ -126,7 +130,7 @@ namespace RuntimeNodeEditor
             {
                 pos.y = graphSize;
             }
-            _panelRectTransform.localPosition = pos;
+            _panelRectTransform.localPosition = pos; 
         }
 
         public void SetAsLastSibling()

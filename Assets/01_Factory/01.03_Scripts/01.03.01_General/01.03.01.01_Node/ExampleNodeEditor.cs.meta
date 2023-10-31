@@ -3,7 +3,9 @@ guid: 524db2051db984b6d9d8001206052e7f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - contextMenuPrefab: {instanceID: 0}
+  - _grid: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
