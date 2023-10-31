@@ -477,7 +477,6 @@ namespace RuntimeNodeEditor
 
         private void FixedUpdate()
         {
-            Debug.Log(checkOutputStatus(1));
             if (fixedUpdateCount % 5 == 0)
             {
                 int index = 0;
