@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: enemySpawnPoints
       value: 
       objectReference: {fileID: 1416379919494807297}
+    - target: {fileID: 2280562257173833909, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3650647166956080652, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
       propertyPath: m_IsActive
