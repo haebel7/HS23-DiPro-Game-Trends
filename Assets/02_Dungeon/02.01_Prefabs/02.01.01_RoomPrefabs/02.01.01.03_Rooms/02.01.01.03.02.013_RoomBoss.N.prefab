@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 2280562257173833909, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3650647166956080652, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
@@ -89,13 +89,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: 02.01.01.03.02.013_RoomBoss.N
       objectReference: {fileID: 0}
+    - target: {fileID: 5743654066895016005, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743654066895016005, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
     - target: {fileID: 6531230645474094230, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4635913630222782672, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 5746488050452518297, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 7349656240182233696, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 1788350151435154655, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 5675971945065867685, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 131462243812361733, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 8275304957017442558, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 6859859025020018413, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 1446521154459050356, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 8498728487147709075, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 411030415267378203, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
+    - {fileID: 3180999954935159410, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4472687436286831421, guid: 8119bf1a84a5a8b4db2c89d2d199f2f9,
         type: 3}

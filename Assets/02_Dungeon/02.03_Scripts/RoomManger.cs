@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RoomManger : MonoBehaviour
 {
+    public EnemyList EnemyList;
+    public GameObject exit;
+
     [SerializeField]
     private GameObject enemySpawnPoints;
+    
 
     void Start()
     {
@@ -15,9 +19,16 @@ public class RoomManger : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (EnemyList.enemies.Count == 0)
+        {
+            exit.GetComponent<BoxCollider>().enabled = true;
+        }
+    }
+
     public void InitSetting()
     {
-        Debug.Log("init settings.");
         SpawnEnemies();
     }
 
