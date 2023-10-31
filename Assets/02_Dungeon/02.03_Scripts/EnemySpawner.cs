@@ -11,7 +11,8 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            Instantiate(enemy,transform.position, Quaternion.identity);
+            GameObject activeEnemy = Instantiate(enemy,transform.position, Quaternion.identity);
+            activeEnemy.transform.parent = transform;
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7544303220155946413}
   - component: {fileID: 4006292973411560684}
   m_Layer: 0
-  m_Name: 02.01.06_SpawnPointMarker
+  m_Name: 02.01.06_SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,3 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09265ca6cf89fb84994f5c3eeea8e543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 3223468154324146823, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8, type: 3}
