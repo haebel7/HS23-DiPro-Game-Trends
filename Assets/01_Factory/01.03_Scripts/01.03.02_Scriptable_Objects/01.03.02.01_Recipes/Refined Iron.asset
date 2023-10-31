@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Refined Iron
   m_EditorClassIdentifier: 
   InputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 58cede51988408742b3ed8237e4997f7, type: 2}
   OutputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 70ef195106f619940a00c9d861ae6501, type: 2}
+  processingTime: 0.5

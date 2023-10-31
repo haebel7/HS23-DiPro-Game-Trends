@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Circuit
   m_EditorClassIdentifier: 
   InputRessources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 13254f40ff76e62419aabbb63f5273dd, type: 2}
+  - {fileID: 11400000, guid: 58cede51988408742b3ed8237e4997f7, type: 2}
+  - {fileID: 11400000, guid: 58cede51988408742b3ed8237e4997f7, type: 2}
   OutputRessources:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 632f877ff86a1a442bb10e2b39a1ba84, type: 2}
+  processingTime: 2

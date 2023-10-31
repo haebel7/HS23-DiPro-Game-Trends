@@ -25,6 +25,7 @@ namespace RuntimeNodeEditor
         private RectTransform               _panelRectTransform;
         private INodeEvents                 _nodeEvents;
         private ISocketEvents               _socketEvents;
+        private Vector2                     gaphSize;
 
         public void Init(INodeEvents nodeEvents, ISocketEvents socketEvents, Vector2 pos, string id, string path)
         {
@@ -96,11 +97,35 @@ namespace RuntimeNodeEditor
             headerText.SetText(name);
         }
 
+        public void SetGraphSize(Vector2 size)
+        {
+            gaphSize = size;
+        }
+
         public void SetPosition(Vector2 pos)
         {
             int multiplier = 20;
             pos.x = (float)(Math.Round(pos.x / multiplier) * multiplier);
             pos.y = (float)(Math.Round(pos.y / multiplier) * multiplier);
+            float graphSize = gaphSize.x / 2;
+            float nodeWidth = this.GetComponent<RectTransform>().rect.width;
+            float nodeHeight = this.GetComponent<RectTransform>().rect.height;
+            if (pos.x - nodeWidth / 2 < -graphSize)
+            {
+                pos.x = -graphSize + nodeWidth / 2;
+            }
+            else if (pos.x + nodeWidth / 2 > graphSize)
+            {
+                pos.x = graphSize - nodeWidth / 2;
+            }
+            if (pos.y - nodeHeight < -graphSize)
+            {
+                pos.y = -graphSize + nodeHeight;
+            }
+            else if (pos.y > graphSize)
+            {
+                pos.y = graphSize;
+            }
             _panelRectTransform.localPosition = pos;
         }
 

@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 4420270744701850267, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: m_Name
-      value: RoomBoss_64x64.012.W
+      value: 02.01.01.03.05.012_RoomBoss.W
       objectReference: {fileID: 0}
     - target: {fileID: 4688296624066141156, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
@@ -83,6 +83,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -19.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6963741759106504812, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071322297272238915, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+        type: 3}
+      propertyPath: enemySpawnPoints
+      value: 
+      objectReference: {fileID: 8122560838614861143}
     - target: {fileID: 8899858832373743931, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: m_IsActive
@@ -93,3 +103,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e4580d0d1f0544cb175b91308c7ce7, type: 3}
+--- !u!1 &8122560838614861143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6963741759106504812, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1161097680021855547}
+  m_PrefabAsset: {fileID: 0}

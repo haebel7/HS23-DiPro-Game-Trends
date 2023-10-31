@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 1471956376016456171, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Name
-      value: Room_64x64.010.Entry
+      value: RoomEntry
       objectReference: {fileID: 0}
     - target: {fileID: 7505997153298563220, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
