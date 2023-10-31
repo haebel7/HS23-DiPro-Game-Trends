@@ -17,6 +17,8 @@ TagManager:
   - W
   - CameraRootNavMesh
   - NavMeshAgent
+  - RoomLevel
+  - SpawnPoints
   layers:
   - Default
   - TransparentFX
