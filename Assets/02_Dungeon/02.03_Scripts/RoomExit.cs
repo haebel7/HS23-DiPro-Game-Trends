@@ -49,8 +49,6 @@ public class RoomExit : MonoBehaviour
     private void NextRoomReady()
     {
         fade.StartEffect();
-        
-        //GameObject door = nextRoomEntry.transform.parent.gameObject;
         nextRoomEntry.transform.parent.gameObject.transform.parent.GetComponent<RoomManger>().InitSetting();
         actionMap.Enable();
     }

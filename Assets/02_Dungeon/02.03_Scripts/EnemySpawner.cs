@@ -11,7 +11,6 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            Debug.Log("enemy: " + enemy);
             Instantiate(enemy,transform.position, Quaternion.identity);
         }
     }
