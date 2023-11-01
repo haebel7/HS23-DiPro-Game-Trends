@@ -21,7 +21,7 @@ public class RoomSpawner : MonoBehaviour
         }
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f); // Delays Spawn()
+        Invoke("Spawn", 0.8f); // Delays Spawn()
     }
 
     private void Spawn()
@@ -65,6 +65,9 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
             }
+
+            Debug.Log(name + " >> currentExitDoor: "+ currentExitDoor);
+            Debug.Log(name + " >> currentExit: "+ currentExit);
 
             if (currentExitDirection == "N")
             {
