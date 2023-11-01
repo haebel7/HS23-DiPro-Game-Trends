@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07_General/07.03_Stylesheets/UIstyle.uss?fileID=7433441132597879392&amp;guid=07c3358cf2776ce4a96c0fe4a930df1a&amp;type=3#UIstyle" />
+    <Style src="project://database/Assets/07_General/07.03_Stylesheets/startScreenStyle.uss?fileID=7433441132597879392&amp;guid=b819ed35f6192d54b9ba5128c8ca4fe6&amp;type=3#startScreenStyle" />
+    <ui:VisualElement name="container" style="flex-grow: 1; background-color: rgb(0, 0, 0); flex-direction: row;">
+        <ui:VisualElement name="container-wrapper" style="flex-grow: 1; flex-direction: row; margin-top: 2%; margin-bottom: 2%; margin-left: 2%; margin-right: 2%; justify-content: space-between;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 360px; height: 100%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/FactoryUITemporaryUmriss.png?fileID=2800000&amp;guid=5e1698a609db88d4d99ffa3723ceb98c&amp;type=3#FactoryUITemporaryUmriss&apos;); align-self: flex-end;">
+                <ui:VisualElement name="tabtitle" style="flex-grow: 0; width: 50%; height: 6%; align-self: flex-end;">
+                    <ui:Label tabindex="-1" text="TEMPORARY" parse-escape-sequences="true" display-tooltip-when-elided="true" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 5%; padding-right: 0; padding-bottom: 0; padding-left: 20%; -unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.02_Big_Shoulders_Display/04.01.02.asset?fileID=11400000&amp;guid=31ba8ac133b27cb4990ee426b5250f2b&amp;type=2#04.01.02&apos;); font-size: 30px; -unity-text-align: middle-center; color: rgb(255, 255, 255); flex-grow: 1; -unity-font-style: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="tabcontent" style="flex-grow: 1; padding-left: 4%; padding-bottom: 5%; background-image: none;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="inventory-wrapper" style="flex-grow: 1;">
+                <ui:VisualElement name="inventory" style="flex-grow: 1; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; -unity-slice-scale: 0; flex-direction: row;">
+                    <ui:VisualElement name="wabe-col" class="wabe-col" style="align-items: flex-start; padding-left: 5%; padding-top: 3%; padding-bottom: 3%;">
+                        <ui:VisualElement name="wabe" class="wabe" />
+                        <ui:VisualElement name="wabe" class="wabe" style="flex-grow: 0;" />
+                        <ui:VisualElement name="wabe" class="wabe" style="flex-grow: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="wabe-col" class="wabe-col" style="flex-grow: 1; align-items: flex-end; padding-right: 5%;">
+                        <ui:VisualElement name="wabe" class="wabe" style="flex-grow: 0;" />
+                        <ui:VisualElement name="wabe" class="wabe" style="flex-grow: 0;" />
+                        <ui:VisualElement name="wabe" class="wabe" style="flex-grow: 0;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="character" style="flex-grow: 1; position: absolute; width: 88%; height: 88%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUICharacter.png?fileID=2800000&amp;guid=988e6a3e903e0c542abc6549dcd7f47c&amp;type=3#CharacterUICharacter&apos;); -unity-background-scale-mode: scale-to-fit; -unity-slice-scale: 1px; left: 50%; top: 50%; translate: -50% -50%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="placeholder" style="flex-grow: 0; width: 360px; background-color: rgba(255, 237, 237, 0.79); display: none;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
