@@ -57,7 +57,7 @@ namespace RuntimeNodeEditor
         //  create graph in scene
         public TGraphComponent CreateGraph<TGraphComponent>(RectTransform holder) where TGraphComponent : NodeGraph
         {
-            return CreateGraph<TGraphComponent>(holder, Color.gray, Color.yellow);
+            return CreateGraph<TGraphComponent>(holder, Color.black, Color.yellow);
         }
         
         public TGraphComponent CreateGraph<TGraphComponent>(RectTransform holder, Color bgColor, Color connectionColor) where TGraphComponent : NodeGraph

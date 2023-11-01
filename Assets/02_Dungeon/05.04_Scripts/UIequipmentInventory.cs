@@ -18,8 +18,8 @@ public class UIequipmentInventory : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         VisualElement UItabs = tabs.Instantiate();
-        containerWrapper = root.Q<VisualElement>("container-wrapper");
-        containerWrapper.Add(UItabs);
+        //containerWrapper = root.Q<VisualElement>("container-wrapper");
+        root.Add(UItabs);
         ressourceTab = root.Q<Button>("inventory-tab");
         equipmentTab = root.Q<Button>("equipment-tab");
         tablinks = root.Q<VisualElement>("tablinks");
