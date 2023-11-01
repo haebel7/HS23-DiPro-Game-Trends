@@ -19,7 +19,7 @@ public class playerHealthbarUI : MonoBehaviour
 
     public void updateHealthbar()
     {
-
+        Debug.Log("iyshddfkljhsgil");
     }
 
     private void initHealthbar()

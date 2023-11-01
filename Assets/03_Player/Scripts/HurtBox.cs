@@ -28,7 +28,10 @@ public class HurtBox : MonoBehaviour
         //Debug.Log(damageType);
         if (canBeHitBy.Contains(damageType))
         {
-            damageTakenEvent.Raise();
+            if(damageTakenEvent != null)
+            {
+                damageTakenEvent.Raise();
+            }
             DamagePopup.Create(dmgNumberpf, gameObject.transform.position, damageAmount, damageType);
             ownHealth.currentHealth -= damageAmount;
             CheckDied();
