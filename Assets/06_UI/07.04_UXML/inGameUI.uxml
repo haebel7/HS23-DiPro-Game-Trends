@@ -1,0 +1,56 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07_General/07.03_Stylesheets/UIstyle.uss?fileID=7433441132597879392&amp;guid=07c3358cf2776ce4a96c0fe4a930df1a&amp;type=3#UIstyle" />
+    <ui:VisualElement name="container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: none; padding-top: 1%; padding-right: 1%; padding-bottom: 1%; padding-left: 1%; justify-content: space-between; display: flex;">
+        <ui:VisualElement name="top" style="flex-grow: 0; height: 19%;">
+            <ui:VisualElement name="icon-container" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUIContainer.png?fileID=2800000&amp;guid=3bdb18a3b04b8f6428e01580acd864e1&amp;type=3#CharacterUIContainer&apos;); width: 59%; position: absolute; height: 100%; left: 50%; display: flex; translate: -50% 0;" />
+            <ui:VisualElement name="timer-container" style="flex-grow: 0; width: 6.5%; height: 29%; position: absolute; right: 3.5%; top: 50%; translate: 0 -50%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUITimer.png?fileID=2800000&amp;guid=f0d4267880ef05d47bccc6e1f32b8fd0&amp;type=3#CharacterUITimer&apos;);">
+                <ui:Label tabindex="-1" text="10:05" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-grow: 1; align-items: center; justify-content: center; -unity-text-align: middle-center; color: rgb(255, 255, 255); font-size: 25px; -unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.03_JetBrains/04.01.03.asset?fileID=11400000&amp;guid=84507f25305afca4cbe4f216dc47bccf&amp;type=2#04.01.03&apos;); letter-spacing: 2px; -unity-font-style: bold;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" style="flex-grow: 0; height: 14%; width: 100%;">
+            <ui:VisualElement name="health-wrapper" style="flex-grow: 0; height: 100%; width: 29%; position: absolute; left: 50%; translate: -50% 0; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUIHealth.png?fileID=2800000&amp;guid=60768efafa2462f4ca8b7c95862dca42&amp;type=3#CharacterUIHealth&apos;); justify-content: center;">
+                <ui:VisualElement name="VisualElement" style="flex-grow: 0; padding-top: 5%; padding-left: 5%; height: 42%; padding-right: 5%; padding-bottom: 0; flex-direction: row; justify-content: space-between;">
+                    <ui:Label tabindex="-1" text="POWER" parse-escape-sequences="false" display-tooltip-when-elided="true" name="Label" style="-unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.02_Big_Shoulders_Display/04.01.02.asset?fileID=11400000&amp;guid=31ba8ac133b27cb4990ee426b5250f2b&amp;type=2#04.01.02&apos;); font-size: 30px; color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; letter-spacing: 2px; -unity-font-style: normal;" />
+                    <ui:VisualElement name="healthbar" style="flex-grow: 0; height: 100%; width: 80%; background-color: rgba(48, 255, 0, 0); flex-direction: row; justify-content: space-between;">
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint" />
+                        <ui:VisualElement name="VisualElement" class="healpoint healpoint-empty" />
+                        <ui:VisualElement name="VisualElement" class="healpoint healpoint-empty" />
+                        <ui:VisualElement name="VisualElement" class="healpoint healpoint-empty" />
+                        <ui:VisualElement name="VisualElement" class="healpoint healpoint-empty" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="currentItem-wrapper" style="flex-grow: 1; position: absolute; right: 10%; height: 85%; width: 7%; top: 9%; align-items: center; justify-content: center; border-top-width: 1.5px; border-right-width: 1.5px; border-bottom-width: 1.5px; border-left-width: 1.5px; border-left-color: rgb(160, 152, 152); border-right-color: rgb(160, 152, 152); border-top-color: rgb(160, 152, 152); border-bottom-color: rgb(160, 152, 152);">
+                <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 90%; height: 90%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUIWeapon.png?fileID=2800000&amp;guid=8ae75b66f5ac7bc41b3bb51e5edaccc7&amp;type=3#CharacterUIWeapon&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="munition-wrapper" style="flex-grow: 1; position: absolute; right: 2%; width: 6%; height: 77%; top: 15%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/CharacterUIMunitionwabe.png?fileID=2800000&amp;guid=afbee53c0de21f547b32260eb9917810&amp;type=3#CharacterUIMunitionwabe&apos;); align-items: center; justify-content: center; -unity-background-scale-mode: scale-and-crop;">
+                <ui:Label tabindex="-1" text="15" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 40px; color: rgb(255, 255, 255); align-self: center; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.03_JetBrains/04.01.03.asset?fileID=11400000&amp;guid=84507f25305afca4cbe4f216dc47bccf&amp;type=2#04.01.03&apos;); letter-spacing: 2px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

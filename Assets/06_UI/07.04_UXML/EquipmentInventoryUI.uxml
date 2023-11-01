@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07_General/07.03_Stylesheets/UIstyle.uss?fileID=7433441132597879392&amp;guid=07c3358cf2776ce4a96c0fe4a930df1a&amp;type=3#UIstyle" />
+    <Style src="project://database/Assets/07_General/07.03_Stylesheets/startScreenStyle.uss?fileID=7433441132597879392&amp;guid=b819ed35f6192d54b9ba5128c8ca4fe6&amp;type=3#startScreenStyle" />
+    <ui:VisualElement name="sidebar-wrapper" style="flex-grow: 1; width: 360px; height: 1080px; position: absolute; right: 2%; top: 0; bottom: auto; translate: 0 0; padding-top: 0; padding-bottom: 0;">
+        <ui:VisualElement name="equipment-wrapper" style="flex-grow: 1; position: absolute; width: 100%; height: 94%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/FactoryUIEquipmentUmriss.png?fileID=2800000&amp;guid=9c418bbcfd3201440bae8b48af38baee&amp;type=3#FactoryUIEquipmentUmriss&apos;); margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; padding-top: initial; padding-right: initial; padding-bottom: initial; padding-left: initial; transition-property: all; transition-duration: 0.3s; transition-timing-function: ease; transition-delay: 0s; top: 3%;" />
+        <ui:VisualElement name="inventory-wrapper" style="flex-grow: 1; position: absolute; width: 100%; height: 94%; background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/FactoryUIRessourcesUmriss.png?fileID=2800000&amp;guid=6f0371e31a8511f47a9f8cb82330fdf7&amp;type=3#FactoryUIRessourcesUmriss&apos;); margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; padding-top: initial; padding-right: initial; padding-bottom: initial; padding-left: initial; transition-duration: 0.3s; top: 3%;">
+            <ui:VisualElement name="item-wrapper" style="flex-grow: 1; padding-top: 5%; margin-top: 15%; padding-right: 0; padding-bottom: 5%; padding-left: 4%; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; top: 0;">
+                <ui:VisualElement name="item" class="item" style="height: 12%; border-left-color: rgb(42, 41, 42); border-right-color: rgb(42, 41, 42); border-top-color: rgb(42, 41, 42); border-bottom-color: rgb(42, 41, 42);">
+                    <ui:VisualElement name="counter" class="item-counter" style="background-image: url(&apos;project://database/Assets/07_General/07.05_Sprites/FactoryUICounterUmriss.png?fileID=2800000&amp;guid=11184b989c63dba4583fc0fca3a0b338&amp;type=3#FactoryUICounterUmriss&apos;);">
+                        <ui:Label tabindex="-1" text="420K" parse-escape-sequences="true" display-tooltip-when-elided="true" name="item-count" class="item-count" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="icon" class="item-icon" />
+                    <ui:VisualElement name="text" class="item-text">
+                        <ui:Label tabindex="-1" text="IRON - ORE" parse-escape-sequences="false" display-tooltip-when-elided="true" name="item-name" class="item-name" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tablinks" style="flex-grow: 1; position: absolute; width: 100%; height: 6%; flex-direction: row; justify-content: flex-start; top: 3%;">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="inventory-tab" class="tab-link">
+                <ui:Label tabindex="-1" text="RESSOURCE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="tab-text" style="-unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.02_Big_Shoulders_Display/04.01.02.asset?fileID=11400000&amp;guid=31ba8ac133b27cb4990ee426b5250f2b&amp;type=2#04.01.02&apos;);" />
+            </ui:Button>
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="equipment-tab" enable-rich-text="false" class="tab-link" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(188, 188, 188, 0); color: rgb(255, 255, 255);">
+                <ui:Label tabindex="-1" text="EQUIPMENT" parse-escape-sequences="false" display-tooltip-when-elided="true" class="tab-text" style="-unity-font-definition: url(&apos;project://database/Assets/07_General/07.01_Fonts/04.01.02_Big_Shoulders_Display/04.01.02.asset?fileID=11400000&amp;guid=31ba8ac133b27cb4990ee426b5250f2b&amp;type=2#04.01.02&apos;);" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
