@@ -79,9 +79,9 @@ namespace RuntimeNodeEditor
         public void Create(string prefabPath, Vector2 pos)
         {
             var node            = Utility.CreateNodePrefab<Node>(prefabPath, nodeContainer);
+            node.SetGraphSize(_graphSize);
             node.Init(_signalSystem, _signalSystem, pos, NewId(), prefabPath);
             node.Setup();
-            node.SetGraphSize(_graphSize);
             nodes.Add(node);
             HandleSocketRegister(node);
         }
@@ -104,16 +104,19 @@ namespace RuntimeNodeEditor
 
         public void Connect(SocketInput input, SocketOutput output)
         {
-            var connection = new Connection(NewId(), input, output);
+            if (input.transform.parent.name != "InventoryNode(Clone)" || output.transform.parent.name != "RessourceNode(Clone)")
+            {
+                var connection = new Connection(NewId(), input, output);
 
-            input.Connect(connection);
-            output.Connect(connection);
+                input.Connect(connection);
+                output.Connect(connection);
 
-            connections.Add(connection);
-            input.OwnerNode.Connect(input, output);
-            drawer.Add(connection.connId, output.handle, input.handle);
+                connections.Add(connection);
+                input.OwnerNode.Connect(input, output);
+                drawer.Add(connection.connId, output.handle, input.handle);
 
-            _signalSystem.InvokeSocketConnection(input, output);
+                _signalSystem.InvokeSocketConnection(input, output);
+            }
         }
 
         public void Disconnect(Connection conn)
@@ -467,7 +470,8 @@ namespace RuntimeNodeEditor
         private void LoadNode(NodeData data)
         {
             var node = Utility.CreateNodePrefab<Node>(data.path, nodeContainer);
-            var pos  = new Vector2(data.posX, data.posY);
+            var pos  = new Vector2(data.posX - (_graphSize.x / 2), data.posY + (_graphSize.y / 2));
+            node.SetGraphSize(_graphSize);
             node.Init(_signalSystem, _signalSystem, pos, data.id, data.path);
             node.Setup();
             nodes.Add(node);

@@ -1,5 +1,6 @@
 ﻿using System;
 using RuntimeNodeEditor;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,8 +14,7 @@ namespace RuntimeNodeEditor.Examples
         public override void StartEditor(NodeGraph graph)
         {
             base.StartEditor(graph);
-
-            _savePath = Application.dataPath + "03_Resources/03.01_Factory/graph.json";
+            _savePath = Application.dataPath + "/01_Factory/01.01_Prefabs/Resourcesgraph.json";
             
             Events.OnGraphPointerClickEvent           += OnGraphPointerClick;
             Events.OnNodePointerClickEvent            += OnNodePointerClick;

@@ -930,15 +930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+    - target: {fileID: 7018701298163695258, guid: b0df772dd34869349a9920df7705b3ca,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5017509240757317113, guid: b0df772dd34869349a9920df7705b3ca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1356,6 +1351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290559584761157160, guid: 877b13e63190ac2478612dcd1e320e6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392368715447742480, guid: 877b13e63190ac2478612dcd1e320e6f,
         type: 3}

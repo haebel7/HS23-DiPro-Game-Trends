@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 namespace RuntimeNodeEditor
@@ -84,6 +85,16 @@ namespace RuntimeNodeEditor
                     Debug.LogError(e);
                 }
             }
+        }
+
+        public override void OnSerialize(Serializer serializer)
+        {
+
+        }
+
+        public override void OnDeserialize(Serializer serializer)
+        {
+            OnConnectedValueUpdated();
         }
 
         private void FixedUpdate()

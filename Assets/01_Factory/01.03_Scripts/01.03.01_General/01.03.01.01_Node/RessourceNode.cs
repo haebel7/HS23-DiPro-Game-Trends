@@ -11,6 +11,7 @@ namespace RuntimeNodeEditor.Examples
         public SocketOutput outputSocketRight;
         public TMP_Dropdown dropdown;
         public RessourceInventar ressourceInventar;
+        private List<TMP_Dropdown.OptionData> dropdownList;
 
         public override void Setup()
         {
@@ -18,10 +19,10 @@ namespace RuntimeNodeEditor.Examples
             Register(outputSocketRight);
             SetHeader("Ressource");
 
-            List<TMP_Dropdown.OptionData> dropdownList = new List<TMP_Dropdown.OptionData>();
+            dropdownList = new List<TMP_Dropdown.OptionData>();
             foreach (Ressource r in ressourceInventar.getListOfRessources())
             {
-                dropdownList.Add(new TMP_Dropdown.OptionData(r.name));
+                dropdownList.Add(new TMP_Dropdown.OptionData(r._name));
             }
             
 
@@ -48,17 +49,17 @@ namespace RuntimeNodeEditor.Examples
             return res;
         }
 
-        /*public override void OnSerialize(Serializer serializer)
+        public override void OnSerialize(Serializer serializer)
         {
-            serializer.Add("ressource", getRessourceCount(getRessource()).ToString());
+            serializer.Add("dropdown", dropdown.value.ToString());
         }
 
         public override void OnDeserialize(Serializer serializer)
         {
-            var value = serializer.Get("ressource");
-            prio.SetTextWithoutNotify(value);
+            var value = serializer.Get("dropdown");
+            dropdown.SetValueWithoutNotify(int.Parse(value));
 
-            HandleFieldValue(value);
-        }*/
+            HandleFieldValue();
+        }
     }
 }
