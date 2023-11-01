@@ -12,18 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f73b0bd644f7248bc92ac6260241c7, type: 3}
   m_Name: BasicAttack2
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 8
   knockBack: 0
-  nextBasicAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
+  nextBasicAttack: {fileID: 11400000, guid: faf0d67916e3a4b44830e9a068546a05, type: 2}
   nextFinisherAttack: {fileID: 11400000, guid: 0ac0e6bf61039b845965cb4a6ff90de0, type: 2}
-  moveDistance: 0
-  moveDuration: 0
-  moveStartTime: 63.653744
-  moveEndTime: 63.653744
+  moveDistance: 8
+  moveDuration: 0.5
+  moveStartTime: 3.348204
+  moveEndTime: 3.848204
   moveSpeedCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 12.236497
+      outSlope: 12.236497
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.043219686
+      value: 0.5288575
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.52069396
+      value: 0.22283906
+      inSlope: -1.5048733
+      outSlope: -1.5048733
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7085585
+      outWeight: 0.23245189
+    - serializedVersion: 3
+      time: 0.72181296
+      value: 0.13951561
+      inSlope: 0.008710652
+      outSlope: 0.008710652
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.99981755
+      value: 0.00030857557
+      inSlope: -0.5007365
+      outSlope: -0.5007365
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animationName: DashAttack
+  animationName: BasicAttack2
