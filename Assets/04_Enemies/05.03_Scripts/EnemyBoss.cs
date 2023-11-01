@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyBoss : EnemySBase
 {
     [SerializeField]
+    private float attackCooldown;
+    [SerializeField]
     private int summonChance;
     [SerializeField]
     private GameObject summonEnemy;
@@ -18,6 +20,7 @@ public class EnemyBoss : EnemySBase
     private LayerMask characterLayer;
 
     private bool isCharging = false;
+    private float timeAttackCooldownStarted = 0;
 
     private static Dictionary<string, int> EnemyB1State = new Dictionary<string, int>()
     {
@@ -55,7 +58,8 @@ public class EnemyBoss : EnemySBase
         // Boss specific states
         if (state != EnemyB1State["Charge"] 
             && state != EnemyB1State["CollidedWhileCharging"] 
-            && Vector3.Distance(transform.position, player.position) < attackDistance)
+            && Vector3.Distance(transform.position, player.position) < attackDistance
+            && Time.fixedTime > timeAttackCooldownStarted + attackCooldown)
         {
             state = EnemyState["Attack"];
         }
@@ -95,7 +99,11 @@ public class EnemyBoss : EnemySBase
             }
 
             // Activate new state behaviour
-            if (state == EnemyB1State["Charge"])
+            if (state == EnemyState["Attack"])
+            {
+                timeAttackCooldownStarted = Time.fixedTime;
+            }
+            else if (state == EnemyB1State["Charge"])
             {
                 anim.SetBool("Charge", true);
                 isLookingAtPlayer = true;
