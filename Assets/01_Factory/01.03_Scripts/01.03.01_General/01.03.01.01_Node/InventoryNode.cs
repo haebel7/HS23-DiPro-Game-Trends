@@ -67,16 +67,19 @@ namespace RuntimeNodeEditor
             {
                 try
                 {
-                    int index = ressourceInventar.getRessourceIndex(res._name);
-                    if (index >= 0)
+                    if (res != null)
                     {
-                        Ressource r = ressourceInventar.getListOfRessources()[index];
-
-                        if (res.ownedAmount > 0)
+                        int index = ressourceInventar.getRessourceIndex(res._name);
+                        if (index >= 0)
                         {
-                            r.incrementCount(res.ownedAmount);
-                            res.ownedAmount = 0;
-                            res._name = null;
+                            Ressource r = ressourceInventar.getListOfRessources()[index];
+
+                            if (res.ownedAmount > 0)
+                            {
+                                r.incrementCount(res.ownedAmount);
+                                res.ownedAmount = 0;
+                                res._name = null;
+                            }
                         }
                     }
                 }
@@ -99,9 +102,9 @@ namespace RuntimeNodeEditor
 
         private void FixedUpdate()
         {
-            if (incomingValues.Count > 0)
+            if (incomingValues != null && incomingValues.Count > 0 && incomingValues[0] != null)
             {
-                if (fixedUpdateCount % 50 == 0 && incomingValues != null && incomingValues[0].ownedAmount > 0)
+                if (fixedUpdateCount % 50 == 0 && incomingValues[0].ownedAmount > 0)
                 {
                     OnConnectedValueUpdated();
                 }
