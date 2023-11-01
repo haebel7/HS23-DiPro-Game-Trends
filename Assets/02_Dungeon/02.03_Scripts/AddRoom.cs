@@ -50,6 +50,9 @@ public class AddRoom : MonoBehaviour
             }
         }
 
+        Debug.Log(name + " >> lastRoomExit: "+ lastRoomExit);
+        Debug.Log(name + " >> entry: " + entry);
+        Debug.Log(name + " >> RoomExit: " + lastRoomExit.GetComponent<RoomExit>());
         lastRoomExit.GetComponent<RoomExit>().nextRoomEntry = entry;
     }
 }
