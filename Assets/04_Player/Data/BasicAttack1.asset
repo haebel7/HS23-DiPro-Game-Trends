@@ -16,25 +16,25 @@ MonoBehaviour:
   knockBack: 0
   nextBasicAttack: {fileID: 11400000, guid: 12e36de5791bf7a4099ef79b5f3c8497, type: 2}
   nextFinisherAttack: {fileID: 11400000, guid: 3596fc655aa608f4c8ff84948e9a9291, type: 2}
-  moveDistance: 10
-  moveDuration: 0.5
-  moveStartTime: 209.33926
-  moveEndTime: 209.83926
+  moveDistance: 12
+  moveDuration: 0.4
+  moveStartTime: 498.40616
+  moveEndTime: 498.80615
   moveSpeedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 3.1823163
-      outSlope: 3.1823163
+      inSlope: 7.834713
+      outSlope: 7.834713
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.06937358
-      value: 0.22076866
+      time: 0.06327769
+      value: 0.49576256
       inSlope: 0.008710652
       outSlope: 0.008710652
       tangentMode: 0
@@ -42,28 +42,28 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 1
     - serializedVersion: 3
-      time: 0.42736733
-      value: 0.5101045
-      inSlope: Infinity
-      outSlope: Infinity
+      time: 0.74444216
+      value: 0.39135447
+      inSlope: -0.20119219
+      outSlope: -0.20119219
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 1
       outWeight: 0
     - serializedVersion: 3
-      time: 0.68532103
-      value: 0.50408906
-      inSlope: -1.2369802
-      outSlope: -1.2369802
+      time: 0.8560516
+      value: 0.14783448
+      inSlope: -2.4602854
+      outSlope: -2.4602854
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10961222
+      inWeight: 0.6231869
       outWeight: 0.23245189
     - serializedVersion: 3
-      time: 0.99981755
-      value: 0.00030857557
-      inSlope: -1.6018635
-      outSlope: -1.6018635
+      time: 0.9876258
+      value: 0.012805523
+      inSlope: -1.0262575
+      outSlope: -1.0262575
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

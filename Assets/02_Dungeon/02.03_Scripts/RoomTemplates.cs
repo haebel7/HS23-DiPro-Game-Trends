@@ -13,10 +13,28 @@ public class RoomTemplates : MonoBehaviour
     public List<GameObject> westRooms;
     public GameObject[] bossRooms;
     public List<GameObject> rooms;
+
+    private bool spawnedBoss = false;
     public GameObject boss;
 
     private void Start()
     {
+        Debug.LogError("Force the build console open...");
         roomsCount = dungeonSize - 1;
+    }
+
+    private void Update()
+    {
+        if (roomsCount == 0 && spawnedBoss == false)
+        {
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                if (i == rooms.Count - 1)
+                {
+                    Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
+                    spawnedBoss = true;
+                }
+            }
+        }
     }
 }
