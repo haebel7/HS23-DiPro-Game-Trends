@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class payerHealthbarUI : MonoBehaviour
+public class playerHealthbarUI : MonoBehaviour
 {
     [SerializeField] private HealthObject health;
     private VisualElement root;
@@ -14,21 +14,15 @@ public class payerHealthbarUI : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         healthbar = root.Q<VisualElement>("healthbar");
-        initHealthbar(health.maxHealth);
+        initHealthbar();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void updateHealthbar()
     {
-        updateHealthbar(health.currentHealth);
+        Debug.Log("iyshddfkljhsgil");
     }
 
-    private void updateHealthbar(int currentHealth)
-    {
-
-    }
-
-    private void initHealthbar(int maxHealth)
+    private void initHealthbar()
     {
 
     }
