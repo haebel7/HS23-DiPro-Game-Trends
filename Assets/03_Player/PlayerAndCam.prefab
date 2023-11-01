@@ -2794,7 +2794,7 @@ GameObject:
   - component: {fileID: 9086349977430053161}
   - component: {fileID: 9145640201587838096}
   - component: {fileID: 1513505274134292817}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2889,7 +2889,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 0
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -3080,6 +3080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 291376cb970c4db4a8d876dc57e8db31, type: 2}
+  damageTakenEvent: {fileID: 11400000, guid: 77669a9a1e0e46c42956e38597f4c084, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: b4ac0e0208bf95140a19fe5e2c8ea442, type: 2}
   dmgNumberpf: {fileID: 6635535759880217888, guid: 785615c290bf5f149a3c7ec84ed45713,
@@ -5778,7 +5779,7 @@ GameObject:
   - component: {fileID: 3746659682686140968}
   m_Layer: 0
   m_Name: PlayerLimitedRoot
-  m_TagString: Untagged
+  m_TagString: NavMeshAgent
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7474,7 +7475,7 @@ Transform:
   m_GameObject: {fileID: 5872156842100070132}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09904577, y: -0.89239913, z: 0.23911765, w: 0.3696438}
-  m_LocalPosition: {x: 20, y: 16, z: 20}
+  m_LocalPosition: {x: 20.000002, y: 16, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7563,7 +7564,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -8029,7 +8030,7 @@ Transform:
   m_GameObject: {fileID: 6372215338698650032}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09904577, y: -0.89239913, z: 0.23911765, w: 0.3696438}
-  m_LocalPosition: {x: 20, y: 16, z: 20}
+  m_LocalPosition: {x: 20.000002, y: 16, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

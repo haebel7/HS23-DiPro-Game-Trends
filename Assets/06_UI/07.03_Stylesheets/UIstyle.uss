@@ -78,7 +78,7 @@
 
 .item-count {
     color: rgb(255, 255, 255);
-    -unity-font-definition: url('project://database/Assets/07_General/07.01_Fonts/04.01.03_JetBrains/04.01.03.asset?fileID=11400000&guid=84507f25305afca4cbe4f216dc47bccf&type=2#04.01.03');
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.03_JetBrains/04.01.03.asset?fileID=11400000&guid=84507f25305afca4cbe4f216dc47bccf&type=2#04.01.03');
     font-size: 15px;
     letter-spacing: 92px;
     -unity-text-align: middle-right;
@@ -102,7 +102,7 @@
 .item-icon {
     flex-grow: 1;
     height: 80%;
-    background-image: url('project://database/Assets/07_General/07.05_Sprites/FactoryUIironOre.png?fileID=2800000&guid=df4aa524df143c34ba8191615c4de002&type=3#FactoryUIironOre');
+    background-image: url('project://database/Assets/06_UI/07.05_Sprites/FactoryUIironOre.png?fileID=2800000&guid=df4aa524df143c34ba8191615c4de002&type=3#FactoryUIironOre');
     -unity-background-scale-mode: scale-to-fit;
     margin-top: 0;
     margin-right: 0;
@@ -117,7 +117,7 @@
 }
 
 .item-name {
-    -unity-font-definition: url('project://database/Assets/07_General/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
     -unity-text-align: middle-center;
     font-size: 10px;
     width: 100%;
@@ -132,7 +132,7 @@
 .machine-wrapper {
     background-color: rgba(0, 0, 0, 0);
     font-size: 15px;
-    -unity-font-definition: url('project://database/Assets/07_General/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
     color: rgb(255, 255, 255);
     border-top-width: 0;
     border-right-width: 0;
@@ -197,7 +197,7 @@
 
 .wabe {
     flex-grow: 0;
-    background-image: url('project://database/Assets/07_General/07.05_Sprites/CharacterUIWabe.png?fileID=2800000&guid=e9a740c49aba70542812e3fdca1fce00&type=3#CharacterUIWabe');
+    background-image: url('project://database/Assets/06_UI/07.05_Sprites/CharacterUIWabe.png?fileID=2800000&guid=e9a740c49aba70542812e3fdca1fce00&type=3#CharacterUIWabe');
     -unity-background-scale-mode: scale-to-fit;
     width: 40%;
     height: 18%;
@@ -207,8 +207,4 @@
     flex-grow: 0;
     background-color: rgb(255, 255, 255);
     width: 2%;
-}
-
-.healpoint-empty {
-    background-color: rgba(255, 255, 255, 0.47);
 }
