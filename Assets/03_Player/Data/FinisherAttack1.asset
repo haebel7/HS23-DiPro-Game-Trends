@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f73b0bd644f7248bc92ac6260241c7, type: 3}
   m_Name: FinisherAttack1
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   knockBack: 0
   nextBasicAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
   nextFinisherAttack: {fileID: 11400000, guid: 4e3040d9394d5694fb5fc2007efef620, type: 2}

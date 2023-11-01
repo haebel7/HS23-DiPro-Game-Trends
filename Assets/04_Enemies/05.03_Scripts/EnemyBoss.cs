@@ -115,10 +115,10 @@ public class EnemyBoss : EnemySBase
 
     public void SummonEnemies()
     {
-        Instantiate(summonEnemy, transform.position + Vector3.left, transform.rotation);
-        Instantiate(summonEnemy, transform.position + Vector3.forward, transform.rotation);
-        Instantiate(summonEnemy, transform.position + Vector3.right, transform.rotation);
-        Instantiate(summonEnemy, transform.position + Vector3.back, transform.rotation);
+        Instantiate(summonEnemy, transform.position + Vector3.left, new Quaternion());
+        Instantiate(summonEnemy, transform.position + Vector3.forward, new Quaternion());
+        Instantiate(summonEnemy, transform.position + Vector3.right, new Quaternion());
+        Instantiate(summonEnemy, transform.position + Vector3.back, new Quaternion());
     }
 
     public void StartCharge()
