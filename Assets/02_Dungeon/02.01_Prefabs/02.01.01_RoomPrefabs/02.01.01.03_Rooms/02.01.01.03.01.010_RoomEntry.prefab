@@ -360,6 +360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7544303220155946413, guid: d05d8ec5c2eed3548884d4c1f4deef10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8916688296621861555, guid: d05d8ec5c2eed3548884d4c1f4deef10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySpawnPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544303220155946413, guid: d05d8ec5c2eed3548884d4c1f4deef10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8916688296621861555, guid: d05d8ec5c2eed3548884d4c1f4deef10,
         type: 3}
@@ -620,6 +630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySpawnPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544303220155946413, guid: d05d8ec5c2eed3548884d4c1f4deef10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8916688296621861555, guid: d05d8ec5c2eed3548884d4c1f4deef10,
         type: 3}

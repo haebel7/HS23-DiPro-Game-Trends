@@ -8,6 +8,13 @@ public class RoomSpawner : MonoBehaviour
 {
     private RoomTemplates templates;
     private bool spawned;
+    private string currentExitDirection;
+    GameObject newRoom;
+    GameObject currentRoom;
+    GameObject currentExitDoor;
+    GameObject currentExit;
+
+    private bool entrySet = false;
 
     private void Start()
     {
@@ -22,6 +29,15 @@ public class RoomSpawner : MonoBehaviour
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.8f); // Delays Spawn()
+    }
+
+    private void FixedUpdate()
+    {
+        if (!entrySet && newRoom && currentRoom && currentExitDoor && currentExit)
+        {
+            SetEntryNextRoom();
+            entrySet = true;
+        }
     }
 
     private void Spawn()
@@ -39,13 +55,13 @@ public class RoomSpawner : MonoBehaviour
 
         if (room != null)
         {
-            GameObject newRoom = Instantiate(room, transform.position, transform.rotation);
-            GameObject currentRoom = gameObject.transform.parent.gameObject;
-            GameObject currentExitDoor = null;
-            GameObject currentExit = null;
+            newRoom = Instantiate(room, transform.position, transform.rotation);
+            currentRoom = gameObject.transform.parent.gameObject;
+            currentExitDoor = null;
+            currentExit = null;
 
             // set entry and exit of new room.
-            string currentExitDirection = name[^1..];
+            currentExitDirection = name[^1..];
             
 
             for (int i = 0; i < currentRoom.transform.childCount; i++)
@@ -65,34 +81,34 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
             }
-
-            Debug.Log(name + " >> currentExitDoor: "+ currentExitDoor);
-            Debug.Log(name + " >> currentExit: "+ currentExit);
-
-            if (currentExitDirection == "N")
-            {
-                newRoom.GetComponent<AddRoom>().SetEntry("S", currentExit);
-            }
-            else if (currentExitDirection == "E")
-            {
-                newRoom.GetComponent<AddRoom>().SetEntry("W", currentExit);
-            }
-            else if (currentExitDirection == "S")
-            {
-                newRoom.GetComponent<AddRoom>().SetEntry("N", currentExit);
-            }
-            else if (currentExitDirection == "W")
-            {
-                newRoom.GetComponent<AddRoom>().SetEntry("E", currentExit);
-            }
-            else
-            {
-                Debug.LogWarning("Entry next room unknown!");
-            }
-
-            spawned = true;
-            templates.roomsCount--;
         }
+    }
+
+    private void SetEntryNextRoom()
+    {
+        if (currentExitDirection == "N")
+        {
+            newRoom.GetComponent<AddRoom>().SetEntry("S", currentExit);
+        }
+        else if (currentExitDirection == "E")
+        {
+            newRoom.GetComponent<AddRoom>().SetEntry("W", currentExit);
+        }
+        else if (currentExitDirection == "S")
+        {
+            newRoom.GetComponent<AddRoom>().SetEntry("N", currentExit);
+        }
+        else if (currentExitDirection == "W")
+        {
+            newRoom.GetComponent<AddRoom>().SetEntry("E", currentExit);
+        }
+        else
+        {
+            Debug.LogWarning("Entry next room unknown!");
+        }
+
+        spawned = true;
+        templates.roomsCount--;
     }
 
     // Works only, if each template name is unique!!!! => Do do: Should work, even when there are multiple templates with the same name!
