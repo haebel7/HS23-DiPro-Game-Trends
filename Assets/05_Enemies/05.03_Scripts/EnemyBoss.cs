@@ -26,6 +26,11 @@ public class EnemyBoss : EnemySBase
         {"CollidedWhileCharging", EnemyState.Count + 2 },
     };
 
+    public override void StartAdditional()
+    {
+        hitBox.damageStat = attackDmg;
+    }
+
     void FixedUpdate()
     {
         if (state == EnemyState["Die"])

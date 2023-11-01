@@ -1,0 +1,92 @@
+{
+    "nodes": [
+        {
+            "id": "4f07dfbb-64b6-4d87-a4df-c46532065295",
+            "values": [
+                {
+                    "key": "dropdown",
+                    "value": "0"
+                }
+            ],
+            "posX": 140.0,
+            "posY": -360.0,
+            "path": "01.01.01_Nodes/RessourceNode",
+            "inputSocketIds": [],
+            "outputSocketIds": [
+                "c2ae161e-eb82-40d0-a884-f6b0c966d6e8",
+                "3b1b7b90-61fa-4c16-9332-980fe6784a4f"
+            ]
+        },
+        {
+            "id": "f431c6b5-c7a5-46ef-acb6-e9a563879d86",
+            "values": [
+                {
+                    "key": "0socketInputName",
+                    "value": "Iron"
+                },
+                {
+                    "key": "0socketInputAmount",
+                    "value": "9"
+                },
+                {
+                    "key": "1socketOutputName",
+                    "value": "Refined Iron"
+                },
+                {
+                    "key": "1socketOutputAmount",
+                    "value": "1"
+                },
+                {
+                    "key": "2inputTexts",
+                    "value": "Iron"
+                },
+                {
+                    "key": "3inputNums",
+                    "value": "9"
+                },
+                {
+                    "key": "4outputTexts",
+                    "value": "Refined Iron"
+                },
+                {
+                    "key": "5outputNums",
+                    "value": "1"
+                }
+            ],
+            "posX": 360.0,
+            "posY": -300.0,
+            "path": "01.01.01_Nodes/SmelterNode",
+            "inputSocketIds": [
+                "c75f1e73-f6f4-41e4-a003-cce390957c6c"
+            ],
+            "outputSocketIds": [
+                "8745165d-9adf-4f1b-b454-d47822bab30e"
+            ]
+        },
+        {
+            "id": "2402a4f5-ba69-4700-8ef5-47f4ee7760fc",
+            "values": [],
+            "posX": 580.0,
+            "posY": -400.0,
+            "path": "01.01.01_Nodes/InventoryNode",
+            "inputSocketIds": [
+                "a030f618-2a7a-488f-8633-3ed9b5bc8551",
+                "b21fb5c7-d166-47bd-9bd8-71fe6676ca89",
+                "ed62430d-42c0-4a52-85a5-ad609d59e9bc"
+            ],
+            "outputSocketIds": []
+        }
+    ],
+    "connections": [
+        {
+            "id": "bdb0da58-effb-4807-a281-f68be56ea91b",
+            "outputSocketId": "3b1b7b90-61fa-4c16-9332-980fe6784a4f",
+            "inputSocketId": "c75f1e73-f6f4-41e4-a003-cce390957c6c"
+        },
+        {
+            "id": "aef80f54-2c43-483c-b956-3c42a284c4ea",
+            "outputSocketId": "8745165d-9adf-4f1b-b454-d47822bab30e",
+            "inputSocketId": "a030f618-2a7a-488f-8633-3ed9b5bc8551"
+        }
+    ]
+}

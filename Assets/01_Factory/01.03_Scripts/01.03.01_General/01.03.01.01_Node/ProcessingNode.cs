@@ -176,6 +176,10 @@ namespace RuntimeNodeEditor
                         {
                             transferToInput(_listOfInputs.IndexOf(si), _internalInputInventory - inputAmount, incomingValues[index]);
                         }
+                        else if (_internalInputInventory - inputAmount == 0)
+                        {
+                            prepRecipe();
+                        }
                     }
                     index++;
                 }
@@ -213,7 +217,7 @@ namespace RuntimeNodeEditor
             }
             catch (Exception ex)
             {
-                Debug.LogError(ex.ToString());
+                Debug.LogException(ex);
             }
         }
 
@@ -279,7 +283,6 @@ namespace RuntimeNodeEditor
                     ressourceInputsCopy.Add(Instantiate(si.ressources[0]));
                     foreach (Ressource r in recipeInputs)
                     {
-                        Debug.Log(ressourceInputsCopy[index]._name + ", " + r._name);
                         if (ressourceInputsCopy[index]._name == r._name)
                         {
                             ressourceInputsCopy[index].ownedAmount -= r.ownedAmount * howMuchUWantToDo;
@@ -473,6 +476,101 @@ namespace RuntimeNodeEditor
 
             timer = 0;
             _processingTimeText.text = "0 sec";
+        }
+
+        public override void OnSerialize(Serializer serializer)
+        {
+            if (_dropdown != null)
+            {
+                serializer.Add("dropdown", _dropdown.value.ToString());
+            }
+            int index = 0;
+            foreach (SocketInput si in _listOfInputs)
+            {
+                serializer.Add(index.ToString() + "socketInputName", si.ressources[0]._name);
+                serializer.Add(index.ToString() + "socketInputAmount", si.ressources[0].ownedAmount.ToString());
+                index++;
+            }
+            foreach (SocketOutput so in _listOfOutputs)
+            {
+                serializer.Add(index.ToString() + "socketOutputName", so.ressource._name);
+                serializer.Add(index.ToString() + "socketOutputAmount", so.ressource.ownedAmount.ToString());
+                index++;
+            }
+            foreach (TMP_Text t in _listOfInputTexts)
+            {
+                serializer.Add(index.ToString() + "inputTexts", t.text);
+                index++;
+            }
+            foreach (TMP_Text t in _listOfInputNums)
+            {
+                serializer.Add(index.ToString() + "inputNums", t.text);
+                index++;
+            }
+            foreach (TMP_Text t in _listOfOutputTexts)
+            {
+                serializer.Add(index.ToString() + "outputTexts", t.text);
+                index++;
+            }
+            foreach (TMP_Text t in _listOfOutputNums)
+            {
+                serializer.Add(index.ToString() + "outputNums", t.text);
+                index++;
+            }
+        }
+
+        public override void OnDeserialize(Serializer serializer)
+        {
+            if (_dropdown != null)
+            {
+                var value = serializer.Get("dropdown");
+                _dropdown.SetValueWithoutNotify(int.Parse(value));
+            }
+            int index = 0;
+            foreach (SocketInput si in _listOfInputs)
+            {
+                var value = serializer.Get(index.ToString() + "socketInputName");
+                si.ressources[0]._name = value;
+                value = serializer.Get(index.ToString() + "socketInputAmount");
+                si.ressources[0].ownedAmount = int.Parse(value);
+                index++;
+            }
+            foreach (SocketOutput so in _listOfOutputs)
+            {
+                var value = serializer.Get(index.ToString() + "socketOutputName");
+                so.ressource._name = value;
+                value = serializer.Get(index.ToString() + "socketOutputAmount");
+                so.ressource.ownedAmount = int.Parse(value);
+                so.SetValue(so.ressource);
+                index++;
+            }
+            foreach (TMP_Text t in _listOfInputTexts)
+            {
+                var value = serializer.Get(index.ToString() + "inputTexts");
+                t.text = value;
+                index++;
+            }
+            foreach (TMP_Text t in _listOfInputNums)
+            {
+                var value = serializer.Get(index.ToString() + "inputNums");
+                t.text = value;
+                index++;
+            }
+            foreach (TMP_Text t in _listOfOutputTexts)
+            {
+                var value = serializer.Get(index.ToString() + "outputTexts");
+                t.text = value;
+                index++;
+            }
+            foreach (TMP_Text t in _listOfOutputNums)
+            {
+                var value = serializer.Get(index.ToString() + "outputNums");
+                t.text = value;
+                index++;
+            }
+
+            OnConnectedValueUpdated();
+            updateProcessingTimeText();
         }
 
         private void FixedUpdate()

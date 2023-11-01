@@ -80,7 +80,9 @@ public class EnemySBase : MonoBehaviour
     protected void ChangeEnemyState()
     {
         // Change states
-        if (hurtBox.GetOwnHealth().currentHealth <= 0)
+        HealthObject health = hurtBox.GetOwnHealth();
+
+        if (health && health.currentHealth <= 0)
         {
             state = EnemyState["Die"];
         }

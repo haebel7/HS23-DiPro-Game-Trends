@@ -14,6 +14,11 @@ namespace RuntimeNodeEditor
         public float tempGraphSize = 2000f;
         public Sprite _grid;
 
+        private float editorHolderTop =         3;
+        private float editorHolderRight =       20;
+        private float editorHolderBot =         10;
+        private float editorHolderLeft =        3;
+
         private NodeGraph _graph;
         private ContextMenu _contextMenu;
         private ContextItemData _contextMenuData;
@@ -63,6 +68,12 @@ namespace RuntimeNodeEditor
         public TGraphComponent CreateGraph<TGraphComponent>(RectTransform holder, Color bgColor, Color connectionColor) where TGraphComponent : NodeGraph
         {
             //  Create a parent
+            float canvasWidth = holder.parent.GetComponent<RectTransform>().rect.width;
+            float canvasHeigth = holder.parent.GetComponent<RectTransform>().rect.height;
+            Vector2 topleft = new Vector2(canvasWidth / 100 * editorHolderLeft, canvasHeigth / 100 * editorHolderBot);
+            Vector2 botright = new Vector2(canvasWidth / 100 * editorHolderRight, canvasHeigth / 100 * editorHolderTop);
+            holder.offsetMin = topleft;
+            holder.offsetMax = -botright;
             var parent = new GameObject("NodeGraph");
             parent.transform.SetParent(holder);
             parent.AddComponent<RectTransform>().Stretch();
