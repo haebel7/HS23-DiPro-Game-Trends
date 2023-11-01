@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f73b0bd644f7248bc92ac6260241c7, type: 3}
   m_Name: FinisherAttack0
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   knockBack: 0
   nextBasicAttack: {fileID: 11400000, guid: e94f04dc0060a094b9dbcca2b402236b, type: 2}
   nextFinisherAttack: {fileID: 11400000}
   moveDistance: 0
   moveDuration: 0
-  moveStartTime: 9.4924965
-  moveEndTime: 9.4924965
+  moveStartTime: 80.49789
+  moveEndTime: 80.49789
   moveSpeedCurve:
     serializedVersion: 2
     m_Curve: []

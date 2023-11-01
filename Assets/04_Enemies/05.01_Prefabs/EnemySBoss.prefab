@@ -3970,10 +3970,10 @@ MonoBehaviour:
   loot: {fileID: 5080165401790994600, guid: 3fddc18490e51764d98476e3c2d27aa0, type: 3}
   attackDmg: 20
   summonChance: 30
-  summonEnemy: {fileID: 2290559584761157160, guid: 877b13e63190ac2478612dcd1e320e6f,
+  summonEnemy: {fileID: 1675513352364308222, guid: 952277f32305ca248937239d77318b89,
     type: 3}
   chargeChance: 30
-  chargeSpeed: 0.3
+  chargeSpeed: 0.4
   ignoreCharactersLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -3992,10 +3992,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34512103e08d50645a94e92cf5b047f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: 4eef5b99ffaf48e4eb8f9e6cabc0af0c, type: 2}
+  health: {fileID: 11400000, guid: 9882ecba0ac66514ba9bfe5d5a5c24ad, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: d1b3a2f99e542dc49bd246e09701c397, type: 2}
-  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+  dmgNumberpf: {fileID: 6635535759880217888, guid: 785615c290bf5f149a3c7ec84ed45713,
     type: 3}
 --- !u!95 &6322813518613350025
 Animator:
@@ -4028,7 +4028,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

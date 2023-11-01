@@ -172,10 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34512103e08d50645a94e92cf5b047f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: 4eef5b99ffaf48e4eb8f9e6cabc0af0c, type: 2}
+  health: {fileID: 11400000, guid: 1b41531c9705b3a43bd62b93bcf8cc9c, type: 2}
   canBeHitBy:
   - {fileID: 11400000, guid: d1b3a2f99e542dc49bd246e09701c397, type: 2}
-  dmgNumberpf: {fileID: 6635535759880217888, guid: a4446a6f76a6561429154d6c9ffa49eb,
+  dmgNumberpf: {fileID: 6635535759880217888, guid: 785615c290bf5f149a3c7ec84ed45713,
     type: 3}
 --- !u!195 &8721587186245751170
 NavMeshAgent:
