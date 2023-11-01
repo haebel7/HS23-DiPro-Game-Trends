@@ -55,7 +55,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 64, y: 5, z: 64}
   m_Center: {x: 0, y: 0, z: 0}
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyList: {fileID: 11400000, guid: 373fc0b22fa68e74585b4ab9d6bbddd8, type: 2}
+  exit: {fileID: 0}
   enemySpawnPoints: {fileID: 0}
 --- !u!114 &8709351498498796454
 MonoBehaviour:
