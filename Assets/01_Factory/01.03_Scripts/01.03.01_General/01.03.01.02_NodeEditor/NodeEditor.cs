@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +15,10 @@ namespace RuntimeNodeEditor
         public float tempGraphSize = 2000f;
         public Sprite _grid;
 
-        private float editorHolderTop =         3;
-        private float editorHolderRight =       20;
-        private float editorHolderBot =         10;
-        private float editorHolderLeft =        3;
+        [SerializeField] private float editorHolderTop;
+        [SerializeField] private float editorHolderRight;
+        [SerializeField] private float editorHolderBot;
+        [SerializeField] private float editorHolderLeft;
 
         private NodeGraph _graph;
         private ContextMenu _contextMenu;
@@ -100,7 +101,8 @@ namespace RuntimeNodeEditor
             graphRect.anchoredPosition = Vector2.zero;
             var img = graph.AddComponent<Image>();
             img.sprite = _grid;
-            img.color = bgColor;
+            Vector4 imgColor = new Vector4(0.2f, 0.2f, 0.2f, 1);
+            img.color = imgColor;
             img.type = Image.Type.Tiled;
             img.raycastTarget = false;
 
