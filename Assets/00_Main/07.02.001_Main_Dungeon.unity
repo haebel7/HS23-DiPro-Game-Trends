@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: dd879e97b193d7d45bd39f384fd83f76, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 52602ca5a34788143827fac764342575, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 976bc7ec98d159f42bab6811243fb2d3,
     type: 3}
