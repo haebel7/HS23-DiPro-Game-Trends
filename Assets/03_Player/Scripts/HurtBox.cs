@@ -7,6 +7,7 @@ public class HurtBox : MonoBehaviour
 {
     [SerializeField]
     private HealthObject health;
+    public GameEvent damageTakenEvent;
 
     public List<DamageType> canBeHitBy;
 
@@ -23,10 +24,11 @@ public class HurtBox : MonoBehaviour
 
     public void TakeDamage(int damageAmount, DamageType damageType)
     {
-        Debug.Log(canBeHitBy[0]);
-        Debug.Log(damageType);
+        //Debug.Log(canBeHitBy[0]);
+        //Debug.Log(damageType);
         if (canBeHitBy.Contains(damageType))
         {
+            damageTakenEvent.Raise();
             DamagePopup.Create(dmgNumberpf, gameObject.transform.position, damageAmount, damageType);
             ownHealth.currentHealth -= damageAmount;
             CheckDied();

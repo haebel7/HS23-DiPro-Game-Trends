@@ -14,21 +14,15 @@ public class playerHealthbarUI : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         healthbar = root.Q<VisualElement>("healthbar");
-        initHealthbar(health.maxHealth);
+        initHealthbar();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        updateHealthbar(health.currentHealth);
-    }
-
-    private void updateHealthbar(int currentHealth)
+    public void updateHealthbar()
     {
 
     }
 
-    private void initHealthbar(int maxHealth)
+    private void initHealthbar()
     {
 
     }

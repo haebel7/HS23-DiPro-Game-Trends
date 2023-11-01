@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 370763164}
   - component: {fileID: 370763163}
+  - component: {fileID: 370763166}
+  - component: {fileID: 370763165}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -172,6 +174,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370763165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370763162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba215ecb654f51e4180350e0126c28ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEvent: {fileID: 11400000, guid: 77669a9a1e0e46c42956e38597f4c084, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 370763166}
+        m_TargetAssemblyTypeName: playerHealthbarUI, Assembly-CSharp
+        m_MethodName: updateHealthbar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &370763166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370763162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f458c9ae986af7f4e89da537e7e20fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 4eef5b99ffaf48e4eb8f9e6cabc0af0c, type: 2}
 --- !u!1001 &1334252360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -682,6 +725,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1513505274134292817, guid: dab623320c4b80546bf274ef63053bc5,
+        type: 3}
+      propertyPath: damageTakenEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 77669a9a1e0e46c42956e38597f4c084,
+        type: 2}
     - target: {fileID: 1522562244975659514, guid: dab623320c4b80546bf274ef63053bc5,
         type: 3}
       propertyPath: m_Layer
