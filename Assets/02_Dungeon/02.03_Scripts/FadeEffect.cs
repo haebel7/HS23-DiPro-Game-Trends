@@ -6,7 +6,7 @@ public class FadeEffect : MonoBehaviour
     public Color firstColor;
     public Color lastColor;
     public float timeEffect;
-    public bool firstToLast = true;
+    public bool firstToLast;
     private float speed;
     private Image blackImage;
     private float currentValue;

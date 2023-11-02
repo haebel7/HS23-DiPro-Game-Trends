@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cringe
   ownedAmount: 0
+  icon: {fileID: 21300000, guid: 98e8c23323beffb4fb86b91845043b1b, type: 3}

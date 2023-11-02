@@ -10,6 +10,7 @@ namespace RuntimeNodeEditor
     {
         public string _name;
         public int ownedAmount;
+        public Sprite icon;
 
         public void decrementCount(int value)
         { 
@@ -33,12 +34,6 @@ namespace RuntimeNodeEditor
         public void incrementCount(int value)
         {
             ownedAmount += value;
-        }
-
-
-        public int getOwnedAmount() 
-        { 
-            return ownedAmount; 
         }
     }
 }
