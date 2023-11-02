@@ -2492,7 +2492,7 @@ PrefabInstance:
     - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
         type: 3}
       propertyPath: dungeonSize
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
         type: 3}
