@@ -30,11 +30,14 @@ public class Movement : MonoBehaviour
     private readonly string DASH_ANIMATION_NAME = "Dash";
     private readonly string KNOCKBACKED_ANIMATION_NAME = "KnockedBack";
 
+    private ParticleSystem dustEmitter;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        dustEmitter = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -73,6 +76,7 @@ public class Movement : MonoBehaviour
         animator.Play(DASH_ANIMATION_NAME);
         dashStartTime = Time.time;
         dashEndTime = dashStartTime + dashDuration;
+        dustEmitter.Play();
     }
 
     private void PerformDash()
