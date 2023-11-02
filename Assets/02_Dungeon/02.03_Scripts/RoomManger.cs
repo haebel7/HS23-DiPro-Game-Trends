@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomManger : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class RoomManger : MonoBehaviour
 
     [SerializeField]
     private GameObject enemySpawnPoints;
-    
+
+    //[HideInInspector]
+    public bool isBossRoom = false;
+    private bool bossRoomActive = false;
+    private bool victorySceneloaded = false;
+
 
     void Start()
     {
@@ -21,18 +27,36 @@ public class RoomManger : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("is boss room? " + isBossRoom);
+
         if (EnemyList.enemies.Count == 0)
         {
-            exit.GetComponent<BoxCollider>().enabled = true;
+            if (!isBossRoom)
+            {
+                exit.GetComponent<BoxCollider>().enabled = true;
+            }
+            else if (bossRoomActive && !victorySceneloaded)
+            {
+                SceneManager.LoadSceneAsync("Assets/02_Dungeon/02.02_Scenes/VictoryScene.unity", LoadSceneMode.Additive);
+                victorySceneloaded = true;
+            }
         }
     }
 
     public void InitSetting()
     {
-        SpawnEnemies();
+        if (isBossRoom)
+        {
+            GameObject.Find("Canvas").SetActive(false);
+            bossRoomActive = SpawnEnemies();
+        }
+        else
+        {
+            SpawnEnemies();
+        }
     }
 
-    private void SpawnEnemies()
+    private bool SpawnEnemies()
     {
         EnemySpawner[] enemySpawners = enemySpawnPoints.GetComponentsInChildren<EnemySpawner>();
 
@@ -40,5 +64,7 @@ public class RoomManger : MonoBehaviour
         {
             spawner.SpawnEnemies();
         }
+
+        return true;
     }
 }
