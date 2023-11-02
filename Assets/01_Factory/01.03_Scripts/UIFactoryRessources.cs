@@ -7,8 +7,9 @@ namespace RuntimeNodeEditor
 {
     public class UIFactoryRessources : MonoBehaviour
     {
-        [SerializeField] private RessourceInventar ressourceInventar;
+        public RessourceInventar ressourceInventar;
         private VisualElement InventoryWrapper;
+        public VisualTreeAsset item;
 
         // Start is called before the first frame update
         void Start()
@@ -17,7 +18,26 @@ namespace RuntimeNodeEditor
             InventoryWrapper = root.Q<VisualElement>("item-wrapper");
             foreach (var ressource in ressourceInventar.getListOfRessources())
             {
+                VisualElement UIitem = item.Instantiate();
+                InventoryWrapper.Add(UIitem);
+                UIitem.AddToClassList("item");
+                Label itemNameUI = UIitem.Q<Label>("item-name");
+                itemNameUI.text = ressource.name;
+                VisualElement iconUI = UIitem.Q<VisualElement>("icon");
+                iconUI.style.backgroundImage = new StyleBackground(ressource.icon);
+                Label itemCountUI = UIitem.Q<Label>("item-count");
+                int ownedAmount = ressource.ownedAmount;
+                string formattedAmount;
+                if (ownedAmount >= 1000)
+                {
+                    formattedAmount = (ownedAmount / 1000.0f).ToString("F1") + "K";
+                }
+                else
+                {
+                    formattedAmount = ownedAmount.ToString();
+                }
 
+                itemCountUI.text = formattedAmount;
             }
         }
 

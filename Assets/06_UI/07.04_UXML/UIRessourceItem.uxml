@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/06_UI/07.03_Stylesheets/UIstyle.uss?fileID=7433441132597879392&amp;guid=07c3358cf2776ce4a96c0fe4a930df1a&amp;type=3#UIstyle" />
+    <Style src="project://database/Assets/06_UI/07.03_Stylesheets/startScreenStyle.uss?fileID=7433441132597879392&amp;guid=b819ed35f6192d54b9ba5128c8ca4fe6&amp;type=3#startScreenStyle" />
+    <ui:VisualElement name="item" class="item" style="height: 100%; border-left-color: rgb(42, 41, 42); border-right-color: rgb(42, 41, 42); border-top-color: rgb(42, 41, 42); border-bottom-color: rgb(42, 41, 42); width: 100%;">
+        <ui:VisualElement name="counter" class="item-counter" style="background-image: url(&apos;project://database/Assets/06_UI/07.05_Sprites/FactoryUICounterUmriss.png?fileID=2800000&amp;guid=11184b989c63dba4583fc0fca3a0b338&amp;type=3#FactoryUICounterUmriss&apos;);">
+            <ui:Label tabindex="-1" text="420K" parse-escape-sequences="true" display-tooltip-when-elided="true" name="item-count" class="item-count" />
+        </ui:VisualElement>
+        <ui:VisualElement name="icon" class="item-icon" />
+        <ui:VisualElement name="text" class="item-text">
+            <ui:Label tabindex="-1" text="IRON - ORE" parse-escape-sequences="false" display-tooltip-when-elided="true" name="item-name" class="item-name" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

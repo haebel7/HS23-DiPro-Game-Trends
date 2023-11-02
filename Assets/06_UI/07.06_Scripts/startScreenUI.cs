@@ -29,3 +29,4 @@ public class startScreenUI : MonoBehaviour
         Application.Quit();
     }
 }
+
