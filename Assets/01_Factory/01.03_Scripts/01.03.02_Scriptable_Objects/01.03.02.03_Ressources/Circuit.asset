@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Circuit
   m_EditorClassIdentifier: 
   _name: Circuit
-  ownedAmount: 0
+  ownedAmount: 123
   icon: {fileID: 21300000, guid: 5f30cf8b7688628458484d1abe30de9c, type: 3}
