@@ -66,7 +66,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 41ea924289aec2c4f86cf6be887da8fc,
         type: 3}
       propertyPath: m_Name
-      value: rock smol
+      value: 02.03.A.005_Art_RS_glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 41ea924289aec2c4f86cf6be887da8fc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,22 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    private Scene scene;
+    //private Scene scene;
 
-    void Start()
+    //void Start()
+    //{
+    //    scene = SceneManager.GetActiveScene();
+    //}
+
+    public void OnGoToDungeon()
     {
-        scene = SceneManager.GetActiveScene();
+        SceneManager.LoadSceneAsync("Assets/00_Main/07.02.001_Main_Dungeon.unity", LoadSceneMode.Single);
     }
 
-    public void OnButtonClick()
+    public void OnGoToFactory()
     {
-        if (scene.name == "FactoryScene")
-        {
-            SceneManager.LoadSceneAsync("Assets/00_Main/07.02.001_Main_Dungeon.unity", LoadSceneMode.Single);
-        }
-        else
-        {
-            SceneManager.LoadSceneAsync("Assets/01_Factory/01.02_Scenes/FactoryScene.unity", LoadSceneMode.Single);
-        }
+        SceneManager.LoadSceneAsync("Assets/01_Factory/01.02_Scenes/FactoryScene.unity", LoadSceneMode.Single);
+    }
+
+    public void OnToStart()
+    {
+        SceneManager.LoadSceneAsync("Assets/00_Main/StartScreen.unity", LoadSceneMode.Single);
     }
 }
