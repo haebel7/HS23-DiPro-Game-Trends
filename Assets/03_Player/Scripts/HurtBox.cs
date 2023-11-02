@@ -20,6 +20,7 @@ public class HurtBox : MonoBehaviour
     void Start()
     {
         ownHealth = Instantiate(health);
+        health.currentHealth = health.maxHealth;
     }
 
     public void TakeDamage(int damageAmount, DamageType damageType)
@@ -34,6 +35,7 @@ public class HurtBox : MonoBehaviour
             }
             DamagePopup.Create(dmgNumberpf, gameObject.transform.position, damageAmount, damageType);
             ownHealth.currentHealth -= damageAmount;
+            health.currentHealth -= damageAmount;
             CheckDied();
         }
     }
