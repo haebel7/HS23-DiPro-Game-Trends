@@ -28,9 +28,16 @@ namespace RuntimeNodeEditor
                 Label itemCountUI = UIitem.Q<Label>("item-count");
                 int ownedAmount = ressource.ownedAmount;
                 string formattedAmount;
-                if (ownedAmount >= 1000)
+                if (ownedAmount >= 1_000)
                 {
-                    formattedAmount = (ownedAmount / 1000).ToString() + "K";
+                    formattedAmount = (ownedAmount / 1_000).ToString() + "K";
+                }else if (ownedAmount >= 1_000_000)
+                {
+                    formattedAmount = (ownedAmount / 1_000_000).ToString() + "M";
+                }
+                else if (ownedAmount >= 1_000_000_000)
+                {
+                    formattedAmount = (ownedAmount / 1_000_000_000).ToString() + "B";
                 }
                 else
                 {
