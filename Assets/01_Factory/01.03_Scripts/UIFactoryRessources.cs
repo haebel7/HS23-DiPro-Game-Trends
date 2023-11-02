@@ -30,7 +30,7 @@ namespace RuntimeNodeEditor
                 string formattedAmount;
                 if (ownedAmount >= 1000)
                 {
-                    formattedAmount = (ownedAmount / 1000.0f).ToString("F1") + "K";
+                    formattedAmount = (ownedAmount / 1000).ToString() + "K";
                 }
                 else
                 {
