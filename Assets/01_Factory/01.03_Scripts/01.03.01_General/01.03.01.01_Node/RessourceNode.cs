@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RuntimeNodeEditor.Examples
 {   
@@ -22,10 +23,9 @@ namespace RuntimeNodeEditor.Examples
             dropdownList = new List<TMP_Dropdown.OptionData>();
             foreach (Ressource r in ressourceInventar.getListOfRessources())
             {
-                dropdownList.Add(new TMP_Dropdown.OptionData(r._name));
+                dropdownList.Add(new TMP_Dropdown.OptionData(r._name, r.icon));
             }
             
-
             dropdown.AddOptions(dropdownList);
 
             dropdown.onValueChanged.AddListener(selected =>

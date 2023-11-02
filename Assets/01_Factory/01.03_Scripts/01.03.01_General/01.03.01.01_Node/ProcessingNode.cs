@@ -460,10 +460,13 @@ namespace RuntimeNodeEditor
         {
             foreach (SocketInput si in _listOfInputs)
             {
-                Ressource r = searchRessourceInInventory(si.ressources[0]);
-                r.incrementCount(si.ressources[0].ownedAmount);
-                si.ressources[0]._name = null;
-                si.ressources[0].ownedAmount = 0;
+                if (si.ressources[0]._name != null)
+                {
+                    Ressource r = searchRessourceInInventory(si.ressources[0]);
+                    r.incrementCount(si.ressources[0].ownedAmount);
+                    si.ressources[0]._name = null;
+                    si.ressources[0].ownedAmount = 0;
+                }
             }
             foreach (TMP_Text t in _listOfInputTexts)
             {
