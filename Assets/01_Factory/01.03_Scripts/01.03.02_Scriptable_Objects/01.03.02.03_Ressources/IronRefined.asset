@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: IronRefined
   m_EditorClassIdentifier: 
   _name: Refined Iron
-  ownedAmount: 0
+  ownedAmount: 66
+  icon: {fileID: 21300000, guid: 3196fe075ea487947b3fb7a2c4be679c, type: 3}

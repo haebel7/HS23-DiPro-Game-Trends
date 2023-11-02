@@ -173,10 +173,10 @@
     border-bottom-width: 0;
     border-left-width: 0;
     background-color: rgba(56, 56, 56, 0);
-    background-image: url('project://database/Assets/04_UI/04.04_UIsprites/04.04.01_StartScreenButton.png?fileID=2800000&guid=8714867624fc94542ad4331ce978b33e&type=3#04.04.01_StartScreenButton');
+    background-image: url('project://database/Assets/06_UI/07.05_Sprites/StartScreenButton.png?fileID=2800000&guid=cd8a8b4f6983e7e4bbf1598c1b51e804&type=3#StartScreenButton');
     font-size: 20px;
     color: rgb(255, 255, 255);
-    -unity-font-definition: url('project://database/Assets/04_UI/04.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.01_Technos-PKDZP%20SDF.asset?fileID=11400000&guid=defeed33c567cbe468b27c7fb685d691&type=2#Technos-PKDZP SDF');
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
     width: 100%;
 }
 
@@ -207,4 +207,25 @@
     flex-grow: 0;
     background-color: rgb(255, 255, 255);
     width: 2%;
+}
+
+.menu-button:hover {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 10%;
+    padding-right: 0;
+    padding-bottom: 10%;
+    padding-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(56, 56, 56, 0);
+    background-image: url('project://database/Assets/06_UI/07.05_Sprites/ButtonHover.png?fileID=2800000&guid=d849c1dcc85f7304ca6768697f2de11f&type=3#ButtonHover');
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
+    width: 100%;
 }
