@@ -29,14 +29,12 @@ public class playerHealthbarUI : MonoBehaviour
         }
         for (var i = healthbarPoints.Count - numberOfHealthPoints - 1; i >= 0; i--)
         {
-            Debug.Log(i);
             healthbarPoints[i].style.opacity = 0.2f;
         }
     }
 
     private void initHealthbar()
     {
-        Debug.Log("test");
         foreach (var healthbarPoint in healthbarPoints)
         {
             healthbarPoint.style.opacity = 1f;
