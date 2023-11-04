@@ -332,10 +332,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomEntry
       objectReference: {fileID: 0}
+    - target: {fileID: 1841140825716669420, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841140825716669420, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 3223468154324146823, guid: a1d51c1ebbe035949b8a3fa0c79b9dd8,
+        type: 3}
     - target: {fileID: 3840997535419817057, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4182631430242715408, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
@@ -345,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 5090899530709353133, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5323472389319383516, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
@@ -370,7 +381,7 @@ PrefabInstance:
     - target: {fileID: 7309421368357779007, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7505997153298563220, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
@@ -440,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 8946214067096791143, guid: 99275ec0ed930ae4cb0e8332e5b55b4f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2415034092018416210, guid: 99275ec0ed930ae4cb0e8332e5b55b4f, type: 3}
@@ -2840,9 +2851,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1538921507}
+  - {fileID: 528131775}
+  - {fileID: 1119249421}
   - {fileID: 5727083808013706470}
   - {fileID: 1953981675}
   - {fileID: 2838699862406089538}
   - {fileID: 1334252360}
-  - {fileID: 1119249421}
-  - {fileID: 528131775}

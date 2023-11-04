@@ -9,7 +9,7 @@ public class RoomManger : MonoBehaviour
     public GameObject exit;
 
     [SerializeField]
-    private GameObject enemySpawnPoints;
+    private GameObject spawnPoints;
 
     //[HideInInspector]
     public bool isBossRoom = false;
@@ -48,21 +48,21 @@ public class RoomManger : MonoBehaviour
         if (isBossRoom)
         {
             GameObject.Find("Canvas").SetActive(false);
-            bossRoomActive = SpawnEnemies();
+            bossRoomActive = InitSpawns();
         }
         else
         {
-            SpawnEnemies();
+            InitSpawns();
         }
     }
 
-    private bool SpawnEnemies()
+    private bool InitSpawns()
     {
-        EnemySpawner[] enemySpawners = enemySpawnPoints.GetComponentsInChildren<EnemySpawner>();
+        Spawner[] spawners = spawnPoints.GetComponentsInChildren<Spawner>();
 
-        foreach (EnemySpawner spawner in enemySpawners)
+        foreach (Spawner spawner in spawners)
         {
-            spawner.SpawnEnemies();
+            spawner.SpawnItems();
         }
 
         return true;
