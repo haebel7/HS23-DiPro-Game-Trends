@@ -27,8 +27,6 @@ public class RoomManger : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("is boss room? " + isBossRoom);
-
         if (EnemyList.enemies.Count == 0)
         {
             if (!isBossRoom)

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f013e4428985a4fb8a72be462e594a, type: 3}
+  m_Name: 09.04.01.006_StayInRadius
+  m_EditorClassIdentifier: 
+  center: {fileID: 7987338492223859130, guid: 28fc4bd38b26e9942a99f1ebd3325ad3, type: 3}
+  radius: 10
