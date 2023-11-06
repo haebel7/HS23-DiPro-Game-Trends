@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2270866550958447218
+--- !u!1 &5770628793739026284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8235065926358880564}
-  - component: {fileID: 2909960879430238004}
+  - component: {fileID: 1554958881442746548}
+  - component: {fileID: -3073777732936970962}
   m_Layer: 0
-  m_Name: 09.01.001_Mosquitos
+  m_Name: 09.01.005_Behaviors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8235065926358880564
+--- !u!4 &1554958881442746548
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2270866550958447218}
+  m_GameObject: {fileID: 5770628793739026284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,24 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2909960879430238004
+--- !u!114 &-3073777732936970962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2270866550958447218}
+  m_GameObject: {fileID: 5770628793739026284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4e211afe00aed4cb2d1a13bfe0b817, type: 3}
+  m_Script: {fileID: 11500000, guid: 438e902c5cc3e384399c911b4ed63ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidPrefab: {fileID: -4045143958030948120, guid: 6cfa79d13ce79b04788e3b09a7cc4728,
-    type: 3}
-  behaviorObj: {fileID: 5770628793739026284, guid: 605287cc2456701498460bcfb2815730,
-    type: 3}
-  startingCount: 201
-  driveFactor: 3.4
-  maxSpeed: 3.3
-  neightborRadius: 3.35
-  separationRadiusMultiplier: 0.62
+  behaviors:
+  - {fileID: 11400000, guid: 5b82741a0808c1e448f02a6f127959ea, type: 2}
+  - {fileID: 11400000, guid: eff7d31f82113ea4592eef1c56b9d98b, type: 2}
+  - {fileID: 11400000, guid: 2f8682274f6f4234b9003ef40b4ae7e0, type: 2}
+  - {fileID: 11400000, guid: e628220eae1e27f45bb85998b2c3cd4c, type: 2}
+  - {fileID: 11400000, guid: 3b25f26eac4ed1b4e8d62783a8a8abe6, type: 2}
+  - {fileID: 11400000, guid: be2e812080d972f49bdb259437993413, type: 2}
