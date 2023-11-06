@@ -20,7 +20,7 @@ public class SceneChanger : MonoBehaviour
 
     public void OnGoToFactory()
     {
-        SceneManager.LoadSceneAsync("Assets/01_Factory/01.02_Scenes/FactoryScene.unity", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Assets/00_Main/FactoryScene.unity", LoadSceneMode.Single);
     }
 
     public void OnToStart()

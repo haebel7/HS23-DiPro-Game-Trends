@@ -229,3 +229,25 @@
     -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
     width: 100%;
 }
+
+.factoryButton {
+    margin-top: 8%;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 9%;
+    padding-right: 0;
+    padding-bottom: 9.5%;
+    padding-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('project://database/Assets/06_UI/07.05_Sprites/StartScreenButton.png?fileID=2800000&guid=cd8a8b4f6983e7e4bbf1598c1b51e804&type=3#StartScreenButton');
+    font-size: 20px;
+    -unity-font-definition: url('project://database/Assets/06_UI/07.01_Fonts/04.01.04_Technos-PKDZP/04.01.04.asset?fileID=11400000&guid=20f94410735f6d545b74cf9b618f300d&type=2#04.01.04');
+    width: 100%;
+    color: rgb(255, 255, 255);
+    -unity-background-scale-mode: scale-to-fit;
+}

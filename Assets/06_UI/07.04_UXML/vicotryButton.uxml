@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/06_UI/07.03_Stylesheets/startScreenStyle.uss?fileID=7433441132597879392&amp;guid=b819ed35f6192d54b9ba5128c8ca4fe6&amp;type=3#startScreenStyle" />
+    <ui:Button text="Go To Factory" parse-escape-sequences="true" display-tooltip-when-elided="true" name="goToFactory" class="victoryButton" />
+</ui:UXML>

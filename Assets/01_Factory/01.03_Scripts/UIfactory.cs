@@ -13,7 +13,7 @@ public class UIfactory : MonoBehaviour
     private bool machinesOpen = false;
     public Sprite machineButtonBackground;
     public Sprite machineWrapperBackground;
-   // public VisualTreeAsset tabs;
+    public Button backToDungeonButton;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,9 @@ public class UIfactory : MonoBehaviour
         openMachinesButton = root.Q<Button>("openMachines");
         machineWrapper = root.Q<VisualElement>("machines-wrapper");
         containerWrapper = root.Q<VisualElement>("container-wrapper");
+        backToDungeonButton = root.Q<Button>("backToDungeonButton");
+        backToDungeonButton.clicked += backToDungeonButtonPressed;
         openMachinesButton.clicked += toggleMachines;
-        //VisualElement UItabs = tabs.Instantiate();
-       // containerWrapper.Add(UItabs);
     }
 
     void toggleMachines()
@@ -56,6 +56,11 @@ public class UIfactory : MonoBehaviour
         machinesList.style.width = Length.Auto();
         machinesList.style.visibility = Visibility.Visible;
         machinesOpen = true;
+    }
+
+    void backToDungeonButtonPressed()
+    {
+        GetComponent<SceneChanger>().OnGoToDungeon();
     }
 
 }

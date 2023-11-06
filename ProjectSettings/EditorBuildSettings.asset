@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Dungeon/02.02_Scenes/VictoryScene.unity
     guid: 921bde1fcabab4640ada7f0ade4fafdd
+  - enabled: 1
+    path: Assets/00_Main/FactoryScene.unity
+    guid: 72e69095bfeec3244a677b09a69db04f
   m_configObjects: {}
