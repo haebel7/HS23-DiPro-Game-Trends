@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   _name: Iron
-  ownedAmount: 99562
+  ownedAmount: 234567
   icon: {fileID: 21300000, guid: df4aa524df143c34ba8191615c4de002, type: 3}
