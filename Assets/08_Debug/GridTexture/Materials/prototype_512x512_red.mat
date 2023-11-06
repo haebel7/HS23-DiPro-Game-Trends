@@ -22,14 +22,15 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: prototype_512x512_red
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 303bd92f1b76d9643a6b749109484523, type: 2}
-  m_ModifiedSerializedProperties: 8
-  m_ValidKeywords: []
+  m_Parent: {fileID: 2100000, guid: f533ca63e42ab06418e88855407f41d6, type: 2}
+  m_ModifiedSerializedProperties: 24
+  m_ValidKeywords:
+  - _EMISSION
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
@@ -47,6 +48,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 2
     - _Cull: 0
-    m_Colors: []
+    - _Cutoff: 1
+    - _DstBlend: 0
+    - _DstBlendAlpha: 0
+    - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
+    - _Surface: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _EmissionColor: {r: 0.75066096, g: 2.4135318, b: 2.69729, a: 1}
   m_BuildTextureStacks: []
