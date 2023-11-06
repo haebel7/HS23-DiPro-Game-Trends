@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438e902c5cc3e384399c911b4ed63ba1, type: 3}
+  m_Name: 09.04.01.001_Mosquito Swarm Behavior
+  m_EditorClassIdentifier: 
+  behaviors:
+  - {fileID: 11400000, guid: 5b82741a0808c1e448f02a6f127959ea, type: 2}
+  - {fileID: 11400000, guid: eff7d31f82113ea4592eef1c56b9d98b, type: 2}
+  - {fileID: 11400000, guid: 2f8682274f6f4234b9003ef40b4ae7e0, type: 2}
+  - {fileID: 11400000, guid: 4fcfa9a9b85fe914aa6e4acf53bbccf4, type: 2}
+  - {fileID: 11400000, guid: be2e812080d972f49bdb259437993413, type: 2}
+  - {fileID: 11400000, guid: e628220eae1e27f45bb85998b2c3cd4c, type: 2}
+  weights:
+  - 4
+  - 1
+  - 2
+  - 2
+  - 1
+  - 1

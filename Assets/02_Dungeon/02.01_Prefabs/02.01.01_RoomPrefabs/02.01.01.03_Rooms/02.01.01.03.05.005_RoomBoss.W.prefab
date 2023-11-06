@@ -30,9 +30,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3510432246322159772, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510432246322159772, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+        type: 3}
       propertyPath: enemies.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3510432246322159772, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
     - target: {fileID: 3510432246322159772, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: enemies.Array.data[0]
@@ -52,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 4420270744701850267, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: m_Name
-      value: 02.01.01.03.05.012_RoomBoss.W
+      value: 02.01.01.03.05.005_RoomBoss.W
       objectReference: {fileID: 0}
     - target: {fileID: 4688296624066141156, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
@@ -160,6 +171,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8071322297272238915, guid: 71e4580d0d1f0544cb175b91308c7ce7,
+        type: 3}
+      propertyPath: spawnPoints
+      value: 
+      objectReference: {fileID: 8122560838614861143}
     - target: {fileID: 8071322297272238915, guid: 71e4580d0d1f0544cb175b91308c7ce7,
         type: 3}
       propertyPath: enemySpawnPoints

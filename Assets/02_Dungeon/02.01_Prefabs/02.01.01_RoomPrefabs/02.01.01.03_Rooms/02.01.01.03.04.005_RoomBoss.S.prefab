@@ -15,9 +15,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 450019222063190078, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450019222063190078, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
       propertyPath: enemies.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 450019222063190078, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 2797701630774507316, guid: b0df772dd34869349a9920df7705b3ca,
+        type: 3}
     - target: {fileID: 450019222063190078, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
       propertyPath: enemies.Array.data[0]
@@ -44,6 +55,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -5.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5082977675403686881, guid: 5d4b2954944170249a23bd65cb6cc613,
+        type: 3}
+      propertyPath: spawnPoints
+      value: 
+      objectReference: {fileID: 6423086917761512649}
     - target: {fileID: 5082977675403686881, guid: 5d4b2954944170249a23bd65cb6cc613,
         type: 3}
       propertyPath: enemySpawnPoints
