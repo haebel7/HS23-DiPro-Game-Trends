@@ -35,7 +35,7 @@ public class RoomManger : MonoBehaviour
             }
             else if (bossRoomActive && !victorySceneloaded)
             {
-                SceneManager.LoadSceneAsync("Assets/02_Dungeon/02.02_Scenes/VictoryScene.unity", LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync("Assets/00_Main/07.02.004_VictoryScene.unity", LoadSceneMode.Additive);
                 victorySceneloaded = true;
             }
         }
