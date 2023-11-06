@@ -22,7 +22,8 @@ public class startScreenUI : MonoBehaviour
 
     void newGameBtnPressed()
     {
-        SceneManager.LoadScene("07.02.001_Main_Dungeon");
+        //SceneManager.LoadScene("07.02.001_Main_Dungeon");
+        GetComponent<SceneChanger>().OnGoToDungeon();
     }
 
     void quitGameBtnPressed() {

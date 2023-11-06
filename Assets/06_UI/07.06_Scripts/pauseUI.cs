@@ -20,7 +20,8 @@ public class pauseUI : MonoBehaviour
 
     void backToStartBtnPressed()
     {
-        SceneManager.LoadScene("StartScreen");
+        //SceneManager.LoadScene("StartScreen");
+        GetComponent<SceneChanger>().OnToStart();
         isPaused = false;
         Time.timeScale = 1;
         pauseUIObj.SetActive(false);

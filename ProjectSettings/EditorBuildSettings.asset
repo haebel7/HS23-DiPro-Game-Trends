@@ -5,22 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/_development/Omar/scenes/UIPlayground.unity
-    guid: 830bb5299f3a6fe4180c5c4386ac451a
-  - enabled: 0
-    path: Assets/04_Enemies/05.02_Scenes/EnemyPrototyping.unity
-    guid: 51bc6a3c283ee6443a4e75bc2ea02318
   - enabled: 1
-    path: Assets/00_Main/07.02.001_Main_Dungeon.unity
+    path: Assets/00_Main/07.02.001_StartScreen.unity
+    guid: 2c1b8e752a947564fbab280971824e5c
+  - enabled: 1
+    path: Assets/00_Main/07.02.002_Main_Dungeon.unity
     guid: 600c1c8374956044b8bf973d2e43aae8
   - enabled: 1
-    path: Assets/00_Main/VictoryScene.unity
-    guid: 921bde1fcabab4640ada7f0ade4fafdd
-  - enabled: 1
-    path: Assets/00_Main/FactoryScene.unity
+    path: Assets/00_Main/07.02.003_FactoryScene.unity
     guid: 72e69095bfeec3244a677b09a69db04f
+  - enabled: 1
+    path: Assets/00_Main/07.02.004_VictoryScene.unity
+    guid: 921bde1fcabab4640ada7f0ade4fafdd
   m_configObjects: {}
