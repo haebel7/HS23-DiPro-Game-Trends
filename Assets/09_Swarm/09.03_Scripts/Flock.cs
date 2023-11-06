@@ -5,7 +5,8 @@ public class Flock : MonoBehaviour
 {
     public Boid boidPrefab;
     private readonly List<Boid> boids = new();
-    public FlockBehavior behavior;
+    public GameObject behaviorObj;
+    private CompositeBehavior behavior;
 
     [Range(10, 500)]
     public int startingCount = 250;
@@ -28,6 +29,7 @@ public class Flock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        behavior = behaviorObj.GetComponent<CompositeBehavior>();
         squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neightborRadius * neightborRadius;
         squareSeparationRadius = squareNeighborRadius * separationRadiusMultiplier * separationRadiusMultiplier;

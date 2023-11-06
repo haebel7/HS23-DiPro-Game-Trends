@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cf6b49be1d4604284eb1b8fc903ccd, type: 3}
   m_Name: 09.04.01.005_Avoid Obstacles
   m_EditorClassIdentifier: 
+  weight: 1
   filter: {fileID: 11400000, guid: 2d919f05e8d47f14c97eb85867d09d92, type: 2}

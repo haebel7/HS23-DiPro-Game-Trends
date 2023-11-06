@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f013e4428985a4fb8a72be462e594a, type: 3}
   m_Name: 09.04.01.006_StayInRadius
   m_EditorClassIdentifier: 
+  weight: 2
   center: {fileID: 7987338492223859130, guid: 28fc4bd38b26e9942a99f1ebd3325ad3, type: 3}
   radius: 10

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6d56c5672b6a74581781cc36c5b19b, type: 3}
   m_Name: 09.04.01.007_Wobbly Move
   m_EditorClassIdentifier: 
+  weight: 1
   wobbleFactor: 1.73

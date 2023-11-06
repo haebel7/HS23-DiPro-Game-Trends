@@ -1,36 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock/Behavior/Composite")]
-
-public class CompositeBehavior : FlockBehavior
+public class CompositeBehavior : MonoBehaviour
 {
-    public FlockBehavior[] behaviors;
-    public float[] weights;
+    public List<FlockBehavior> behaviors;
 
-    public override Vector3 CalculateMove(Boid boid, List<Transform> context, Flock flock)
+    public Vector3 CalculateMove(Boid boid, List<Transform> context, Flock flock)
     {
-        //handle data mismatch
-        if(weights.Length != behaviors.Length)
-        {
-            Debug.LogError("Data mismatch in " + name, this);
-            return Vector3.zero;
-        }
-
         //set up move
         Vector3 move = Vector3.zero;
 
         //iterate through behaviors
-        for (int i = 0; i < behaviors.Length; i++)
+        for (int i = 0; i < behaviors.Count; i++)
         {
-            Vector3 partialMove = behaviors[i].CalculateMove(boid, context, flock) * weights[i];
+            Vector3 partialMove = behaviors[i].CalculateMove(boid, context, flock) * behaviors[i].weight;
 
             if(partialMove != Vector3.zero)
             {
-                if(partialMove.sqrMagnitude > weights[i]*weights[i])
+                if(partialMove.sqrMagnitude > behaviors[i].weight * behaviors[i].weight)
                 {
                     partialMove.Normalize();
-                    partialMove *= weights[i];
+                    partialMove *= behaviors[i].weight;
                 }
 
                 move += partialMove;

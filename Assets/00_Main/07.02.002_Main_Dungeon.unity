@@ -2612,7 +2612,7 @@ PrefabInstance:
     - target: {fileID: 2616526468833226917, guid: 72408e9bad69f2b4f8a35280472eb689,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.52
+      value: -1.76
       objectReference: {fileID: 0}
     - target: {fileID: 2616526468833226917, guid: 72408e9bad69f2b4f8a35280472eb689,
         type: 3}
@@ -2622,7 +2622,7 @@ PrefabInstance:
     - target: {fileID: 2616526468833226917, guid: 72408e9bad69f2b4f8a35280472eb689,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 2616526468833226917, guid: 72408e9bad69f2b4f8a35280472eb689,
         type: 3}
@@ -2720,7 +2720,7 @@ PrefabInstance:
     - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
         type: 3}
       propertyPath: dungeonSize
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 852842476107968510, guid: e164e72191b5fc74c816d5b0dde64e9d,
         type: 3}
